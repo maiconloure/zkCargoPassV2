@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ShieldCheck, Clock, Lock } from 'lucide-react';
+import { DemoRequestModal } from './demo/DemoRequestModal';
 export const Hero = () => {
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   return <section className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -20,7 +22,7 @@ export const Hero = () => {
               <button className="bg-[#0055ff] hover:bg-[#0044cc] text-white px-6 py-3 rounded-md font-medium">
                 Get Started
               </button>
-              <button className="bg-[#102a43]/80 hover:bg-[#102a43] text-white px-6 py-3 rounded-md font-medium">
+              <button className="bg-[#102a43]/80 hover:bg-[#102a43] text-white px-6 py-3 rounded-md font-medium" onClick={() => setIsDemoModalOpen(true)}>
                 Schedule Demo
               </button>
             </div>
@@ -128,5 +130,7 @@ export const Hero = () => {
         <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-[#0055ff]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-[#0055ff]/5 rounded-full blur-3xl"></div>
       </div>
+      {/* Demo Modal */}
+      <DemoRequestModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </section>;
 };

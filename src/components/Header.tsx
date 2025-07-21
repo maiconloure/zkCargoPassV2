@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { LoginModal } from './auth/LoginModal';
+import { DemoRequestModal } from './demo/DemoRequestModal';
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   return <header className="sticky top-0 z-50 bg-[#0a1929]/95 backdrop-blur-sm border-b border-[#172b44]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -26,10 +30,10 @@ export const Header = () => {
             <NavItem label="Pricing" />
           </nav>
           <div className="hidden md:flex items-center">
-            <button className="text-[#8badc9] hover:text-white mr-6">
+            <button className="text-[#8badc9] hover:text-white mr-6" onClick={() => setIsLoginModalOpen(true)}>
               Log in
             </button>
-            <button className="bg-[#0055ff] hover:bg-[#0044cc] text-white px-4 py-2 rounded-md">
+            <button className="bg-[#0055ff] hover:bg-[#0044cc] text-white px-4 py-2 rounded-md" onClick={() => setIsDemoModalOpen(true)}>
               Request Demo
             </button>
           </div>
@@ -56,16 +60,25 @@ export const Header = () => {
                 Pricing
               </a>
               <div className="pt-4 border-t border-[#172b44] flex flex-col space-y-4">
-                <button className="text-[#8badc9] hover:text-white">
+                <button className="text-[#8badc9] hover:text-white" onClick={() => {
+              setIsMenuOpen(false);
+              setIsLoginModalOpen(true);
+            }}>
                   Log in
                 </button>
-                <button className="bg-[#0055ff] hover:bg-[#0044cc] text-white px-4 py-2 rounded-md">
+                <button className="bg-[#0055ff] hover:bg-[#0044cc] text-white px-4 py-2 rounded-md" onClick={() => {
+              setIsMenuOpen(false);
+              setIsDemoModalOpen(true);
+            }}>
                   Request Demo
                 </button>
               </div>
             </nav>
           </div>}
       </div>
+      {/* Modals */}
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
+      <DemoRequestModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </header>;
 };
 const NavItem = ({
