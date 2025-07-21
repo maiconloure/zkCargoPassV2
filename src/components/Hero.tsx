@@ -11,7 +11,7 @@ export const Hero = () => {
               Revolutionizing Customs Clearance
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Secure Document Verification with Zero-Knowledge Proofs
+              Secure Document Verification with <br/>Zero-Knowledge Proofs
             </h1>
             <p className="text-lg md:text-xl text-[#a9c1d9] max-w-[600px]">
               zkCargoPass enables importers and customs agents to verify

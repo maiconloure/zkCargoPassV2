@@ -24,9 +24,15 @@ export const LoginModal = ({
     // Simulate login request
     setTimeout(() => {
       setIsLoading(false);
-      // For demo purposes, just show an error
-      setError('This is a demo. No actual login will occur.');
-    }, 1500);
+      // Mock credentials for demo
+      if (email === 'demo@zkcargopass.com' && password === 'demo123') {
+        // Redirect to dashboard
+        window.location.href = '/dashboard';
+        onClose();
+      } else {
+        setError('Invalid credentials. Try demo@zkcargopass.com / demo123');
+      }
+    }, 1000);
   };
   return <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
       <div className="relative w-full max-w-md p-6 bg-[#0a1929] border border-[#172b44] rounded-xl shadow-2xl">
