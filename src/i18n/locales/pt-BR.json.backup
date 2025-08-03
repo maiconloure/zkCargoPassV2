@@ -1,0 +1,427 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "getStarted": "Acessar",
+    "scheduleDemo": "Agendar demonstração",
+    "requestDemo": "Solicitar demonstração",
+    "learnMore": "Saber Mais",
+    "contactSales": "Contatar   "dashboard": {
+    "title": "Painel",
+    "welcome": "Bem-vindo de volta",
+    "overview": "Visão Geral",
+    "documentHistory": "Histórico de Documentos",
+    "budgetConsumption": "Consumo de Orçamento",
+    "credits": "créditos",
+    "budgetUsage": "Uso do Orçamento",
+    "used": "Usado",
+    "total": "Total",
+    "platformStatus": "Status da Plataforma",
+    "operational": "Operacional",
+    "uptime": "Tempo de Atividade",
+    "lastIncident": "Último Incidente",
+    "none": "Nenhum",
+    "helpResources": "Ajuda e Recursos",
+    "stats": {
+      "totalDocuments": "Total de Documentos",
+      "activeProofs": "Provas Ativas",
+      "verifiedProofs": "Provas Verificadas",
+      "savedTime": "Tempo Economizado"
+    },
+    "quickActions": {
+      "title": "Ações Rápidas",
+      "uploadDocument": "Enviar Documento",
+      "generateProof": "Gerar Prova",
+      "validateProof": "Validar Prova",
+      "viewReports": "Ver Relatórios"
+    },
+    "recentActivity": {
+      "title": "Atividade Recente",
+      "noActivity": "Nenhuma atividade recente",
+      "viewAll": "Ver Tudo"
+    },contactTeam": "Contatar Nossa Equipe",
+    "loginButton": "Entrar",
+    "returnToHomepage": "Voltar ao Início",
+    "mostPopular": "MAIS POPULAR",
+    "verified": "Verificado",
+    "processing": "Processando"
+  },
+  "header": {
+    "brand": "zkCargoPass",
+    "features": "Recursos",
+    "howItWorks": "Como Funciona",
+    "partners": "Parceiros",
+    "pricing": "Preços",
+    "aboutUs": "Sobre Nós"
+  },
+  "hero": {
+    "subtitle": "Revolucionando o Desembaraço Aduaneiro",
+    "title": "Verificação de documentos rápida, fácil e segura em minutos, não dias",
+    "description": "O zkCargoPass permite que importadores e agentes aduaneiros verifiquem documentos através da tecnologia blockchain preservando a privacidade dos dados e acelerando a liberação de cargas.",
+    "features": {
+      "secureVerification": "Verificação Segura",
+      "fasterClearance": "Liberação Mais Rápida",
+      "dataPrivacy": "Privacidade de Dados"
+    },
+    "documentVerificationProcess": "Processo de Verificação de Documentos",
+    "importDeclaration": "Declaração de Importação",
+    "invoice": "Fatura",
+    "zkProofGeneration": "Geração de Prova ZK",
+    "generatingCryptographicProof": "Gerando prova criptográfica",
+    "verificationProgress": "Progresso da Verificação",
+    "estimatedTimeToCompletion": "Tempo estimado para conclusão:",
+    "minutes": "3 minutos"
+  },
+  "features": {
+    "title": "Recursos",
+    "description": "O zkCargoPass oferece recursos avançados que transformam a verificação de documentos de comércio exterior.",
+    "speed": {
+      "title": "Velocidade",
+      "description": "Acelere o despacho de cargas de semanas para horas/dias, simplificando a verificação de documentos através de provas criptográficas."
+    },
+    "privacy": {
+      "title": "Privacidade",
+      "description": "Provas de conhecimento zero verificam conformidade sem expor dados comerciais sensíveis, mantendo vantagem competitiva."
+    },
+    "simplicity": {
+      "title": "Simplicidade",
+      "description": "Nosso MVP integra-se ao mock do SISCOMEX e homologação DUIMP/DI via PortalÚnico para verificação perfeita."
+    },
+    "aiPowered": {
+      "title": "Automação com IA",
+      "description": "Nossa IA valida documentos antes de gerar evidências, reduzindo erros e garantindo conformidade."
+    },
+    "auditability": {
+      "title": "Auditabilidade",
+      "description": "Prova criptográfica e hash blockchain imutável fornecem registros de verificação transparentes e à prova de adulteração."
+    },
+    "efficiency": {
+      "title": "Eficiência",
+      "description": "Simplifique o desembaraço aduaneiro com verificação automatizada, reduzindo verificações manuais e sobrecarga administrativa."
+    }
+  },
+  "howItWorks": {
+    "title": "Como Funciona",
+    "description": "Nossa plataforma usa provas de conhecimento zero e blockchain para verificar documentos aduaneiros de forma segura sem expor informações confidenciais.",
+    "importDeclaration": "Declaração de Importação",
+    "steps": {
+      "documentUpload": {
+        "title": "Upload de Documentos",
+        "description": "Empresas importadoras/exportadoras enviam documentos aduaneiros para o Portal Empresarial zkCargoPass."
+      },
+      "aiValidation": {
+        "title": "Validação por IA",
+        "description": "Nossa IA valida o formato e conteúdo dos documentos antes do processamento, garantindo conformidade com regulamentações."
+      },
+      "zkpGeneration": {
+        "title": "Geração de Prova de Conhecimento Zero",
+        "description": "O sistema gera provas criptográficas que verificam a validade dos documentos sem revelar dados sensíveis."
+      },
+      "blockchainVerification": {
+        "title": "Verificação Blockchain",
+        "description": "Hashes das provas são armazenados na blockchain para verificação imutável e auditabilidade."
+      },
+      "customsClearance": {
+        "title": "Liberação Aduaneira",
+        "description": "Autoridades aduaneiras verificam as provas através do Portal do Verificador, acelerando a liberação de cargas."
+      }
+    },
+    "secureWorkflow": "FLUXO SEGURO",
+    "documentVerification": "Verificação de Documentos",
+    "zkpGenerationStatus": "Geração ZKP",
+    "blockchainVerificationStatus": "Verificação Blockchain",
+    "zeroKnowledgeProof": "Prova de Conhecimento Zero",
+    "generated": "Gerada"
+  },
+  "partnerships": {
+    "title": "Parcerias Estratégicas",
+    "description": "Colaboramos com organizações líderes para garantir conformidade regulatória e excelência operacional em todo o ecossistema de comércio global.",
+    "partners": {
+      "federalRevenue": {
+        "name": "Receita Federal do Brasil",
+        "role": "Autoridade Aduaneira",
+        "description": "Órgão federal responsável pelas operações aduaneiras, verificação de documentos e processos de desembaraço de cargas, garantindo total conformidade com padrões internacionais de comércio."
+      },
+      "serpro": {
+        "name": "SERPRO",
+        "role": "Parceiro de Integração Tecnológica",
+        "description": "Principal empresa pública de tecnologia do Brasil que fornece a infraestrutura da plataforma PortalÚnico/Siscomex para fluxos integrados de processamento e verificação de documentos."
+      },
+      "tradeAssociations": {
+        "name": "Associações de Comércio Exterior",
+        "role": "Parceiros do Ecossistema Industrial",
+        "description": "Parcerias estratégicas com ABEC, Sindaportos e outras organizações comerciais líderes que fornecem insights valiosos da indústria e impulsionam a adoção no mercado."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Modelos de Preços",
+    "description": "Opções de preços flexíveis projetadas para empresas de todos os tamanhos, desde pequenos importadores até grandes operadores logísticos.",
+    "saasEnterprise": {
+      "title": "SaaS Empresarial",
+      "price": "R$5.000",
+      "period": "/mês",
+      "description": "Assinatura anual para empresas com operações regulares de importação/exportação.",
+      "features": [
+        "Uploads ilimitados de documentos",
+        "Validação de documentos com IA",
+        "Geração e verificação ZKP",
+        "Armazenamento blockchain",
+        "Acesso à API para integrações",
+        "Suporte técnico 24/7"
+      ]
+    },
+    "payPerProof": {
+      "title": "Pague por Prova",
+      "price": "R$30",
+      "period": "/prova",
+      "description": "Pague apenas pelo que usar. Ideal para empresas com volumes irregulares de importação.",
+      "features": [
+        "Processamento de documentos sob demanda",
+        "Validação de documentos com IA",
+        "Geração e verificação ZKP",
+        "Armazenamento blockchain",
+        "Relatórios PDF e pacotes de prova",
+        "Suporte por email"
+      ]
+    },
+    "payPerContainer": {
+      "title": "Pague por Container",
+      "price": "A partir de R$60",
+      "period": "/container",
+      "description": "Preços baseados em faixas de valor de container para gestão otimizada de custos.",
+      "features": [
+        "Até 10.000 USD: R$60/container",
+        "10.001-50.000 USD: R$120/container",
+        "Acima de 50.000 USD: R$250/container",
+        "Descontos por volume disponíveis",
+        "Fluxo completo de verificação",
+        "Suporte prioritário"
+      ]
+    },
+    "customSolution": "Precisa de uma solução personalizada?"
+  },
+  "footer": {
+    "description": "Verificação segura de documentos através de provas de conhecimento zero e tecnologia blockchain.",
+    "product": "Produto",
+    "features": "Recursos",
+    "howItWorks": "Como Funciona",
+    "pricing": "Preços",
+    "caseStudies": "Casos de Estudo",
+    "documentation": "Documentação",
+    "company": "Empresa",
+    "aboutUs": "Sobre Nós",
+    "partners": "Parceiros",
+    "careers": "Carreiras",
+    "blog": "Blog",
+    "contact": "Contato",
+    "address": "Porto de Santos, Terminal 1\nSantos, SP, Brasil",
+    "email": "contato@zkcargopass.com",
+    "phone": "+55 13 9999-9999",
+    "copyright": "© 2023 zkCargoPass. Todos os direitos reservados.",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço",
+    "legal": "Legal"
+  },
+  "demo": {
+    "title": "Solicitar uma Demo",
+    "subtitle": "Veja o zkCargoPass em ação",
+    "description": "Obtenha uma demonstração personalizada de como o zkCargoPass pode transformar seu processo de desembaraço aduaneiro.",
+    "form": {
+      "fullName": "Nome Completo",
+      "company": "Empresa",
+      "email": "Email",
+      "phone": "Número de Telefone",
+      "demoType": "Tipo de Demo",
+      "preferredDate": "Data Preferida",
+      "message": "Mensagem",
+      "placeholders": {
+        "name": "João Silva",
+        "company": "Sua Empresa",
+        "email": "voce@empresa.com",
+        "phone": "+55 (11) 99999-9999",
+        "message": "Conte-nos sobre suas necessidades específicas ou perguntas"
+      },
+      "demoTypes": {
+        "live": "Demo Ao Vivo com Especialista",
+        "recorded": "Demo Gravada + Sessão de Perguntas",
+        "custom": "Demo Personalizada para Empresas"
+      }
+    },
+    "success": {
+      "title": "Solicitação de Demo Enviada!",
+      "description": "Obrigado pelo seu interesse no zkCargoPass. Entraremos em contato em até 24 horas para agendar sua demonstração personalizada.",
+      "expectedContact": "Tempo de Contato Esperado",
+      "nextSteps": "Próximos Passos",
+      "preparation": "Prepararemos uma demonstração personalizada baseada em suas necessidades específicas",
+      "scheduling": "Nossa equipe entrará em contato para agendar um horário conveniente",
+      "demo": "Você receberá uma apresentação abrangente dos recursos do zkCargoPass"
+    }
+  },
+  "dashboard": {
+    "title": "Painel",
+    "documentHistory": "Histórico de Documentos",
+    "budgetConsumption": "Consumo do Orçamento",
+    "credits": "créditos",
+    "budgetUsage": "Uso do Orçamento",
+    "used": "Usado",
+    "total": "Total",
+    "platformStatus": "Status da Plataforma",
+    "operational": "Operacional",
+    "uptime": "Tempo de Atividade",
+    "lastIncident": "Último Incidente",
+    "none": "Nenhum",
+    "helpResources": "Ajuda e Recursos",
+    "help": {
+      "gettingStarted": "Guia de Introdução",
+      "gettingStartedDesc": "Aprenda o básico do zkCargoPass e como usar nossa plataforma",
+      "documentation": "Documentação",
+      "documentationDesc": "Documentação técnica detalhada e referências de API",
+      "faq": "FAQ",
+      "faqDesc": "Perguntas frequentes sobre nossos serviços"
+    },
+    "navigation": {
+      "documents": "Documentos",
+      "proofs": "Provas",
+      "generate": "Geração de Prova ZK",
+      "validate": "Validação de Prova ZK",
+      "help": "Ajuda"
+    },
+    "tooltips": {
+      "documents": "Carregue e gerencie seus documentos de carga com segurança. Estes documentos podem ser usados para gerar provas de conhecimento zero para verificar propriedade e autenticidade.",
+      "proofs": "Visualize e gerencie suas provas de conhecimento zero geradas. Acompanhe o histórico de todas as provas criadas para seus documentos de carga e seu status de verificação.",
+      "generate": "Gere provas de conhecimento zero para seus documentos de carga. Crie provas de propriedade, integridade de documento ou verificação de cronologia sem revelar informações sensíveis.",
+      "validate": "Valide provas de conhecimento zero recebidas de outras partes. Verifique a autenticidade e propriedade de documentos de carga sem acessar os dados originais.",
+      "help": "Acesse recursos de suporte, documentação e informações de contato. Obtenha ajuda para usar os recursos do zkCargoPass e solucionar problemas.",
+      "settings": "Gerencie suas preferências de conta, configurações de segurança e preferências de notificação para o zkCargoPass.",
+      "budget": "Visualize e gerencie seu consumo de créditos para operações de geração e validação de provas.",
+      "signOut": "Saia com segurança da sua conta zkCargoPass."
+    },
+    "pages": {
+      "documents": "Documentos",
+      "proofs": "Provas",
+      "generate": "Geração de Prova ZK",
+      "validate": "Validação de Prova ZK",
+      "help": "Ajuda e Suporte"
+    },
+    "tables": {
+      "documents": {
+        "title": "Documentos Carregados",
+        "name": "Nome",
+        "date": "Data",
+        "status": "Status",
+        "size": "Tamanho"
+      },
+      "proofs": {
+        "title": "Histórico de Provas",
+        "document": "Documento",
+        "date": "Data",
+        "type": "Tipo"
+      }
+    },
+    "forms": {
+      "generate": {
+        "title": "Gerar Prova ZK",
+        "selectDocument": "Selecionar Documento",
+        "selectDocumentPlaceholder": "Escolha um documento...",
+        "proofType": "Tipo de Prova",
+        "documentOwnership": "Propriedade do Documento",
+        "documentIntegrity": "Integridade do Documento",
+        "timelineVerification": "Verificação de Cronologia",
+        "generateButton": "Gerar Prova",
+        "generating": "Gerando..."
+      },
+      "validate": {
+        "title": "Validar Prova ZK",
+        "selectProof": "Selecionar Prova",
+        "selectProofPlaceholder": "Escolha uma prova...",
+        "publicInput": "Entrada Pública (Opcional)",
+        "publicInputPlaceholder": "Digite dados de entrada pública...",
+        "validateButton": "Validar Prova",
+        "validating": "Validando..."
+      }
+    },
+    "support": {
+      "title": "Ajuda e Suporte",
+      "contactText": "Precisa de assistência? Entre em contato com nossa equipe de suporte em",
+      "email": "support@zkcargopass.com",
+      "documentationText": "Consulte nossa",
+      "documentationLink": "documentação",
+      "documentationSuffix": "para guias e perguntas frequentes.",
+      "platformStatusText": "Status da plataforma:",
+      "allSystemsOperational": "Todos os sistemas operacionais"
+    },
+    "profile": {
+      "settings": "Configurações",
+      "budget": "Orçamento",
+      "signOut": "Sair"
+    },
+    "status": {
+      "uploaded": "Carregado",
+      "verified": "Verificado",
+      "generated": "Gerado",
+      "pending": "Pendente",
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "settings": "Configurações",
+    "signOut": "Sair"
+  },
+  "aboutUs": {
+    "title": "Sobre o zkCargoPass",
+    "subtitle": "Revolucionando cargas e logística através da tecnologia de prova de conhecimento zero, criando um ecossistema de cadeia de suprimentos mais seguro, transparente e eficiente.",
+    "backToHome": "Voltar ao Início",
+    "mission": {
+      "title": "Nossa Missão",
+      "description1": "No zkCargoPass, acreditamos que o futuro da logística está na tecnologia que preserva a privacidade, mantendo a transparência sem comprometer dados sensíveis do negócio.",
+      "description2": "Nossa missão é capacitar empresas com soluções de ponta de prova de conhecimento zero que agilizam operações de carga, garantindo privacidade de dados e conformidade regulatória."
+    },
+    "benefits": {
+      "title": "Principais Benefícios",
+      "privacy": "Privacidade aprimorada e proteção de dados",
+      "transparency": "Maior transparência da cadeia de suprimentos",
+      "compliance": "Processos de conformidade simplificados",
+      "costs": "Custos operacionais reduzidos"
+    },
+    "team": {
+      "title": "Nossa Equipe",
+      "description": "Somos uma equipe diversificada de especialistas em blockchain, profissionais de logística e defensores da privacidade trabalhando juntos para transformar a indústria de cargas.",
+      "blockchain": {
+        "title": "Especialistas em Blockchain",
+        "description": "Profunda experiência em provas de conhecimento zero e protocolos criptográficos"
+      },
+      "logistics": {
+        "title": "Profissionais de Logística",
+        "description": "Anos de experiência em gestão da cadeia de suprimentos e operações de carga"
+      },
+      "privacy": {
+        "title": "Defensores da Privacidade",
+        "description": "Comprometidos em construir soluções que protegem a privacidade do usuário e direitos de dados"
+      }
+    },
+    "values": {
+      "title": "Nossos Valores",
+      "privacy": {
+        "title": "Privacidade em Primeiro",
+        "description": "Protegendo dados sensíveis enquanto mantemos transparência"
+      },
+      "innovation": {
+        "title": "Inovação",
+        "description": "Constantemente expandindo os limites do que é possível"
+      },
+      "trust": {
+        "title": "Confiança",
+        "description": "Construindo soluções confiáveis com as quais nossos parceiros podem contar"
+      },
+      "excellence": {
+        "title": "Excelência",
+        "description": "Entregando soluções de alta qualidade que superam expectativas"
+      }
+    },
+    "cta": {
+      "title": "Pronto para Transformar sua Logística?",
+      "subtitle": "Junte-se ao futuro da gestão de cargas com o zkCargoPass",
+      "exploreFeatures": "Explorar Recursos",
+      "contactUs": "Entre em Contato"
+    }
+  }
+}

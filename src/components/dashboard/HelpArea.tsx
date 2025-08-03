@@ -1,51 +1,53 @@
-import React from 'react';
-import { HelpCircle, ExternalLink } from 'lucide-react';
-
-const helpResources = [
-  {
-    id: 1,
-    title: 'Getting Started Guide',
-    description: 'Learn the basics of zkCargoPass and how to use our platform',
-    link: '#'
-  },
-  {
-    id: 2,
-    title: 'Documentation',
-    description: 'Detailed technical documentation and API references',
-    link: '#'
-  },
-  {
-    id: 3,
-    title: 'FAQ',
-    description: 'Frequently asked questions about our services',
-    link: '#'
-  }
-];
+import { ExternalLink, HelpCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 export const HelpArea = () => {
+  const { t } = useTranslation()
+
+  const helpResources = [
+    {
+      id: 1,
+      title: t('dashboard.help.gettingStarted'),
+      description: t('dashboard.help.gettingStartedDesc'),
+      link: '#',
+    },
+    {
+      id: 2,
+      title: t('dashboard.help.documentation'),
+      description: t('dashboard.help.documentationDesc'),
+      link: '#',
+    },
+    {
+      id: 3,
+      title: t('dashboard.help.faq'),
+      description: t('dashboard.help.faqDesc'),
+      link: '#',
+    },
+  ]
+
   return (
-    <div className="bg-[#0f2942] rounded-lg p-6">
+    <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
       <div className="flex items-center space-x-2 mb-6">
-        <HelpCircle className="text-[#8badc9]" size={24} />
-        <h2 className="text-xl font-semibold text-white">Help & Resources</h2>
+        <HelpCircle className="text-light-text-muted dark:text-dark-text-muted" size={24} />
+        <h2 className="text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">{t('dashboard.helpResources')}</h2>
       </div>
       <div className="grid gap-4">
-        {helpResources.map((resource) => (
+        {helpResources.map(resource => (
           <a
             key={resource.id}
             href={resource.link}
-            className="block p-4 bg-[#172b44] rounded-lg hover:bg-[#1f3655] transition-colors"
+            className="block p-4 bg-light-bg-secondary dark:bg-dark-bg-secondary rounded-lg hover:bg-light-bg-secondary/80 dark:hover:bg-dark-bg-secondary/80 border border-light-border dark:border-dark-border transition-colors"
           >
             <div className="flex justify-between items-start">
               <div>
-                <h3 className="text-white font-medium mb-1">{resource.title}</h3>
-                <p className="text-[#8badc9] text-sm">{resource.description}</p>
+                <h3 className="text-light-text-primary dark:text-dark-text-primary font-medium mb-1">{resource.title}</h3>
+                <p className="text-light-text-muted dark:text-dark-text-muted text-sm">{resource.description}</p>
               </div>
-              <ExternalLink className="text-[#8badc9]" size={20} />
+              <ExternalLink className="text-light-text-muted dark:text-dark-text-muted" size={20} />
             </div>
           </a>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,27 +1,39 @@
-import React from 'react';
+import { useTranslation } from 'react-i18next'
+
 export const Partnerships = () => {
-  return <section id="partners" className="w-full py-16 bg-[#081624]">
+  const { t } = useTranslation()
+
+  return <section id="partners" className="w-full py-16 bg-light-bg-secondary dark:bg-dark-bg-primary transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Key Partnerships
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-light-text-primary dark:text-dark-text-primary">
+            {t('partnerships.title')}
           </h2>
-          <p className="text-[#8badc9] max-w-2xl mx-auto">
-            We collaborate with leading organizations to ensure regulatory
-            compliance and operational excellence.
+          <p className="text-light-text-secondary dark:text-dark-text-muted max-w-2xl mx-auto">
+            {t('partnerships.description')}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <PartnerCard name="Federal Revenue" role="Customs Authority" description="Oversees document verification and cargo clearance processes, ensuring regulatory compliance." />
-          <PartnerCard name="SERPRO" role="Tech Provider" description="Provides the PortalÚnico/Siscomex approval environment for document processing and verification." />
-          <PartnerCard name="Pilot Company" role="Implementation Partner" description="Validates with real data, collects feedback and measures KPIs like reduced cargo release times." />
-          <PartnerCard name="Foreign Trade Associations" role="Industry Partners" description="ABEC, Sindaportos, and others provide industry insights and support adoption." />
-          <PartnerCard name="Port Authority of Santos" role="Regulatory Partner" description="Regulatory alignment and operational acceptance for Latin America's largest port." />
-          <PartnerCard name="Port of Itajaí" role="Operational Partner" description="Implementation site for scaling zkCargoPass across Brazil's major ports." />
+          <PartnerCard
+            name={t('partnerships.partners.federalRevenue.name')}
+            role={t('partnerships.partners.federalRevenue.role')}
+            description={t('partnerships.partners.federalRevenue.description')}
+          />
+          <PartnerCard
+            name={t('partnerships.partners.serpro.name')}
+            role={t('partnerships.partners.serpro.role')}
+            description={t('partnerships.partners.serpro.description')}
+          />
+          <PartnerCard
+            name={t('partnerships.partners.tradeAssociations.name')}
+            role={t('partnerships.partners.tradeAssociations.role')}
+            description={t('partnerships.partners.tradeAssociations.description')}
+          />
         </div>
       </div>
     </section>;
 };
+
 const PartnerCard = ({
   name,
   role,
@@ -31,13 +43,13 @@ const PartnerCard = ({
   role: string;
   description: string;
 }) => {
-  return <div className="bg-[#0a1929]/80 border border-[#172b44] rounded-xl p-6 hover:bg-[#102a43]/80 transition-colors">
+  return <div className="bg-light-bg-card dark:bg-dark-bg-primary/80 border border-light-border dark:border-dark-border rounded-xl p-6 hover:bg-light-bg-secondary dark:hover:bg-dark-bg-secondary/80 transition-colors shadow-sm">
       <div className="mb-4 h-12 flex items-center">
-        <div className="bg-[#102a43] px-3 py-1 rounded text-[#8badc9] text-sm inline-block">
+        <div className="bg-light-accent-muted/20 dark:bg-dark-bg-secondary px-3 py-1 rounded text-light-accent-primary dark:text-dark-text-muted text-sm inline-block">
           {role}
         </div>
       </div>
-      <h3 className="text-xl font-semibold mb-2">{name}</h3>
-      <p className="text-[#8badc9]">{description}</p>
+      <h3 className="text-xl font-semibold mb-2 text-light-text-primary dark:text-dark-text-primary">{name}</h3>
+      <p className="text-light-text-secondary dark:text-dark-text-muted">{description}</p>
     </div>;
 };

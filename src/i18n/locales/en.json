@@ -1,0 +1,424 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "getStarted": "Access",
+    "scheduleDemo": "Schedule Demo",
+    "requestDemo": "Request Demo",
+    "learnMore": "Learn More",
+    "contactSales": "Contact Sales",
+    "contactTeam": "Contact Our Team",
+    "loginButton": "Log in",
+    "returnToHomepage": "Return to Homepage",
+    "mostPopular": "MOST POPULAR",
+    "verified": "Verified",
+    "processing": "Processing"
+  },
+  "header": {
+    "brand": "zkCargoPass",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "partners": "Partners",
+    "pricing": "Pricing",
+    "aboutUs": "About Us"
+  },
+  "hero": {
+    "subtitle": "Revolutionizing Customs Clearance",
+    "title": "Fast, easy, and secure document verification in minutes, not days",
+    "description": "zkCargoPass enables importers and customs agents to verify documents through blockchain technology while preserving data privacy and accelerating cargo release.",
+    "features": {
+      "secureVerification": "Secure Verification",
+      "fasterClearance": "Faster Clearance",
+      "dataPrivacy": "Data Privacy"
+    },
+    "documentVerificationProcess": "Document Verification Process",
+    "importDeclaration": "Import Declaration",
+    "invoice": "Invoice",
+    "zkProofGeneration": "ZK Proof Generation",
+    "generatingCryptographicProof": "Generating cryptographic proof",
+    "verificationProgress": "Verification Progress",
+    "estimatedTimeToCompletion": "Estimated time to completion:",
+    "minutes": "3 minutes"
+  },
+  "features": {
+    "title": "Value Propositions",
+    "description": "zkCargoPass transforms customs document verification with blockchain technology and zero-knowledge proofs.",
+    "speed": {
+      "title": "Speed",
+      "description": "Accelerate cargo dispatch from weeks to hours/days by streamlining document verification through cryptographic proofs."
+    },
+    "privacy": {
+      "title": "Privacy",
+      "description": "Zero-knowledge proofs verify compliance without exposing sensitive business data, maintaining competitive advantage."
+    },
+    "simplicity": {
+      "title": "Simplicity",
+      "description": "Our MVP integrates with SISCOMEX mock and DUIMP/DI homologation via PortalÚnico for seamless verification."
+    },
+    "aiPowered": {
+      "title": "AI-Powered Automation",
+      "description": "Our AI validates documents before generating evidence, reducing errors and ensuring compliance."
+    },
+    "auditability": {
+      "title": "Auditability",
+      "description": "Cryptographic proof and immutable blockchain hash provide transparent, tamper-proof verification records."
+    },
+    "efficiency": {
+      "title": "Efficiency",
+      "description": "Streamline customs clearance with automated verification, reducing manual checks and administrative overhead."
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "description": "Our platform uses zero-knowledge proofs and blockchain to securely verify customs documents without exposing sensitive information.",
+    "importDeclaration": "Import Declaration",
+    "steps": {
+      "documentUpload": {
+        "title": "Document Upload",
+        "description": "Import/export companies upload customs documents to the zkCargoPass Enterprise Portal."
+      },
+      "aiValidation": {
+        "title": "AI Validation",
+        "description": "Our AI validates document format and content before processing, ensuring compliance with regulations."
+      },
+      "zkpGeneration": {
+        "title": "Zero-Knowledge Proof Generation",
+        "description": "The system generates cryptographic proofs that verify document validity without revealing sensitive data."
+      },
+      "blockchainVerification": {
+        "title": "Blockchain Verification",
+        "description": "Proof hashes are stored on blockchain for immutable verification and auditability."
+      },
+      "customsClearance": {
+        "title": "Customs Clearance",
+        "description": "Customs authorities verify proofs through the Verifier Portal, accelerating cargo release."
+      }
+    },
+    "secureWorkflow": "SECURE WORKFLOW",
+    "documentVerification": "Document Verification",
+    "zkpGenerationStatus": "ZKP Generation",
+    "blockchainVerificationStatus": "Blockchain Verification",
+    "zeroKnowledgeProof": "Zero-Knowledge Proof",
+    "generated": "Generated"
+  },
+  "partnerships": {
+    "title": "Strategic Partnerships",
+    "description": "We collaborate with leading organizations to ensure regulatory compliance and operational excellence across the global trade ecosystem.",
+    "partners": {
+      "federalRevenue": {
+        "name": "Federal Revenue of Brazil",
+        "role": "Customs Authority",
+        "description": "Brazil's federal tax authority that oversees customs operations, document verification, and cargo clearance processes, ensuring full regulatory compliance with international trade standards."
+      },
+      "serpro": {
+        "name": "SERPRO",
+        "role": "Technology Integration Partner",
+        "description": "Brazil's leading public technology company that provides the PortalÚnico/Siscomex platform infrastructure for seamless document processing and verification workflows."
+      },
+      "tradeAssociations": {
+        "name": "Foreign Trade Associations",
+        "role": "Industry Ecosystem Partners",
+        "description": "Strategic partnerships with ABEC, Sindaportos, and other leading trade organizations that provide valuable industry insights and drive market adoption."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Pricing Models",
+    "description": "Flexible pricing options designed for businesses of all sizes, from small importers to large logistics operators.",
+    "saasEnterprise": {
+      "title": "SaaS Enterprise",
+      "price": "R$5,000",
+      "period": "/month",
+      "description": "Annual subscription for enterprises with regular import/export operations.",
+      "features": [
+        "Unlimited document uploads",
+        "AI document validation",
+        "ZKP generation and verification",
+        "Blockchain storage",
+        "API access for integrations",
+        "24/7 technical support"
+      ]
+    },
+    "payPerProof": {
+      "title": "Pay-Per-Proof",
+      "price": "R$30",
+      "period": "/proof",
+      "description": "Pay only for what you use. Ideal for businesses with irregular import volumes.",
+      "features": [
+        "On-demand document processing",
+        "AI document validation",
+        "ZKP generation and verification",
+        "Blockchain storage",
+        "PDF reports and proof packages",
+        "Email support"
+      ]
+    },
+    "payPerContainer": {
+      "title": "Pay-Per-Container",
+      "price": "From R$60",
+      "period": "/container",
+      "description": "Pricing based on container value ranges for optimized cost management.",
+      "features": [
+        "Up to 10,000 USD: R$60/container",
+        "10,001-50,000 USD: R$120/container",
+        "Over 50,000 USD: R$250/container",
+        "Volume discounts available",
+        "Full verification workflow",
+        "Priority support"
+      ]
+    },
+    "customSolution": "Need a custom solution?"
+  },
+  "footer": {
+    "description": "Secure document verification through zero-knowledge proofs and blockchain technology.",
+    "product": "Product",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "pricing": "Pricing",
+    "caseStudies": "Case Studies",
+    "documentation": "Documentation",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "partners": "Partners",
+    "careers": "Careers",
+    "blog": "Blog",
+    "contact": "Contact",
+    "address": "Santos Port, Terminal 1\nSantos, SP, Brazil",
+    "email": "contact@zkcargopass.com",
+    "phone": "+55 13 9999-9999",
+    "copyright": "© 2023 zkCargoPass. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "legal": "Legal"
+  },
+  "demo": {
+    "title": "Request a Demo",
+    "subtitle": "See zkCargoPass in action",
+    "description": "Get a personalized demonstration of how zkCargoPass can transform your customs clearance process.",
+    "form": {
+      "fullName": "Full Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone Number",
+      "demoType": "Demo Type",
+      "preferredDate": "Preferred Date",
+      "message": "Message",
+      "placeholders": {
+        "name": "John Smith",
+        "company": "Your Company",
+        "email": "you@company.com",
+        "phone": "+1 (555) 123-4567",
+        "message": "Tell us about your specific needs or questions"
+      },
+      "demoTypes": {
+        "live": "Live Demo with Product Specialist",
+        "recorded": "Recorded Demo + Q&A Session",
+        "custom": "Custom Demo for Enterprise"
+      }
+    },
+    "success": {
+      "title": "Demo Request Submitted!",
+      "description": "Thank you for your interest in zkCargoPass. We'll get back to you within 24 hours to schedule your personalized demo.",
+      "expectedContact": "Expected Contact Time",
+      "nextSteps": "Next Steps",
+      "preparation": "We'll prepare a customized demo based on your specific needs",
+      "scheduling": "Our team will contact you to schedule a convenient time",
+      "demo": "You'll receive a comprehensive walkthrough of zkCargoPass features"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "overview": "Overview",
+    "overviewSubtitle": "Here's what's happening with your zkCargoPass account today.",
+    "documentHistory": "Document History",
+    "budgetConsumption": "Budget Consumption",
+    "credits": "credits",
+    "budgetUsage": "Budget Usage",
+    "used": "Used",
+    "total": "Total",
+    "platformStatus": "Platform Status",
+    "operational": "Operational",
+    "uptime": "Uptime",
+    "lastIncident": "Last Incident",
+    "none": "None",
+    "helpResources": "Help & Resources",
+    "stats": {
+      "totalDocuments": "Total Documents",
+      "activeProofs": "Active Proofs",
+      "verifiedProofs": "Verified Proofs",
+      "savedTime": "Time Saved"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "uploadDocument": "Upload Document",
+      "uploadDocumentDesc": "Upload new cargo documents",
+      "generateProof": "Generate Proof",
+      "generateProofDesc": "Create zero-knowledge proofs",
+      "validateProof": "Validate Proof",
+      "validateProofDesc": "Verify received proofs",
+      "viewReports": "View Reports",
+      "viewReportsDesc": "View analytics and reports"
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "noActivity": "No recent activity",
+      "viewAll": "View All",
+      "uploaded": "was uploaded",
+      "generated": "was generated",
+      "verified": "was verified"
+    },
+    "help": {
+      "gettingStarted": "Getting Started Guide",
+      "gettingStartedDesc": "Learn the basics of zkCargoPass and how to use our platform",
+      "documentation": "Documentation",
+      "documentationDesc": "Detailed technical documentation and API references",
+      "faq": "FAQ",
+      "faqDesc": "Frequently asked questions about our services"
+    },
+    "navigation": {
+      "documents": "Documents",
+      "proofs": "Proofs",
+      "generate": "Generate Proof",
+      "validate": "Validate Proof",
+      "help": "Help & Support"
+    },
+    "tooltips": {
+      "overview": "View your dashboard overview with key statistics, recent activity, and quick access to main platform features.",
+      "documents": "Upload and manage your cargo documents securely. These documents can be used for generating zero-knowledge proofs to verify ownership and authenticity.",
+      "proofs": "View and manage your generated zero-knowledge proofs. Track the history of all proofs created for your cargo documents and their verification status.",
+      "generate": "Generate zero-knowledge proofs for your cargo documents. Create proofs of ownership, document integrity, or timeline verification without revealing sensitive information.",
+      "validate": "Validate zero-knowledge proofs received from other parties. Verify the authenticity and ownership of cargo documents without accessing the original data.",
+      "help": "Access support resources, documentation, and contact information. Get help with using zkCargoPass features and troubleshooting any issues.",
+      "settings": "Manage your account preferences, security settings, and notification preferences for zkCargoPass.",
+      "budget": "View and manage your credit consumption for proof generation and validation operations.",
+      "signOut": "Securely log out of your zkCargoPass account."
+    },
+    "pages": {
+      "documents": "Documents",
+      "proofs": "Proofs",
+      "generate": "Generate Proof",
+      "validate": "Validate Proof",
+      "help": "Help & Support"
+    },
+    "tables": {
+      "documents": {
+        "title": "Uploaded Documents",
+        "name": "Document Name",
+        "date": "Upload Date",
+        "status": "Status",
+        "size": "File Size"
+      },
+      "proofs": {
+        "title": "Proof History",
+        "document": "Document",
+        "date": "Creation Date",
+        "type": "Proof Type"
+      }
+    },
+    "forms": {
+      "generate": {
+        "title": "Generate Zero-Knowledge Proof",
+        "selectDocument": "Select Document",
+        "selectDocumentPlaceholder": "Choose a document...",
+        "proofType": "Proof Type",
+        "documentOwnership": "Document Ownership",
+        "documentIntegrity": "Document Integrity",
+        "timelineVerification": "Timeline Verification",
+        "generateButton": "Generate Proof",
+        "generating": "Generating..."
+      },
+      "validate": {
+        "title": "Validate Zero-Knowledge Proof",
+        "selectProof": "Select Proof",
+        "selectProofPlaceholder": "Choose a proof...",
+        "publicInput": "Public Input (Optional)",
+        "publicInputPlaceholder": "Enter public input data...",
+        "validateButton": "Validate Proof",
+        "validating": "Validating..."
+      }
+    },
+    "support": {
+      "title": "Help & Support",
+      "contactText": "Need assistance? Contact our support team at",
+      "email": "support@zkcargopass.com",
+      "documentationText": "Check our",
+      "documentationLink": "documentation",
+      "documentationSuffix": "for guides and FAQs.",
+      "platformStatusText": "Platform status:",
+      "allSystemsOperational": "All systems operational"
+    },
+    "profile": {
+      "settings": "Settings",
+      "budget": "Budget",
+      "signOut": "Sign out"
+    },
+    "status": {
+      "uploaded": "Uploaded",
+      "verified": "Verified",
+      "generated": "Generated",
+      "pending": "Pending",
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "settings": "Settings",
+    "signOut": "Sign out"
+  },
+  "aboutUs": {
+    "title": "About zkCargoPass",
+    "subtitle": "Revolutionizing cargo and logistics through zero-knowledge proof technology, creating a more secure, transparent, and efficient supply chain ecosystem.",
+    "backToHome": "Back to Home",
+    "mission": {
+      "title": "Our Mission",
+      "description1": "At zkCargoPass, we believe that the future of logistics lies in privacy-preserving technology that maintains transparency without compromising sensitive business data.",
+      "description2": "Our mission is to empower businesses with cutting-edge zero-knowledge proof solutions that streamline cargo operations while ensuring data privacy and regulatory compliance."
+    },
+    "benefits": {
+      "title": "Key Benefits",
+      "privacy": "Enhanced privacy and data protection",
+      "transparency": "Improved supply chain transparency",
+      "compliance": "Streamlined compliance processes",
+      "costs": "Reduced operational costs"
+    },
+    "team": {
+      "title": "Our Team",
+      "description": "We're a diverse team of blockchain experts, logistics professionals, and privacy advocates working together to transform the cargo industry.",
+      "blockchain": {
+        "title": "Blockchain Experts",
+        "description": "Deep expertise in zero-knowledge proofs and cryptographic protocols"
+      },
+      "logistics": {
+        "title": "Logistics Professionals",
+        "description": "Years of experience in supply chain management and cargo operations"
+      },
+      "privacy": {
+        "title": "Privacy Advocates",
+        "description": "Committed to building solutions that protect user privacy and data rights"
+      }
+    },
+    "values": {
+      "title": "Our Values",
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Protecting sensitive data while maintaining transparency"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Continuously pushing the boundaries of what's possible"
+      },
+      "trust": {
+        "title": "Trust",
+        "description": "Building reliable solutions our partners can depend on"
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "Delivering high-quality solutions that exceed expectations"
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Logistics?",
+      "subtitle": "Join the future of cargo management with zkCargoPass",
+      "exploreFeatures": "Explore Features",
+      "contactUs": "Contact Us"
+    }
+  }
+}
