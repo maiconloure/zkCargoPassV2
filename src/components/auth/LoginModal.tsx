@@ -1,39 +1,34 @@
-import { AlertCircle, Lock, Mail, X } from 'lucide-react'
-import type React from 'react'
+import { AlertCircle, Shield, X } from 'lucide-react'
 import { useState } from 'react'
+import { useWeb3Auth } from '../../contexts/web3authContext'
 
 interface LoginModalProps {
   isOpen: boolean
   onClose: () => void
+  onSuccess?: () => void
 }
 
-export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
   const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const { login, isLoading } = useWeb3Auth()
 
   if (!isOpen) return null
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setError('')
-    if (!email || !password) {
-      setError('Please fill in all fields')
-      return
-    }
-    setIsLoading(true)
-    // Simulate login request
-    setTimeout(() => {
-      setIsLoading(false)
-      // Mock credentials for demo
-      if (email === 'demo@zkcargopass.com' && password === 'demo123') {
-        // Redirect to dashboard
-        window.location.href = '/dashboard'
-        onClose()
+
+  const handleWeb3AuthLogin = async () => {
+    try {
+      setError('')
+      await login()
+      // Call onSuccess after successful login
+      if (onSuccess) {
+        onSuccess()
       } else {
-        setError('Invalid credentials. Try demo@zkcargopass.com / demo123')
+        // Fallback: close modal if no onSuccess handler
+        onClose()
       }
-    }, 1000)
+    } catch (err) {
+      console.error('Login error:', err)
+      setError('Failed to login. Please try again.')
+    }
   }
 
   return (
@@ -46,6 +41,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
         >
           <X size={20} />
         </button>
+
         <div className="flex items-center mb-6">
           <div className="mr-3 bg-light-accent-primary dark:bg-dark-accent-primary rounded-md p-1">
             <svg
@@ -87,9 +83,10 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
             </svg>
           </div>
           <h2 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary">
-            Log in
+            Welcome Back
           </h2>
         </div>
+
         {error && (
           <div className="mb-6 p-3 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-800/50 rounded-lg flex items-start gap-2">
             <AlertCircle
@@ -99,130 +96,93 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
             <p className="text-red-700 dark:text-red-300 text-sm">{error}</p>
           </div>
         )}
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1"
-            >
-              Email Address
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <Mail size={18} className="text-light-text-muted dark:text-dark-text-muted" />
-              </div>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                className="bg-light-bg-secondary dark:bg-dark-bg-primary border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary rounded-lg block w-full pl-10 p-2.5 placeholder-light-text-muted dark:placeholder-dark-text-muted/70 focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary focus:border-light-accent-primary dark:focus:border-dark-accent-primary transition-colors"
-                placeholder="you@company.com"
-              />
-            </div>
-          </div>
-          <div>
-            <div className="flex justify-between items-center mb-1">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary"
-              >
-                Password
-              </label>
-              <a
-                href="#"
-                className="text-xs text-light-accent-primary dark:text-dark-accent-primary hover:text-light-accent-secondary dark:hover:text-blue-400 transition-colors"
-              >
-                Forgot password?
-              </a>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <Lock size={18} className="text-light-text-muted dark:text-dark-text-muted" />
-              </div>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                className="bg-light-bg-secondary dark:bg-dark-bg-primary border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary rounded-lg block w-full pl-10 p-2.5 placeholder-light-text-muted dark:placeholder-dark-text-muted/70 focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary focus:border-light-accent-primary dark:focus:border-dark-accent-primary transition-colors"
-                placeholder="••••••••"
-              />
-            </div>
-          </div>
-          <div className="flex items-center">
-            <input
-              id="remember-me"
-              type="checkbox"
-              className="w-4 h-4 bg-light-bg-secondary dark:bg-dark-bg-primary border-light-border dark:border-dark-border rounded focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary focus:ring-1"
-            />
-            <label
-              htmlFor="remember-me"
-              className="ml-2 text-sm text-light-text-secondary dark:text-dark-text-secondary"
-            >
-              Remember me for 30 days
-            </label>
-          </div>
+
+        <div className="text-center mb-6">
+          <p className="text-light-text-secondary dark:text-dark-text-secondary mb-4">
+            Secure login with Web3Auth - choose your preferred authentication method
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          {/* Web3Auth Login Button */}
           <button
-            type="submit"
+            type="button"
+            onClick={handleWeb3AuthLogin}
             disabled={isLoading}
-            className={`w-full py-2.5 rounded-lg font-medium flex justify-center transition-colors ${isLoading ? 'bg-light-accent-primary/70 dark:bg-dark-accent-primary/70 text-white/70 cursor-not-allowed' : 'bg-light-accent-primary dark:bg-dark-accent-primary hover:bg-light-accent-secondary dark:hover:bg-dark-accent-secondary text-white'}`}
+            className={`w-full py-3 rounded-lg font-medium flex items-center justify-center gap-3 transition-colors ${
+              isLoading
+                ? 'bg-light-accent-primary/70 dark:bg-dark-accent-primary/70 text-white/70 cursor-not-allowed'
+                : 'bg-light-accent-primary dark:bg-dark-accent-primary hover:bg-light-accent-secondary dark:hover:bg-dark-accent-secondary text-white'
+            }`}
           >
             {isLoading ? (
-              <svg
-                className="animate-spin h-5 w-5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <title>Loading</title>
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  />
+                </svg>
+                Connecting...
+              </>
             ) : (
-              'Log in'
+              <>
+                <Shield size={20} />
+                Continue with Web3Auth
+              </>
             )}
           </button>
-        </form>
-        {/* <div className="mt-6 text-center">
-          <p className="text-light-text-secondary dark:text-dark-text-muted">
-            Don't have an account?{' '}
-            <a
-              href="#"
-              className="text-light-accent-primary dark:text-dark-accent-primary hover:text-light-accent-secondary dark:hover:text-blue-400 font-medium transition-colors"
-            >
-              Sign up
-            </a>
-          </p>
-        </div> */}
-        {/* <div className="mt-8 pt-6 border-t border-light-border dark:border-dark-border text-center">
+
+          {/* Benefits */}
+          <div className="mt-6 space-y-3">
+            <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
+              <div className="w-2 h-2 bg-green-500 rounded-full" />
+              <span>Login with Google, Twitter, Discord, or Email</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
+              <div className="w-2 h-2 bg-green-500 rounded-full" />
+              <span>Secure blockchain-based authentication</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
+              <div className="w-2 h-2 bg-green-500 rounded-full" />
+              <span>No need to manage private keys</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-light-border dark:border-dark-border text-center">
           <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
             By logging in, you agree to our{' '}
-            <a
-              href="#"
-              className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors"
+            <button
+              type="button"
+              className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors underline"
             >
               Terms of Service
-            </a>{' '}
+            </button>{' '}
             and{' '}
-            <a
-              href="#"
-              className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors"
+            <button
+              type="button"
+              className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors underline"
             >
               Privacy Policy
-            </a>
+            </button>
           </p>
-        </div> */}
+        </div>
       </div>
     </div>
   )
