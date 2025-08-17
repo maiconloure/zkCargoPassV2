@@ -20,6 +20,9 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
+    supportedLngs: ['en', 'pt-BR'],
+    defaultNS: 'translation',
+    ns: ['translation'],
     debug: false,
 
     interpolation: {
@@ -31,6 +34,13 @@ i18n
       caches: ['localStorage'],
       lookupLocalStorage: 'i18nextLng',
     },
+
+    react: {
+      useSuspense: true,
+    },
+
+    // Ensure synchronous initialization when resources are provided to avoid UI flashing keys
+    initImmediate: false,
   })
 
 export default i18n
