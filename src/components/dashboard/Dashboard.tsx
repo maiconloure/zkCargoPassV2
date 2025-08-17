@@ -14,19 +14,13 @@ import {
 } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import zkCargoPassLogo from '../../assets/logo.png'
+import { useWeb3Auth } from '../../contexts/web3authContext'
 import { LanguageToggle } from '../LanguageToggle'
 import { ThemeToggle } from '../ThemeToggle'
 import { BudgetConsumption } from './BudgetConsumption'
 import { PlatformStatus } from './PlatformStatus'
-
-const mockUser = {
-  name: 'John Doe',
-  email: 'john@example.com',
-  role: 'Administrator',
-  budgetUsed: 42,
-  budgetTotal: 100,
-}
 
 const mockDocs = [
   { id: 1, name: 'Invoice_123.pdf', date: '2025-07-20', status: 'Uploaded' },
@@ -71,6 +65,23 @@ export const Dashboard = () => {
   const [isGenerating, setIsGenerating] = useState(false)
   const [isValidating, setIsValidating] = useState(false)
   const { t } = useTranslation()
+  const { user, logout } = useWeb3Auth()
+  const navigate = useNavigate()
+
+  // Mock data for budget - in real app this would come from an API
+  const mockBudget = {
+    budgetUsed: 42,
+    budgetTotal: 100,
+  }
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      navigate('/')
+    } catch (error) {
+      console.error('Logout error:', error)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-light-bg-primary dark:bg-dark-bg-primary flex transition-colors duration-300">
@@ -234,10 +245,10 @@ export const Dashboard = () => {
                       </div>
                       <div className="hidden md:block text-left">
                         <p className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary">
-                          {mockUser.name}
+                          {user?.name || 'User'}
                         </p>
                         <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
-                          {mockUser.role}
+                          {user?.typeOfLogin || 'Authenticated'}
                         </p>
                       </div>
                       <ChevronDown
@@ -251,10 +262,10 @@ export const Dashboard = () => {
                       <div className="absolute right-0 mt-2 w-72 bg-light-bg-card dark:bg-dark-bg-card rounded-lg border border-light-border dark:border-dark-border shadow-xl animate-fadeIn">
                         <div className="px-4 py-3 border-b border-light-border dark:border-dark-border">
                           <p className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary">
-                            {mockUser.name}
+                            {user?.name || 'User'}
                           </p>
                           <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
-                            {mockUser.email}
+                            {user?.email || 'user@example.com'}
                           </p>
                         </div>
                         <div className="py-1">
@@ -274,6 +285,7 @@ export const Dashboard = () => {
                           </button> */}
                           <button
                             type="button"
+                            onClick={handleLogout}
                             className="group relative w-full px-4 py-2 text-sm text-left text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 flex items-center space-x-2 transition-colors"
                           >
                             <LogOut size={16} />
@@ -314,7 +326,7 @@ export const Dashboard = () => {
               {/* Welcome Section */}
               <div>
                 <h1 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-2">
-                  {t('dashboard.welcome')}, {mockUser.name}!
+                  {t('dashboard.welcome')}, {user?.name || 'User'}!
                 </h1>
                 <p className="text-light-text-muted dark:text-dark-text-muted">
                   {t('dashboard.overviewSubtitle')}
@@ -512,7 +524,8 @@ export const Dashboard = () => {
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="text-sm text-light-text-primary dark:text-dark-text-primary">
-                              <span className="font-medium">{activity.item}</span> {t(`dashboard.recentActivity.${activity.action}`)}
+                              <span className="font-medium">{activity.item}</span>{' '}
+                              {t(`dashboard.recentActivity.${activity.action}`)}
                             </p>
                             <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
                               {activity.timestamp}
@@ -526,8 +539,8 @@ export const Dashboard = () => {
                   {/* Budget Info */}
                   <div className="mt-6">
                     <BudgetConsumption
-                      budgetUsed={mockUser.budgetUsed}
-                      budgetTotal={mockUser.budgetTotal}
+                      budgetUsed={mockBudget.budgetUsed}
+                      budgetTotal={mockBudget.budgetTotal}
                     />
                   </div>
 

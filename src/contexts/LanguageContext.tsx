@@ -19,7 +19,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
-    // Explicitly save to localStorage to ensure persistence
     localStorage.setItem('i18nextLng', lng)
   }
 
