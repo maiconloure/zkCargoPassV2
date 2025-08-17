@@ -56,7 +56,7 @@ export const Footer = () => {
               {t('footer.description')}
             </p>
             <div className="flex space-x-4">
-              <a
+              {/* <a
                 href="#"
                 className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors"
               >
@@ -89,8 +89,8 @@ export const Footer = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
-              <a href="#" className="text-[#8badc9] hover:text-[#a9c1d9]">
+              </a> */}
+              {/* <a href="#" className="text-[#8badc9] hover:text-[#a9c1d9]">
                 <svg
                   width="24"
                   height="24"
@@ -106,7 +106,7 @@ export const Footer = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </a> */}
             </div>
           </div>
           <div>
