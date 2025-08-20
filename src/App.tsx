@@ -11,6 +11,7 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { HowItWorks } from './components/HowItWorks'
 import { Partnerships } from './components/Partnerships'
+import { Pricing } from './components/Pricing'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { Web3AuthProvider } from './contexts/web3authContext'
@@ -40,7 +41,7 @@ const AppContent = () => {
               <Features />
               <HowItWorks />
               <Partnerships />
-              {/* <Pricing /> */}
+              <Pricing />
             </main>
             <Footer />
             <LoginModal
