@@ -36,7 +36,7 @@ const mockStats = {
   totalDocuments: 147,
   activeProofs: 23,
   verifiedProofs: 89,
-  savedTime: '2.4h',
+  savedTime: '240h',
 }
 
 const mockRecentActivity = [

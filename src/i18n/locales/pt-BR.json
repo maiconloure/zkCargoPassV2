@@ -23,8 +23,8 @@
   },
   "hero": {
     "subtitle": "Revolucionando o Desembaraço Aduaneiro",
-    "title": "Verificação de documentos rápida, fácil e segura em minutos, não dias",
-    "description": "O zkCargoPass permite que importadores e agentes aduaneiros verifiquem documentos através da tecnologia blockchain preservando a privacidade dos dados e acelerando a liberação de cargas.",
+    "title": "Desembaraço de carga mais rápido, com proteção total de dados",
+    "description": "Transforme seus documentos em provas digitais de rápida verificação e impossíveis de vazar. Reduza custos e mantenha seus segredos comerciais seguros.",
     "features": {
       "secureVerification": "Verificação Segura",
       "fasterClearance": "Liberação Mais Rápida",
@@ -41,7 +41,7 @@
   },
   "features": {
     "title": "Recursos",
-    "description": "O zkCargoPass oferece recursos avançados que transformam a verificação de documentos de comércio exterior.",
+    "description": "Tecnologia avançada para capacitar negócios comerciais, garantindo aprovação alfandegária rápida, reduções significativas de custos e total segurança de dados.",
     "speed": {
       "title": "Velocidade",
       "description": "Acelere o despacho de cargas de semanas para horas/dias, simplificando a verificação de documentos através de provas criptográficas."
@@ -52,7 +52,7 @@
     },
     "simplicity": {
       "title": "Simplicidade",
-      "description": "Nosso MVP integra-se ao mock do SISCOMEX e homologação DUIMP/DI via PortalÚnico para verificação perfeita."
+      "description": "Carregue e processe documentos alfandegários sem esforço com apenas alguns cliques."
     },
     "aiPowered": {
       "title": "Automação com IA",
@@ -126,8 +126,8 @@
     "description": "Opções de preços flexíveis projetadas para empresas de todos os tamanhos, desde pequenos importadores até grandes operadores logísticos.",
     "saasEnterprise": {
       "title": "SaaS Empresarial",
-      "price": "R$5.000",
-      "period": "/mês",
+      "price": "Customizado",
+      "period": "",
       "description": "Assinatura anual para empresas com operações regulares de importação/exportação.",
       "features": [
         "Uploads ilimitados de documentos",

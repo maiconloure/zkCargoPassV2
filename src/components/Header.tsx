@@ -2,7 +2,7 @@ import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import zkCargoPassLogo from '../assets/logo.png'
+import zkCargoPassLogo from '../assets/logo2.png'
 import { LanguageToggle } from './LanguageToggle'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -21,7 +21,7 @@ export const Header = ({ onOpenLogin, onOpenDemo }: HeaderProps) => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link to="/" className="text-3xl font-bold text-light-text-primary dark:text-dark-text-primary flex items-center hover:opacity-80 transition-opacity">
-              <img src={zkCargoPassLogo} alt="zkCargoPass Logo" className="w-10 h-10 mr-4" />
+              <img src={zkCargoPassLogo} alt="zkCargoPass Logo" className="w-14 h-14 mr-4" />
               <h1 className="font-titillium">{t('header.brand')}</h1>
             </Link>
           </div>

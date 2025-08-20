@@ -15,9 +15,9 @@ export const Hero = ({ onOpenLogin }: HeroProps) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="flex flex-col gap-6">
-            <div className="inline-block px-4 py-1.5 bg-light-accent-muted/20 dark:bg-dark-bg-secondary/80 rounded-full text-sm font-medium text-light-accent-primary dark:text-dark-text-muted mb-2">
+            {/* <div className="inline-block px-4 py-1.5 bg-light-accent-muted/20 dark:bg-dark-bg-secondary/80 rounded-full text-sm font-medium text-light-accent-primary dark:text-dark-text-muted mb-2">
               {t('hero.subtitle')}
-            </div>
+            </div> */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-titillium tracking-tight text-light-text-primary dark:text-dark-text-primary font-bold">
               {t('hero.title')}
             </h1>

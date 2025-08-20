@@ -23,8 +23,8 @@
   },
   "hero": {
     "subtitle": "Revolutionizing Customs Clearance",
-    "title": "Fast, easy, and secure document verification in minutes, not days",
-    "description": "zkCargoPass enables importers and customs agents to verify documents through blockchain technology while preserving data privacy and accelerating cargo release.",
+    "title": "Faster cargo clearance, with full data protection",
+    "description": "Transform your documents into digital proofs that are quick to verify and impossible to leak. Reduce costs while keeping your business secrets safe.",
     "features": {
       "secureVerification": "Secure Verification",
       "fasterClearance": "Faster Clearance",
@@ -41,7 +41,7 @@
   },
   "features": {
     "title": "Value Propositions",
-    "description": "zkCargoPass transforms customs document verification with blockchain technology and zero-knowledge proofs.",
+    "description": "Advanced technology to empower trade businesses, ensuring swift customs approval, significant cost reductions, and full data security.",
     "speed": {
       "title": "Speed",
       "description": "Accelerate cargo dispatch from weeks to hours/days by streamlining document verification through cryptographic proofs."
@@ -52,7 +52,7 @@
     },
     "simplicity": {
       "title": "Simplicity",
-      "description": "Our MVP integrates with SISCOMEX mock and DUIMP/DI homologation via PortalÚnico for seamless verification."
+      "description": "Effortlessly upload and process customs documents with a few clicks"
     },
     "aiPowered": {
       "title": "AI-Powered Automation",
@@ -126,8 +126,8 @@
     "description": "Flexible pricing options designed for businesses of all sizes, from small importers to large logistics operators.",
     "saasEnterprise": {
       "title": "SaaS Enterprise",
-      "price": "R$5,000",
-      "period": "/month",
+      "price": "Custom",
+      "period": "",
       "description": "Annual subscription for enterprises with regular import/export operations.",
       "features": [
         "Unlimited document uploads",

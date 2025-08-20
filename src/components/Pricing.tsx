@@ -81,10 +81,10 @@ const PricingCard = ({
       </div>
       <p className="text-light-text-secondary dark:text-dark-text-muted mb-6">{description}</p>
       <ul className="space-y-3 mb-8">
-        {/* {features?.map((feature) => <li key={feature} className="flex items-start">
+        {features?.map((feature) => <li key={feature} className="flex items-start">
             <Check size={18} className={`mr-2 mt-0.5 ${highlighted ? 'text-light-accent-secondary dark:text-blue-400' : 'text-light-accent-primary dark:text-dark-accent-primary'}`} />
             <span className="text-light-text-secondary dark:text-dark-text-secondary">{feature}</span>
-          </li>)} */}
+          </li>)}
       </ul>
       <button
         type="button"
