@@ -420,5 +420,43 @@
       "exploreFeatures": "Explorar Recursos",
       "contactUs": "Entre em Contato"
     }
+  },
+  "demoRequest": {
+    "title": "Agendar uma Demonstração",
+    "description": "Experimente como o zkCargoPass pode transformar seu processo de verificação de documentos aduaneiros. Preencha o formulário abaixo e nossa equipe entrará em contato para agendar uma demonstração personalizada.",
+    "form": {
+      "name": {
+        "label": "Nome Completo",
+        "placeholder": "João Silva"
+      },
+      "company": {
+        "label": "Empresa",
+        "placeholder": "Sua Empresa"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "voce@empresa.com"
+      },
+      "phone": {
+        "label": "Telefone",
+        "placeholder": "+55 (11) 98765-4321"
+      },
+      "message": {
+        "label": "Informações Adicionais",
+        "placeholder": "Conte-nos sobre suas necessidades ou dúvidas específicas"
+      },
+      "required": "*",
+      "submit": "Agendar Demonstração",
+      "submitting": "Enviando..."
+    },
+    "errors": {
+      "requiredFields": "Por favor, preencha todos os campos obrigatórios",
+      "sendFailed": "Falha ao enviar solicitação de demonstração. Por favor, tente novamente."
+    },
+    "success": {
+      "title": "Solicitação de Demonstração Enviada!",
+      "message": "Obrigado pelo seu interesse no zkCargoPass. Um de nossos especialistas entrará em contato em até 24 horas para confirmar sua demonstração.",
+      "button": "Voltar ao Início"
+    }
   }
 }
