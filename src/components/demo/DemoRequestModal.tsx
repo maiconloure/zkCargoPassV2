@@ -10,6 +10,8 @@ import {
 } from 'lucide-react'
 import type React from 'react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { sendDemoRequestEmail } from '../../utils/emailService'
 
 interface DemoRequestModalProps {
   isOpen: boolean
@@ -20,6 +22,7 @@ export const DemoRequestModal = ({
   isOpen,
   onClose,
 }: DemoRequestModalProps) => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -45,25 +48,35 @@ export const DemoRequestModal = ({
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
-    // Basic validation
     if (
       !formData.name ||
       !formData.email ||
-      !formData.company ||
-      !formData.date
+      !formData.company
     ) {
-      setError('Please fill in all required fields')
+      setError(t('demoRequest.errors.requiredFields'))
       return
     }
     setIsLoading(true)
-    // Simulate API request
-    setTimeout(() => {
-      setIsLoading(false)
+
+    try {
+      // Send email using EmailJS
+      await sendDemoRequestEmail({
+        name: formData.name,
+        company: formData.company,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      })
+
       setIsSubmitted(true)
-    }, 1500)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t('demoRequest.errors.sendFailed'))
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -82,12 +95,10 @@ export const DemoRequestModal = ({
               <div className="mr-3 bg-light-accent-primary dark:bg-dark-accent-primary rounded-md p-1">
                 <Calendar size={24} className="text-white" />
               </div>
-              <h2 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary">Schedule a Demo</h2>
+              <h2 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary">{t('demoRequest.title')}</h2>
             </div>
             <p className="text-light-text-secondary dark:text-dark-text-secondary mb-6">
-              Experience how zkCargoPass can transform your customs document
-              verification process. Fill out the form below and our team will
-              contact you to schedule a personalized demo.
+              {t('demoRequest.description')}
             </p>
             {error && (
               <div className="mb-6 p-3 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-800/50 rounded-lg flex items-start gap-2">
@@ -105,7 +116,7 @@ export const DemoRequestModal = ({
                     htmlFor="name"
                     className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1"
                   >
-                    Full Name <span className="text-light-accent-primary dark:text-dark-accent-primary">*</span>
+                    {t('demoRequest.form.name.label')} <span className="text-light-accent-primary dark:text-dark-accent-primary">{t('demoRequest.form.required')}</span>
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -118,7 +129,7 @@ export const DemoRequestModal = ({
                       value={formData.name}
                       onChange={handleChange}
                       className="bg-light-bg-secondary dark:bg-dark-bg-primary border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary rounded-lg block w-full pl-10 p-2.5 placeholder-light-text-muted dark:placeholder-dark-text-muted/70 focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary focus:border-light-accent-primary dark:focus:border-dark-accent-primary transition-colors"
-                      placeholder="John Smith"
+                      placeholder={t('demoRequest.form.name.placeholder')}
                     />
                   </div>
                 </div>
@@ -127,7 +138,7 @@ export const DemoRequestModal = ({
                     htmlFor="company"
                     className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1"
                   >
-                    Company <span className="text-light-accent-primary dark:text-dark-accent-primary">*</span>
+                    {t('demoRequest.form.company.label')} <span className="text-light-accent-primary dark:text-dark-accent-primary">{t('demoRequest.form.required')}</span>
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -140,7 +151,7 @@ export const DemoRequestModal = ({
                       value={formData.company}
                       onChange={handleChange}
                       className="bg-light-bg-secondary dark:bg-dark-bg-primary border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary rounded-lg block w-full pl-10 p-2.5 placeholder-light-text-muted dark:placeholder-dark-text-muted/70 focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary focus:border-light-accent-primary dark:focus:border-dark-accent-primary transition-colors"
-                      placeholder="Your Company"
+                      placeholder={t('demoRequest.form.company.placeholder')}
                     />
                   </div>
                 </div>
@@ -149,7 +160,7 @@ export const DemoRequestModal = ({
                     htmlFor="email"
                     className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1"
                   >
-                    Email <span className="text-light-accent-primary dark:text-dark-accent-primary">*</span>
+                    {t('demoRequest.form.email.label')} <span className="text-light-accent-primary dark:text-dark-accent-primary">{t('demoRequest.form.required')}</span>
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -162,7 +173,7 @@ export const DemoRequestModal = ({
                       value={formData.email}
                       onChange={handleChange}
                       className="bg-light-bg-secondary dark:bg-dark-bg-primary border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary rounded-lg block w-full pl-10 p-2.5 placeholder-light-text-muted dark:placeholder-dark-text-muted/70 focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary focus:border-light-accent-primary dark:focus:border-dark-accent-primary transition-colors"
-                      placeholder="you@company.com"
+                      placeholder={t('demoRequest.form.email.placeholder')}
                     />
                   </div>
                 </div>
@@ -171,7 +182,7 @@ export const DemoRequestModal = ({
                     htmlFor="phone"
                     className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1"
                   >
-                    Phone Number
+                    {t('demoRequest.form.phone.label')}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -184,7 +195,7 @@ export const DemoRequestModal = ({
                       value={formData.phone}
                       onChange={handleChange}
                       className="bg-light-bg-secondary dark:bg-dark-bg-primary border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary rounded-lg block w-full pl-10 p-2.5 placeholder-light-text-muted dark:placeholder-dark-text-muted/70 focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary focus:border-light-accent-primary dark:focus:border-dark-accent-primary transition-colors"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder={t('demoRequest.form.phone.placeholder')}
                     />
                   </div>
                 </div>
@@ -232,7 +243,7 @@ export const DemoRequestModal = ({
                   htmlFor="message"
                   className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-1"
                 >
-                  Additional Information
+                  {t('demoRequest.form.message.label')}
                 </label>
                 <textarea
                   id="message"
@@ -241,7 +252,7 @@ export const DemoRequestModal = ({
                   value={formData.message}
                   onChange={handleChange}
                   className="bg-light-bg-secondary dark:bg-dark-bg-primary border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary rounded-lg block w-full p-2.5 placeholder-light-text-muted dark:placeholder-dark-text-muted/70 focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary focus:border-light-accent-primary dark:focus:border-dark-accent-primary transition-colors"
-                  placeholder="Tell us about your specific needs or questions"
+                  placeholder={t('demoRequest.form.message.placeholder')}
                 ></textarea>
               </div>
               <div className="pt-4">
@@ -273,7 +284,7 @@ export const DemoRequestModal = ({
                       ></path>
                     </svg>
                   ) : (
-                    'Schedule Demo'
+                    t('demoRequest.form.submit')
                   )}
                 </button>
               </div>
@@ -297,19 +308,17 @@ export const DemoRequestModal = ({
               <Check size={32} className="text-green-600 dark:text-green-400" />
             </div>
             <h2 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-4">
-              Demo Request Submitted!
+              {t('demoRequest.success.title')}
             </h2>
             <p className="text-light-text-secondary dark:text-dark-text-secondary mb-6 max-w-md mx-auto">
-              Thank you for your interest in zkCargoPass. One of our product
-              specialists will contact you within 24 hours to confirm your demo
-              appointment.
+              {t('demoRequest.success.message')}
             </p>
             <button
               type="button"
               onClick={onClose}
               className="bg-light-accent-primary dark:bg-dark-accent-primary hover:bg-light-accent-secondary dark:hover:bg-dark-accent-secondary text-white px-6 py-2.5 rounded-lg font-medium transition-colors"
             >
-              Return to Homepage
+              {t('demoRequest.success.button')}
             </button>
           </div>
         )}

@@ -420,5 +420,43 @@
       "exploreFeatures": "Explore Features",
       "contactUs": "Contact Us"
     }
+  },
+  "demoRequest": {
+    "title": "Schedule a Demo",
+    "description": "Experience how zkCargoPass can transform your customs document verification process. Fill out the form below and our team will contact you to schedule a personalized demo.",
+    "form": {
+      "name": {
+        "label": "Full Name",
+        "placeholder": "John Smith"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "Your Company"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "you@company.com"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "+1 (555) 123-4567"
+      },
+      "message": {
+        "label": "Additional Information",
+        "placeholder": "Tell us about your specific needs or questions"
+      },
+      "required": "*",
+      "submit": "Schedule Demo",
+      "submitting": "Sending..."
+    },
+    "errors": {
+      "requiredFields": "Please fill in all required fields",
+      "sendFailed": "Failed to send demo request. Please try again."
+    },
+    "success": {
+      "title": "Demo Request Submitted!",
+      "message": "Thank you for your interest in zkCargoPass. One of our product specialists will contact you within 24 hours to confirm your demo appointment.",
+      "button": "Return to Homepage"
+    }
   }
 }
