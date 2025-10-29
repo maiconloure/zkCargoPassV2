@@ -14,7 +14,10 @@ export const Pricing = () => {
             {t('pricing.description')}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          className="flex flex-col md:flex-row justify-center items-stretch gap-8"
+          // className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
           <PricingCard
             title={t('pricing.saasEnterprise.title')}
             price={t('pricing.saasEnterprise.price')}
@@ -23,7 +26,7 @@ export const Pricing = () => {
             features={t('pricing.saasEnterprise.features', { returnObjects: true }) as string[]}
             buttonText={t('common.contactSales')}
           />
-          <PricingCard
+          {/* <PricingCard
             title={t('pricing.payPerProof.title')}
             price={t('pricing.payPerProof.price')}
             period={t('pricing.payPerProof.period')}
@@ -39,7 +42,7 @@ export const Pricing = () => {
             description={t('pricing.payPerContainer.description')}
             features={t('pricing.payPerContainer.features', { returnObjects: true }) as string[]}
             buttonText={t('common.learnMore')}
-          />
+          /> */}
         </div>
         <div className="mt-12 text-center">
           <p className="text-light-text-secondary dark:text-dark-text-muted mb-4">{t('pricing.customSolution')}</p>
