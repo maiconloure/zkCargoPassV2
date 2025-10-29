@@ -1,5 +1,6 @@
 import { AlertCircle, Shield, X } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useWeb3Auth } from '../../contexts/web3authContext'
 
 interface LoginModalProps {
@@ -11,6 +12,7 @@ interface LoginModalProps {
 export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
   const [error, setError] = useState('')
   const { login, isLoading } = useWeb3Auth()
+  const { t } = useTranslation()
 
   if (!isOpen) return null
 
@@ -18,16 +20,14 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
     try {
       setError('')
       await login()
-      // Call onSuccess after successful login
       if (onSuccess) {
         onSuccess()
       } else {
-        // Fallback: close modal if no onSuccess handler
         onClose()
       }
     } catch (err) {
       console.error('Login error:', err)
-      setError('Failed to login. Please try again.')
+      setError(t('loginModal.error'))
     }
   }
 
@@ -43,47 +43,9 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
         </button>
 
         <div className="flex items-center mb-6">
-          <div className="mr-3 bg-light-accent-primary dark:bg-dark-accent-primary rounded-md p-1">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>zkCargoPass Logo</title>
-              <path
-                d="M12 2L4 6V18L12 22L20 18V6L12 2Z"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12 22V16"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M20 6L12 10L4 6"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M4 14L12 18L20 14"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
+          <div className="mr-3 bg-light-accent-primary dark:bg-dark-accent-primary rounded-md p-1" />
           <h2 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary">
-            Welcome Back
+            {t('loginModal.title')}
           </h2>
         </div>
 
@@ -99,7 +61,7 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
 
         <div className="text-center mb-6">
           <p className="text-light-text-secondary dark:text-dark-text-secondary mb-4">
-            Secure login with Web3Auth - choose your preferred authentication method
+            {t('loginModal.description')}
           </p>
         </div>
 
@@ -138,12 +100,12 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   />
                 </svg>
-                Connecting...
+                {t('loginModal.loading')}
               </>
             ) : (
               <>
                 <Shield size={20} />
-                Continue with Web3Auth
+                {t('loginModal.button')}
               </>
             )}
           </button>
@@ -152,34 +114,34 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
           <div className="mt-6 space-y-3">
             <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
               <div className="w-2 h-2 bg-green-500 rounded-full" />
-              <span>Login with Google, Twitter, Discord, or Email</span>
+              <span>{t('loginModal.benefits.google')}</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
               <div className="w-2 h-2 bg-green-500 rounded-full" />
-              <span>Secure blockchain-based authentication</span>
+              <span>{t('loginModal.benefits.secure')}</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
               <div className="w-2 h-2 bg-green-500 rounded-full" />
-              <span>No need to manage private keys</span>
+              <span>{t('loginModal.benefits.noKeys')}</span>
             </div>
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-light-border dark:border-dark-border text-center">
           <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
-            By logging in, you agree to our{' '}
+            {t('loginModal.terms')}{' '}
             <button
               type="button"
               className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors underline"
             >
-              Terms of Service
+              {t('loginModal.tos')}
             </button>{' '}
-            and{' '}
+            {t('loginModal.and')}{' '}
             <button
               type="button"
               className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors underline"
             >
-              Privacy Policy
+              {t('loginModal.privacy')}
             </button>
           </p>
         </div>
