@@ -17,6 +17,8 @@ export default {
         bitcount: ['Bitcount Prop Single', 'monospace'],
         fira: ['Fira Sans', 'sans-serif'],
         titillium: ['Titillium Web', 'sans-serif'],
+        raleway: ['Raleway', 'system-ui', 'sans-serif'],
+        lato: ['Lato', 'system-ui', 'sans-serif'],
       },
       colors: {
         light: {

@@ -458,5 +458,21 @@
       "message": "Thank you for your interest in zkCargoPass. One of our product specialists will contact you within 24 hours to confirm your demo appointment.",
       "button": "Return to Homepage"
     }
+  },
+  "loginModal": {
+    "title": "Welcome back",
+    "description": "Secure login with Web3Auth - choose your preferred authentication method",
+    "button": "Continue with Web3Auth",
+    "loading": "Connecting...",
+    "error": "Failed to log in. Please try again.",
+    "benefits": {
+      "google": "Sign in with Google, Twitter, Discord, or Email",
+      "secure": "Secure blockchain-based authentication",
+      "noKeys": "No need to manage private keys"
+    },
+    "terms": "By logging in, you agree to our",
+    "tos": "Terms of Service",
+    "and": "and",
+    "privacy": "Privacy Policy"
   }
 }

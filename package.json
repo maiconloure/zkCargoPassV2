@@ -1,8 +1,9 @@
 {
-  "name": "magic-patterns-vite-template",
+  "name": "zk-cargo-pass-v2",
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "author": "Maicon Lourenço <maiconloure@gmail.com>",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

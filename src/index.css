@@ -17,11 +17,12 @@
 /* Base styles */
 @layer base {
   html {
-    font-family: 'Public Sans', system-ui, sans-serif;
+    font-family: 'Raleway', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'Titillium Web', system-ui, sans-serif !important;
+    /* font-weight: 900 !important; */
   }
 
   /* Theme transition for smooth switching */
