@@ -16,7 +16,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import zkCargoPassLogo from '../../assets/logo.png'
-import { useWeb3Auth } from '../../contexts/web3authContext'
+import { useAuth } from '../../contexts/AuthContext'
 import { LanguageToggle } from '../LanguageToggle'
 import { ThemeToggle } from '../ThemeToggle'
 import { BudgetConsumption } from './BudgetConsumption'
@@ -65,7 +65,7 @@ export const Dashboard = () => {
   const [isGenerating, setIsGenerating] = useState(false)
   const [isValidating, setIsValidating] = useState(false)
   const { t } = useTranslation()
-  const { user, logout } = useWeb3Auth()
+  const { user, logout } = useAuth()
   const navigate = useNavigate()
 
   // Mock data for budget - in real app this would come from an API
@@ -248,7 +248,7 @@ export const Dashboard = () => {
                           {user?.name || 'User'}
                         </p>
                         <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
-                          {user?.typeOfLogin || 'Authenticated'}
+                          {user?.email || 'Authenticated'}
                         </p>
                       </div>
                       <ChevronDown

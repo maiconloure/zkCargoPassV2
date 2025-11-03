@@ -12,9 +12,9 @@ import { Hero } from './components/Hero'
 import { HowItWorks } from './components/HowItWorks'
 import { Partnerships } from './components/Partnerships'
 import { Pricing } from './components/Pricing'
+import { AuthProvider } from './contexts/AuthContext'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { ThemeProvider } from './contexts/ThemeContext'
-import { Web3AuthProvider } from './contexts/web3authContext'
 
 const AppContent = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
@@ -68,7 +68,7 @@ const AppContent = () => {
 
 export function App() {
   return (
-    <Web3AuthProvider>
+    <AuthProvider>
       <LanguageProvider>
         <ThemeProvider>
           <Router>
@@ -76,6 +76,6 @@ export function App() {
           </Router>
         </ThemeProvider>
       </LanguageProvider>
-    </Web3AuthProvider>
+    </AuthProvider>
   )
 }

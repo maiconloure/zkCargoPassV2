@@ -1,6 +1,6 @@
 import { AlertCircle, Shield, X } from 'lucide-react'
 import { useState } from 'react'
-import { useWeb3Auth } from '../../contexts/web3authContext'
+import { useAuth } from '../../contexts/AuthContext'
 
 interface LoginModalProps {
   isOpen: boolean
@@ -10,25 +10,44 @@ interface LoginModalProps {
 
 export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
   const [error, setError] = useState('')
-  const { login, isLoading } = useWeb3Auth()
+  const [isRegistering, setIsRegistering] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [name, setName] = useState('')
+  const { login, register, isLoading } = useAuth()
 
   if (!isOpen) return null
 
-  const handleWeb3AuthLogin = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
     try {
       setError('')
-      await login()
-      // Call onSuccess after successful login
+
+      if (isRegistering) {
+        if (!name.trim()) {
+          setError('Please enter your name')
+          return
+        }
+        await register(email, password, name)
+      } else {
+        await login(email, password)
+      }
+
+      // Call onSuccess after successful login/register
       if (onSuccess) {
         onSuccess()
       } else {
-        // Fallback: close modal if no onSuccess handler
         onClose()
       }
     } catch (err) {
-      console.error('Login error:', err)
-      setError('Failed to login. Please try again.')
+      console.error('Auth error:', err)
+      setError(err instanceof Error ? err.message : 'Authentication failed. Please try again.')
     }
+  }
+
+  const toggleMode = () => {
+    setIsRegistering(!isRegistering)
+    setError('')
   }
 
   return (
@@ -83,7 +102,7 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
             </svg>
           </div>
           <h2 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary">
-            Welcome Back
+            {isRegistering ? 'Create Account' : 'Welcome Back'}
           </h2>
         </div>
 
@@ -97,17 +116,62 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
           </div>
         )}
 
-        <div className="text-center mb-6">
-          <p className="text-light-text-secondary dark:text-dark-text-secondary mb-4">
-            Secure login with Web3Auth - choose your preferred authentication method
-          </p>
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {isRegistering && (
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-2">
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required={isRegistering}
+                className="w-full px-4 py-2 bg-white dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:ring-2 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary"
+                placeholder="John Doe"
+              />
+            </div>
+          )}
 
-        <div className="space-y-4">
-          {/* Web3Auth Login Button */}
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-4 py-2 bg-white dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:ring-2 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-2">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength={8}
+              className="w-full px-4 py-2 bg-white dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:ring-2 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary"
+              placeholder="••••••••"
+            />
+            {isRegistering && (
+              <p className="mt-1 text-xs text-light-text-muted dark:text-dark-text-muted">
+                Must be at least 8 characters
+              </p>
+            )}
+          </div>
+
           <button
-            type="button"
-            onClick={handleWeb3AuthLogin}
+            type="submit"
             disabled={isLoading}
             className={`w-full py-3 rounded-lg font-medium flex items-center justify-center gap-3 transition-colors ${
               isLoading
@@ -138,36 +202,46 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   />
                 </svg>
-                Connecting...
+                {isRegistering ? 'Creating Account...' : 'Signing In...'}
               </>
             ) : (
               <>
                 <Shield size={20} />
-                Continue with Web3Auth
+                {isRegistering ? 'Create Account' : 'Sign In'}
               </>
             )}
           </button>
+        </form>
 
-          {/* Benefits */}
-          <div className="mt-6 space-y-3">
-            <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
-              <div className="w-2 h-2 bg-green-500 rounded-full" />
-              <span>Login with Google, Twitter, Discord, or Email</span>
-            </div>
-            <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
-              <div className="w-2 h-2 bg-green-500 rounded-full" />
-              <span>Secure blockchain-based authentication</span>
-            </div>
-            <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
-              <div className="w-2 h-2 bg-green-500 rounded-full" />
-              <span>No need to manage private keys</span>
-            </div>
+        <div className="mt-6 text-center">
+          <button
+            type="button"
+            onClick={toggleMode}
+            className="text-sm text-light-accent-primary dark:text-dark-accent-primary hover:text-light-accent-secondary dark:hover:text-dark-accent-secondary transition-colors"
+          >
+            {isRegistering ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
+          </button>
+        </div>
+
+        {/* Benefits */}
+        <div className="mt-6 space-y-3">
+          <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
+            <div className="w-2 h-2 bg-green-500 rounded-full" />
+            <span>Secure email & password authentication</span>
+          </div>
+          <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
+            <div className="w-2 h-2 bg-green-500 rounded-full" />
+            <span>End-to-end encrypted document management</span>
+          </div>
+          <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
+            <div className="w-2 h-2 bg-green-500 rounded-full" />
+            <span>Blockchain-ready for future features</span>
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-light-border dark:border-dark-border text-center">
           <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
-            By logging in, you agree to our{' '}
+            By {isRegistering ? 'creating an account' : 'logging in'}, you agree to our{' '}
             <button
               type="button"
               className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors underline"
