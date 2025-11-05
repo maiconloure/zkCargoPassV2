@@ -1,21 +1,21 @@
 import { type ReactNode, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useWeb3Auth } from '../../contexts/web3authContext'
+import { useAuth } from '../../contexts/AuthContext'
 
 interface ProtectedRouteProps {
   children: ReactNode
 }
 
 export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const { isLoggedIn, isLoading } = useWeb3Auth()
+  const { isAuthenticated, isLoading } = useAuth()
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!isLoading && !isLoggedIn) {
-      console.log('User not logged in, redirecting to home...')
+    if (!isLoading && !isAuthenticated) {
+      console.log('User not authenticated, redirecting to home...')
       navigate('/')
     }
-  }, [isLoggedIn, isLoading, navigate])
+  }, [isAuthenticated, isLoading, navigate])
 
   // Show loading spinner while checking auth status
   if (isLoading) {
@@ -27,7 +27,7 @@ export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   }
 
   // Don't render children if not logged in (will redirect)
-  if (!isLoggedIn) {
+  if (!isAuthenticated) {
     return null
   }
 

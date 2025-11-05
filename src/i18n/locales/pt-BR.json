@@ -2,16 +2,48 @@
   "common": {
     "loading": "Carregando...",
     "getStarted": "Acessar",
-    "scheduleDemo": "Agendar demonstração",
-    "requestDemo": "Solicitar demonstração",
-    "learnMore": "Saber Mais",
+    "scheduleDemo": "Agendar Demo",
+    "requestDemo": "Solicitar Demonstração",
+    "learnMore": "Saiba Mais",
     "contactSales": "Contatar Vendas",
-    "contactTeam": "Contatar Nossa Equipe",
+    "contactTeam": "Entre em Contato com Nossa Equipe",
     "loginButton": "Entrar",
-    "returnToHomepage": "Voltar ao Início",
+    "returnToHomepage": "Voltar para a Página Inicial",
     "mostPopular": "MAIS POPULAR",
     "verified": "Verificado",
     "processing": "Processando"
+  },
+  "auth": {
+    "loginModal": {
+      "welcomeBack": "Bem-vindo de volta",
+      "createAccount": "Criar Conta",
+      "fullName": "Nome Completo",
+      "fullNamePlaceholder": "João Silva",
+      "email": "E-mail",
+      "emailPlaceholder": "voce@exemplo.com",
+      "password": "Senha",
+      "passwordPlaceholder": "••••••••",
+      "passwordMinLength": "Deve ter pelo menos 8 caracteres",
+      "signIn": "Entrar",
+      "createAccountButton": "Criar Conta",
+      "signingIn": "Entrando...",
+      "creatingAccount": "Criando Conta...",
+      "toggleToSignUp": "Não tem uma conta? Solicite uma demonstração",
+      "toggleToSignIn": "Já tem uma conta? Faça login",
+      "benefits": {
+        "title": "Benefícios",
+        "secure": "Autenticação segura com e-mail e senha",
+        "encrypted": "Gerenciamento de documentos criptografado",
+        "blockchain": "Pronto para recursos blockchain futuros"
+      },
+      "termsPrefix": "Ao",
+      "termsLoginAction": "fazer login",
+      "termsRegisterAction": "criar uma conta",
+      "termsSuffix": ", você concorda com nossos",
+      "termsOfService": "Termos de Serviço",
+      "and": "e",
+      "privacyPolicy": "Política de Privacidade"
+    }
   },
   "header": {
     "brand": "zkCargoPass",
