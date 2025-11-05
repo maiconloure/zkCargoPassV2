@@ -17,6 +17,7 @@ export default {
         bitcount: ['Bitcount Prop Single', 'monospace'],
         fira: ['Fira Sans', 'sans-serif'],
         titillium: ['Titillium Web', 'sans-serif'],
+        momo: ['Momo Trust Display', 'sans-serif'],
       },
       colors: {
         light: {

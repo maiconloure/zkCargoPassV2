@@ -1,5 +1,6 @@
 import { AlertCircle, Shield, X } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../contexts/AuthContext'
 
 interface LoginModalProps {
@@ -9,6 +10,7 @@ interface LoginModalProps {
 }
 
 export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
+  const { t } = useTranslation()
   const [error, setError] = useState('')
   const [isRegistering, setIsRegistering] = useState(false)
   const [email, setEmail] = useState('')
@@ -102,7 +104,7 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
             </svg>
           </div>
           <h2 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary">
-            {isRegistering ? 'Create Account' : 'Welcome Back'}
+            {isRegistering ? t('auth.loginModal.createAccount') : t('auth.loginModal.welcomeBack')}
           </h2>
         </div>
 
@@ -120,7 +122,7 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
           {isRegistering && (
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-2">
-                Full Name
+                {t('auth.loginModal.fullName')}
               </label>
               <input
                 type="text"
@@ -129,14 +131,14 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
                 onChange={(e) => setName(e.target.value)}
                 required={isRegistering}
                 className="w-full px-4 py-2 bg-white dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:ring-2 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary"
-                placeholder="John Doe"
+                placeholder={t('auth.loginModal.fullNamePlaceholder')}
               />
             </div>
           )}
 
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-2">
-              Email
+              {t('auth.loginModal.email')}
             </label>
             <input
               type="email"
@@ -145,13 +147,13 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-4 py-2 bg-white dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:ring-2 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary"
-              placeholder="you@example.com"
+              placeholder={t('auth.loginModal.emailPlaceholder')}
             />
           </div>
 
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-2">
-              Password
+              {t('auth.loginModal.password')}
             </label>
             <input
               type="password"
@@ -161,11 +163,11 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
               required
               minLength={8}
               className="w-full px-4 py-2 bg-white dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:ring-2 focus:ring-light-accent-primary dark:focus:ring-dark-accent-primary"
-              placeholder="••••••••"
+              placeholder={t('auth.loginModal.passwordPlaceholder')}
             />
             {isRegistering && (
               <p className="mt-1 text-xs text-light-text-muted dark:text-dark-text-muted">
-                Must be at least 8 characters
+                {t('auth.loginModal.passwordMinLength')}
               </p>
             )}
           </div>
@@ -202,58 +204,60 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   />
                 </svg>
-                {isRegistering ? 'Creating Account...' : 'Signing In...'}
+                {isRegistering ? t('auth.loginModal.creatingAccount') : t('auth.loginModal.signingIn')}
               </>
             ) : (
               <>
                 <Shield size={20} />
-                {isRegistering ? 'Create Account' : 'Sign In'}
+                {isRegistering ? t('auth.loginModal.createAccountButton') : t('auth.loginModal.signIn')}
               </>
             )}
           </button>
         </form>
 
         <div className="mt-6 text-center">
-          <button
+          {/* <button
             type="button"
             onClick={toggleMode}
             className="text-sm text-light-accent-primary dark:text-dark-accent-primary hover:text-light-accent-secondary dark:hover:text-dark-accent-secondary transition-colors"
           >
-            {isRegistering ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
-          </button>
+            {isRegistering ? t('auth.loginModal.toggleToSignIn') : t('auth.loginModal.toggleToSignUp')}
+          </button> */}
         </div>
 
         {/* Benefits */}
         <div className="mt-6 space-y-3">
-          <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
+          {/* <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
             <div className="w-2 h-2 bg-green-500 rounded-full" />
-            <span>Secure email & password authentication</span>
+            <span>{t('auth.loginModal.benefits.secure')}</span>
           </div>
           <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
             <div className="w-2 h-2 bg-green-500 rounded-full" />
-            <span>End-to-end encrypted document management</span>
-          </div>
-          <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
+            <span>{t('auth.loginModal.benefits.encrypted')}</span>
+          </div> */}
+          {/* <div className="flex items-center gap-3 text-sm text-light-text-secondary dark:text-dark-text-secondary">
             <div className="w-2 h-2 bg-green-500 rounded-full" />
-            <span>Blockchain-ready for future features</span>
-          </div>
+            <span>{t('auth.loginModal.benefits.blockchain')}</span>
+          </div> */}
         </div>
 
         <div className="mt-8 pt-6 border-t border-light-border dark:border-dark-border text-center">
           <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
-            By {isRegistering ? 'creating an account' : 'logging in'}, you agree to our{' '}
+            {t('auth.loginModal.termsPrefix')}{' '}
+            {isRegistering ? t('auth.loginModal.termsRegisterAction') : t('auth.loginModal.termsLoginAction')}
+            {t('auth.loginModal.termsSuffix')}{' '}
             <button
               type="button"
               className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors underline"
             >
-              Terms of Service
+              {t('auth.loginModal.termsOfService')}
             </button>{' '}
-            and{' '}
+            {t('auth.loginModal.and')}{' '}
             <button
               type="button"
               className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors underline"
             >
-              Privacy Policy
+              {t('auth.loginModal.privacyPolicy')}
             </button>
           </p>
         </div>
