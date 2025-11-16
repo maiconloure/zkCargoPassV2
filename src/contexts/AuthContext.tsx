@@ -29,7 +29,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(currentUser);
     } catch (error) {
       console.error('Failed to fetch user:', error);
-      // Token might be invalid, clear it
       apiClient.setToken(null);
       setUser(null);
     } finally {

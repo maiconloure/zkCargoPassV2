@@ -20,6 +20,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import { LanguageToggle } from '../LanguageToggle'
 import { ThemeToggle } from '../ThemeToggle'
 import { BudgetConsumption } from './BudgetConsumption'
+import { DocumentHistory } from './DocumentHistory'
 import { PlatformStatus } from './PlatformStatus'
 
 const mockDocs = [
@@ -557,48 +558,7 @@ export const Dashboard = () => {
             </div>
           )}
 
-          {tab === 'documents' && (
-            <div>
-              <h2 className="text-xl font-semibold mb-6 text-light-text-primary dark:text-dark-text-primary">
-                {t('dashboard.tables.documents.title')}
-              </h2>
-              <div className="bg-light-bg-card dark:bg-dark-bg-card backdrop-blur-sm border border-light-border dark:border-dark-border rounded-lg overflow-hidden">
-                <table className="w-full text-left">
-                  <thead>
-                    <tr className="border-b border-light-border dark:border-dark-border">
-                      <th className="py-4 px-6 text-light-text-muted dark:text-dark-text-muted font-medium">
-                        {t('dashboard.tables.documents.name')}
-                      </th>
-                      <th className="py-4 px-6 text-light-text-muted dark:text-dark-text-muted font-medium">
-                        {t('dashboard.tables.documents.date')}
-                      </th>
-                      <th className="py-4 px-6 text-light-text-muted dark:text-dark-text-muted font-medium">
-                        {t('dashboard.tables.documents.status')}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {mockDocs.map(doc => (
-                      <tr
-                        key={doc.id}
-                        className="border-b border-light-border dark:border-dark-border last:border-b-0 hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 transition-colors"
-                      >
-                        <td className="py-4 px-6 text-light-text-primary dark:text-dark-text-primary">
-                          {doc.name}
-                        </td>
-                        <td className="py-4 px-6 text-light-text-muted dark:text-dark-text-muted">
-                          {doc.date}
-                        </td>
-                        <td className="py-4 px-6 text-green-400">
-                          {t(`dashboard.status.${doc.status.toLowerCase()}`)}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+          {tab === 'documents' && <DocumentHistory />}
 
           {tab === 'proofs' && (
             <div>

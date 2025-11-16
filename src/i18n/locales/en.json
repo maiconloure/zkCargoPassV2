@@ -390,7 +390,52 @@
       "generated": "Generated",
       "pending": "Pending",
       "online": "Online",
-      "offline": "Offline"
+      "offline": "Offline",
+      "processing": "Processing",
+      "rejected": "Rejected"
+    },
+    "documentsModule": {
+      "description": "Upload your customs documents to process them with AI and keep track of their status in real time.",
+      "upload": {
+        "title": "Upload a Document",
+        "subtitle": "Send a file to trigger AI extraction and validation in the backend.",
+        "dropInstruction": "Click to browse or drag and drop a file",
+        "documentType": "Document type",
+        "documentNumber": "Document number",
+        "documentNumberPlaceholder": "Optional reference ID",
+        "button": "Upload document",
+        "uploading": "Uploading...",
+        "maxSize": "Maximum file size: {{size}}",
+        "supportedTypes": "Supported formats: {{types}}"
+      },
+      "listTitle": "Recent uploads",
+      "refresh": "Refresh",
+      "emptyState": "No documents uploaded yet. Start by sending a file.",
+      "requiresAuth": "Sign in to upload and view your documents.",
+      "labels": {
+        "documentNumber": "Document number"
+      },
+      "warningsTitle": "Validation warnings",
+      "lastUpdated": "Last updated {{date}}",
+      "messages": {
+        "uploadSuccess": "Document uploaded successfully."
+      },
+      "errors": {
+        "load": "Unable to load documents right now.",
+        "upload": "Unable to upload the document. Please try again.",
+        "unsupportedType": "This file type is not supported.",
+        "fileTooLarge": "The selected file exceeds the maximum size.",
+        "missingFile": "Select a file before uploading.",
+        "requiresAuth": "You need to be signed in to upload documents."
+      },
+      "types": {
+        "customs_declaration": "Customs declaration",
+        "cargo_manifest": "Cargo manifest",
+        "bill_of_lading": "Bill of lading",
+        "invoice": "Invoice",
+        "certificate": "Certificate",
+        "other": "Other"
+      }
     },
     "settings": "Settings",
     "signOut": "Sign out"

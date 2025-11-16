@@ -26,7 +26,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>('light') // Default to light theme
 
   useEffect(() => {
-    // Check if user has a saved theme preference
     const savedTheme = localStorage.getItem('theme') as Theme | null
     if (savedTheme) {
       setTheme(savedTheme)
@@ -34,7 +33,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   }, [])
 
   useEffect(() => {
-    // Apply theme to document root and save to localStorage
     document.documentElement.classList.remove('light', 'dark')
     document.documentElement.classList.add(theme)
     localStorage.setItem('theme', theme)

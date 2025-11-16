@@ -1,12 +1,10 @@
 // API client for backend communication
 /// <reference types="vite/client" />
 
-interface ImportMetaEnv {
-  readonly VITE_API_URL: string
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv
+declare global {
+  interface ImportMetaEnv {
+    readonly VITE_API_URL: string
+  }
 }
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8787/api';
@@ -86,9 +84,19 @@ class ApiClient {
     options: RequestInit = {}
   ): Promise<T> {
     const headers: Record<string, string> = {
-      'Content-Type': 'application/json',
       ...(options.headers as Record<string, string>),
     };
+
+    const body = options.body;
+    const isFormData = typeof FormData !== 'undefined' && body instanceof FormData;
+
+    if (isFormData && headers['Content-Type']) {
+      delete headers['Content-Type'];
+    }
+
+    if (!isFormData && body !== undefined && body !== null && !headers['Content-Type']) {
+      headers['Content-Type'] = 'application/json';
+    }
 
     if (this.token) {
       headers['Authorization'] = `Bearer ${this.token}`;
@@ -218,6 +226,33 @@ class ApiClient {
     return this.request<{ message: string; status: string }>(`/documents/${id}/verify`, {
       method: 'POST',
       body: JSON.stringify({ verificationStatus, comments }),
+    });
+  }
+
+  async uploadDocument(params: {
+    file: File;
+    documentType?: Document['documentType'];
+    documentNumber?: string;
+  }) {
+    const formData = new FormData();
+    formData.append('file', params.file);
+
+    if (params.documentType) {
+      formData.append('documentType', params.documentType);
+    }
+
+    if (params.documentNumber) {
+      formData.append('documentNumber', params.documentNumber);
+    }
+
+    return this.request<{
+      message: string;
+      document: Document;
+      extractedData?: Record<string, any>;
+      warnings?: string[];
+    }>('/documents/upload', {
+      method: 'POST',
+      body: formData,
     });
   }
 }
