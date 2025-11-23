@@ -9,9 +9,10 @@ import { ThemeToggle } from './ThemeToggle'
 interface HeaderProps {
   onOpenLogin: () => void
   onOpenDemo: () => void
+  onOpenDuimpDemo?: () => void
 }
 
-export const Header = ({ onOpenLogin, onOpenDemo }: HeaderProps) => {
+export const Header = ({ onOpenLogin, onOpenDemo, onOpenDuimpDemo }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { t } = useTranslation()
 
@@ -37,6 +38,12 @@ export const Header = ({ onOpenLogin, onOpenDemo }: HeaderProps) => {
             >
               {t('header.aboutUs')}
             </Link>
+            <button
+              onClick={onOpenDuimpDemo || onOpenLogin}
+              className="text-light-text-primary font-bold dark:text-dark-text-primary hover:text-light-text-secondary dark:hover:text-dark-text-muted transition-colors"
+            >
+              Demo
+            </button>
           </nav>
           <div className="hidden md:flex items-center space-x-4">
             <LanguageToggle />
@@ -98,6 +105,19 @@ export const Header = ({ onOpenLogin, onOpenDemo }: HeaderProps) => {
               >
                 {t('header.aboutUs')}
               </Link>
+              <button
+                className="text-light-text-primary dark:text-dark-text-primary hover:text-light-text-secondary dark:hover:text-dark-text-muted py-2 text-left transition-colors"
+                onClick={() => {
+                  setIsMenuOpen(false)
+                  if (onOpenDuimpDemo) {
+                    onOpenDuimpDemo()
+                  } else {
+                    onOpenLogin()
+                  }
+                }}
+              >
+                Demo
+              </button>
               <div className="pt-4 border-t border-light-border dark:border-dark-border flex flex-col space-y-4">
                 <button
                   type="button"

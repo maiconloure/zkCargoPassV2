@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import zkCargoPassLogo from '../../assets/logo.png'
 import { useAuth } from '../../contexts/AuthContext'
 import { LanguageToggle } from '../LanguageToggle'
@@ -22,6 +22,7 @@ import { ThemeToggle } from '../ThemeToggle'
 import { BudgetConsumption } from './BudgetConsumption'
 import { DocumentHistory } from './DocumentHistory'
 import { PlatformStatus } from './PlatformStatus'
+import { ProofSimulationFlow } from '../proof/ProofSimulationFlow'
 
 const mockDocs = [
   { id: 1, name: 'Invoice_123.pdf', date: '2025-07-20', status: 'Uploaded' },
@@ -34,10 +35,10 @@ const mockProofs = [
 ]
 
 const mockStats = {
-  totalDocuments: 147,
-  activeProofs: 23,
-  verifiedProofs: 89,
-  savedTime: '240h',
+  totalDocuments: 0,
+  activeProofs: 0,
+  verifiedProofs: 0,
+  savedTime: '0h',
 }
 
 const mockRecentActivity = [
@@ -60,7 +61,9 @@ const platformStatus = {
 }
 
 export const Dashboard = () => {
-  const [tab, setTab] = useState('overview')
+  const [searchParams] = useSearchParams()
+  const initialTab = searchParams.get('tab') || 'overview'
+  const [tab, setTab] = useState(initialTab)
   const [isProfileOpen, setIsProfileOpen] = useState(false)
   const [hasNotifications] = useState(true)
   const [isGenerating, setIsGenerating] = useState(false)
@@ -71,8 +74,8 @@ export const Dashboard = () => {
 
   // Mock data for budget - in real app this would come from an API
   const mockBudget = {
-    budgetUsed: 42,
-    budgetTotal: 100,
+    budgetUsed: 0,
+    budgetTotal: 1000,
   }
 
   const handleLogout = async () => {
@@ -170,6 +173,21 @@ export const Dashboard = () => {
               <span>{t('dashboard.navigation.validate')}</span>
               <div className="absolute left-full ml-2 invisible group-hover:visible w-64 p-2 bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg shadow-lg text-xs text-light-text-muted dark:text-dark-text-muted">
                 {t('dashboard.tooltips.validate')}
+              </div>
+            </button>
+            <button
+              type="button"
+              onClick={() => setTab('duimp-demo')}
+              className={`group relative w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${
+                tab === 'duimp-demo'
+                  ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
+                  : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
+              }`}
+            >
+              <Upload size={18} />
+              <span>DUIMP Demo</span>
+              <div className="absolute left-full ml-2 invisible group-hover:visible w-64 p-2 bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg shadow-lg text-xs text-light-text-muted dark:text-dark-text-muted">
+                Generate fake DUIMP zero-knowledge proofs (demo only)
               </div>
             </button>
             <button
@@ -413,76 +431,115 @@ export const Dashboard = () => {
                       {t('dashboard.quickActions.title')}
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="relative">
+                        <button
+                          type="button"
+                          disabled
+                          className="w-full flex items-center space-x-4 p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
+                        >
+                          <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
+                            <Upload className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                          </div>
+                          <div className="text-left flex-1">
+                            <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
+                              {t('dashboard.quickActions.uploadDocument')}
+                            </h3>
+                            <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                              {t('dashboard.quickActions.uploadDocumentDesc')}
+                            </p>
+                          </div>
+                        </button>
+                        <div className="absolute top-2 right-2 px-2 py-1 bg-gray-500 dark:bg-gray-600 text-white text-xs font-bold rounded">
+                          {t('common.comingSoon')}
+                        </div>
+                      </div>
+
+                      <div className="relative">
+                        <button
+                          type="button"
+                          disabled
+                          className="w-full flex items-center space-x-4 p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
+                        >
+                          <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg">
+                            <Play className="w-5 h-5 text-green-600 dark:text-green-400" />
+                          </div>
+                          <div className="text-left flex-1">
+                            <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
+                              {t('dashboard.quickActions.generateProof')}
+                            </h3>
+                            <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                              {t('dashboard.quickActions.generateProofDesc')}
+                            </p>
+                          </div>
+                        </button>
+                        <div className="absolute top-2 right-2 px-2 py-1 bg-gray-500 dark:bg-gray-600 text-white text-xs font-bold rounded">
+                          {t('common.comingSoon')}
+                        </div>
+                      </div>
+
+                      <div className="relative">
+                        <button
+                          type="button"
+                          disabled
+                          className="w-full flex items-center space-x-4 p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
+                        >
+                          <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg">
+                            <Eye className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                          </div>
+                          <div className="text-left flex-1">
+                            <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
+                              {t('dashboard.quickActions.validateProof')}
+                            </h3>
+                            <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                              {t('dashboard.quickActions.validateProofDesc')}
+                            </p>
+                          </div>
+                        </button>
+                        <div className="absolute top-2 right-2 px-2 py-1 bg-gray-500 dark:bg-gray-600 text-white text-xs font-bold rounded">
+                          {t('common.comingSoon')}
+                        </div>
+                      </div>
+
                       <button
                         type="button"
-                        onClick={() => setTab('documents')}
+                        onClick={() => setTab('duimp-demo')}
                         className="flex items-center space-x-4 p-4 bg-light-bg-secondary/50 dark:bg-dark-bg-secondary/50 hover:bg-light-bg-secondary dark:hover:bg-dark-bg-secondary rounded-lg transition-colors group"
                       >
-                        <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors">
-                          <Upload className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                        <div className="p-2 bg-indigo-100 dark:bg-indigo-900 rounded-lg group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800 transition-colors">
+                          <Shield className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                         </div>
                         <div className="text-left">
                           <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
-                            {t('dashboard.quickActions.uploadDocument')}
+                            {t('dashboard.quickActions.duimpDemo')}
                           </h3>
                           <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
-                            {t('dashboard.quickActions.uploadDocumentDesc')}
+                            {t('dashboard.quickActions.duimpDemoDesc')}
                           </p>
                         </div>
                       </button>
 
-                      <button
-                        type="button"
-                        onClick={() => setTab('generate')}
-                        className="flex items-center space-x-4 p-4 bg-light-bg-secondary/50 dark:bg-dark-bg-secondary/50 hover:bg-light-bg-secondary dark:hover:bg-dark-bg-secondary rounded-lg transition-colors group"
-                      >
-                        <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg group-hover:bg-green-200 dark:group-hover:bg-green-800 transition-colors">
-                          <Play className="w-5 h-5 text-green-600 dark:text-green-400" />
+                      <div className="relative">
+                        <button
+                          type="button"
+                          disabled
+                          className="w-full flex items-center space-x-4 p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
+                        >
+                          <div className="p-2 bg-orange-100 dark:bg-orange-900 rounded-lg">
+                            <BarChart3 className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                          </div>
+                          <div className="text-left flex-1">
+                            <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
+                              {t('dashboard.quickActions.viewReports')}
+                            </h3>
+                            <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                              {t('dashboard.quickActions.viewReportsDesc')}
+                            </p>
+                          </div>
+                        </button>
+                        <div className="absolute top-2 right-2 px-2 py-1 bg-gray-500 dark:bg-gray-600 text-white text-xs font-bold rounded">
+                          {t('common.comingSoon')}
                         </div>
-                        <div className="text-left">
-                          <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
-                            {t('dashboard.quickActions.generateProof')}
-                          </h3>
-                          <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
-                            {t('dashboard.quickActions.generateProofDesc')}
-                          </p>
-                        </div>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => setTab('validate')}
-                        className="flex items-center space-x-4 p-4 bg-light-bg-secondary/50 dark:bg-dark-bg-secondary/50 hover:bg-light-bg-secondary dark:hover:bg-dark-bg-secondary rounded-lg transition-colors group"
-                      >
-                        <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg group-hover:bg-purple-200 dark:group-hover:bg-purple-800 transition-colors">
-                          <Eye className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                        </div>
-                        <div className="text-left">
-                          <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
-                            {t('dashboard.quickActions.validateProof')}
-                          </h3>
-                          <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
-                            {t('dashboard.quickActions.validateProofDesc')}
-                          </p>
-                        </div>
-                      </button>
-
-                      <button
-                        type="button"
-                        className="flex items-center space-x-4 p-4 bg-light-bg-secondary/50 dark:bg-dark-bg-secondary/50 hover:bg-light-bg-secondary dark:hover:bg-dark-bg-secondary rounded-lg transition-colors group"
-                      >
-                        <div className="p-2 bg-orange-100 dark:bg-orange-900 rounded-lg group-hover:bg-orange-200 dark:group-hover:bg-orange-800 transition-colors">
-                          <BarChart3 className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                        </div>
-                        <div className="text-left">
-                          <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
-                            {t('dashboard.quickActions.viewReports')}
-                          </h3>
-                          <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
-                            {t('dashboard.quickActions.viewReportsDesc')}
-                          </p>
-                        </div>
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -728,6 +785,12 @@ export const Dashboard = () => {
                   </button>
                 </div>
               </div>
+            </div>
+          )}
+
+          {tab === 'duimp-demo' && (
+            <div className="-mx-4 sm:-mx-6 lg:-mx-8 -my-8">
+              <ProofSimulationFlow />
             </div>
           )}
 
