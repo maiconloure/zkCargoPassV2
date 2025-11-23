@@ -11,7 +11,8 @@
     "returnToHomepage": "Voltar para a Página Inicial",
     "mostPopular": "MAIS POPULAR",
     "verified": "Verificado",
-    "processing": "Processando"
+    "processing": "Processando",
+    "comingSoon": "Em breve"
   },
   "auth": {
     "loginModal": {
@@ -288,6 +289,8 @@
       "generateProofDesc": "Crie provas de conhecimento zero",
       "validateProof": "Validar Prova",
       "validateProofDesc": "Verifique provas recebidas",
+      "duimpDemo": "Demo",
+      "duimpDemoDesc": "Gerar provas ZK DUIMP",
       "viewReports": "Ver Relatórios",
       "viewReportsDesc": "Veja análises e relatórios"
     },
@@ -390,7 +393,52 @@
       "generated": "Gerado",
       "pending": "Pendente",
       "online": "Online",
-      "offline": "Offline"
+      "offline": "Offline",
+      "processing": "Processando",
+      "rejected": "Rejeitado"
+    },
+    "documentsModule": {
+      "description": "Envie seus documentos aduaneiros para processamento com IA e acompanhe o status em tempo real.",
+      "upload": {
+        "title": "Enviar Documento",
+        "subtitle": "Envie um arquivo para acionar a extração e validação pelo backend.",
+        "dropInstruction": "Clique para procurar ou arraste e solte um arquivo",
+        "documentType": "Tipo de documento",
+        "documentNumber": "Número do documento",
+        "documentNumberPlaceholder": "Referência opcional",
+        "button": "Enviar documento",
+        "uploading": "Enviando...",
+        "maxSize": "Tamanho máximo do arquivo: {{size}}",
+        "supportedTypes": "Formatos suportados: {{types}}"
+      },
+      "listTitle": "Envios recentes",
+      "refresh": "Atualizar",
+      "emptyState": "Nenhum documento enviado ainda. Comece enviando um arquivo.",
+      "requiresAuth": "Faça login para enviar e visualizar seus documentos.",
+      "labels": {
+        "documentNumber": "Número do documento"
+      },
+      "warningsTitle": "Avisos de validação",
+      "lastUpdated": "Última atualização em {{date}}",
+      "messages": {
+        "uploadSuccess": "Documento enviado com sucesso."
+      },
+      "errors": {
+        "load": "Não foi possível carregar os documentos no momento.",
+        "upload": "Não foi possível enviar o documento. Tente novamente.",
+        "unsupportedType": "Este tipo de arquivo não é suportado.",
+        "fileTooLarge": "O arquivo selecionado excede o tamanho máximo.",
+        "missingFile": "Selecione um arquivo antes de enviar.",
+        "requiresAuth": "Você precisa estar autenticado para enviar documentos."
+      },
+      "types": {
+        "customs_declaration": "Declaração aduaneira",
+        "cargo_manifest": "Manifesto de carga",
+        "bill_of_lading": "Conhecimento de embarque",
+        "invoice": "Fatura",
+        "certificate": "Certificado",
+        "other": "Outro"
+      }
     },
     "settings": "Configurações",
     "signOut": "Sair"
@@ -490,5 +538,187 @@
       "message": "Obrigado pelo seu interesse no zkCargoPass. Um de nossos especialistas entrará em contato em até 24 horas para confirmar sua demonstração.",
       "button": "Voltar ao Início"
     }
+  },
+  "proofSimulation": {
+    "header": {
+      "duimpDemo": "Demo"
+    },
+    "step1": {
+      "title": "Validação e verificação de documentos para DUIMP",
+      "subtitle": "Insira os dados da declaração DUIMP e envie documentos para verificação",
+      "disclaimer": "⚠️ Apenas Demo: Este é um protótipo de demonstração. Todos os dados e provas gerados são demonstrações e não possuem valor legal ou de conformidade.",
+      "cnpj": {
+        "label": "CNPJ do Importador",
+        "placeholder": "00.000.000/0000-00"
+      },
+      "duimpId": {
+        "label": "ID de Referência DUIMP",
+        "placeholder": "DUIMP-2025-XXXXX"
+      },
+      "incoterm": {
+        "label": "Incoterm",
+        "options": {
+          "FOB": "FOB - Free On Board (Livre a Bordo)",
+          "CIF": "CIF - Cost, Insurance and Freight (Custo, Seguro e Frete)",
+          "CFR": "CFR - Cost and Freight (Custo e Frete)",
+          "EXW": "EXW - Ex Works (Na Origem)",
+          "FCA": "FCA - Free Carrier (Livre no Transportador)",
+          "CPT": "CPT - Carriage Paid To (Transporte Pago Até)",
+          "CIP": "CIP - Carriage and Insurance Paid To (Transporte e Seguro Pagos Até)",
+          "DAP": "DAP - Delivered at Place (Entregue no Local)",
+          "DPU": "DPU - Delivered at Place Unloaded (Entregue no Local Descarregado)",
+          "DDP": "DDP - Delivered Duty Paid (Entregue com Direitos Pagos)"
+        }
+      },
+      "customsValue": {
+        "label": "Valor Aduaneiro Total (BRL)",
+        "placeholder": "0,00"
+      },
+      "itemCount": {
+        "label": "Número de Itens",
+        "placeholder": "0"
+      },
+      "files": {
+        "label": "Documentos",
+        "accepted": "Aceitos: XML, PDF, XLS/XLSX, CSV, DOCX, JPG/PNG",
+        "uploadedFiles": "Arquivos Enviados",
+        "status": "Status: Enviado (simulado)"
+      },
+      "submit": "Gerar Prova (Demo)",
+      "processing": "Processando..."
+    },
+    "step2": {
+      "title": "Análise em andamento",
+      "subtitle": "Analisando e gerando prova (demo)",
+      "progress": "Progresso",
+      "steps": {
+        "receiving": "Recebendo dados da declaração",
+        "validating": "Validando CNPJ e documentos",
+        "extracting": "Extraindo metadados",
+        "analyzing": "Analisando conformidade",
+        "hashing": "Computando hashes de documentos",
+        "commitments": "Gerando compromissos criptográficos",
+        "circuit": "Preparando circuito criptográfico",
+        "proof": "Gerando prova ZK",
+        "verification": "Verificando integridade da prova"
+      },
+      "stepMessages": {
+        "receiving": "Validando CNPJ e referência DUIMP...",
+        "analyzing": "Extraindo metadados do documento e gerando hashes...",
+        "commitments": "Criando compromissos criptográficos (simulado)...",
+        "proof": "Gerando prova zk-SNARK com zkVerify (simulado)..."
+      },
+      "completed": "✓ Concluído",
+      "disclaimer": "ℹ️ Demo em andamento: Nenhuma análise real de documentos, validação ou geração de prova criptográfica está ocorrendo. Esta é apenas uma demonstração visual."
+    },
+    "badges": {
+      "demoMode": "MODO DEMO",
+      "processing": "PROCESSANDO",
+      "verified": "VERIFICADO"
+    },
+    "warnings": {
+      "demoPrefix": "Modo Demo:"
+    },
+    "flowSteps": {
+      "dataInput": "Entrada de Dados",
+      "analysis": "Análise",
+      "result": "Resultado",
+      "integration": "Integração"
+    },
+    "documentTypes": {
+      "invoice": "Fatura",
+      "packing_list": "Lista de Embalagem",
+      "bill_of_lading": "Conhecimento de Embarque",
+      "certificate": "Certificado",
+      "license": "Licença",
+      "xml_fiscal": "XML Fiscal",
+      "document": "Documento",
+      "spreadsheet": "Planilha",
+      "image": "Imagem",
+      "text_document": "Documento de Texto",
+      "other": "Outro"
+    },
+    "step3": {
+      "title": "Resultado da verificação dos documentos",
+      "subtitle": "Prova gerada com sucesso (demo)",
+      "proofSummary": "Resumo da Prova",
+      "generatedAt": "a prova de conhecimento zero gerada em",
+      "proofId": "ID da Prova",
+      "duimpReference": "ID de Referência DUIMP",
+      "commitmentHash": "Hash de Compromisso",
+      "zkSystem": "Sistema ZK",
+      "documentsIncluded": "Documentos Incluídos",
+      "fileCount": "arquivo(s)",
+      "metadata": "Metadados da Declaração",
+      "duimpMetadata": "Metadados DUIMP",
+      "cnpj": "CNPJ",
+      "incoterm": "Incoterm",
+      "customsValue": "Valor Aduaneiro",
+      "items": "Itens",
+      "documentCommitments": "Compromissos de Documentos",
+      "type": "Tipo",
+      "status": "Status",
+      "hash": "Hash",
+      "technicalJson": "Ver JSON Técnico",
+      "downloadButton": "Baixar Prova (.json)",
+      "copyLinkButton": "Copiar Link de Compartilhamento",
+      "sendToPortalUnico": "Enviar para Portal Único",
+      "startNewButton": "Iniciar Novo Demo",
+      "backButton": "Voltar para Demo de Prova",
+      "toastMessages": {
+        "downloaded": "Prova baixada com sucesso!",
+        "linkCopied": "Link fictício copiado para a área de transferência - apenas demo!",
+        "linkFailed": "Falha ao copiar link"
+      }
+    },
+    "viewer": {
+      "title": "Visualização Pública da Prova",
+      "viewingProof": "Visualizando prova:",
+      "loading": "Carregando prova...",
+      "notFound": "Prova não encontrada",
+      "notFoundMessage": "A prova solicitada não pôde ser carregada. Ela pode não existir ou ter sido removida.",
+      "createNewButton": "Criar Nova Prova"
+    }
+  },
+  "portalUnicoIntegration": {
+    "title": "Integração com Portal Único",
+    "subtitle": "Enviando prova para o Sistema de Comércio Exterior",
+    "proofReference": "Prova em Envio",
+    "progress": "Progresso da Integração",
+    "protocolNumber": "Número do Protocolo",
+    "badges": {
+      "integrating": "INTEGRANDO",
+      "completed": "ENVIADO"
+    },
+    "steps": {
+      "authentication": "Autenticação no Portal Único",
+      "validation": "Validação da Prova ZK",
+      "formatting": "Formatação para DUIMP",
+      "transmission": "Transmissão de Dados",
+      "receiptVerification": "Verificação de Recibo",
+      "protocolGeneration": "Geração de Protocolo"
+    },
+    "messages": {
+      "authentication": "Autenticando com certificado digital...",
+      "validation": "Validando estrutura da prova...",
+      "formatting": "Convertendo para formato XML DUIMP...",
+      "transmission": "Transmitindo dados via HTTPS seguro...",
+      "receiptVerification": "Aguardando confirmação do Portal Único...",
+      "protocolGeneration": "Gerando número de protocolo oficial..."
+    },
+    "success": {
+      "title": "Prova Enviada com Sucesso!",
+      "message": "A prova foi integrada com sucesso ao Portal Único do Comércio Exterior. Protocolo gerado:"
+    },
+    "disclaimer": {
+      "prefix": "Simulação de Integração:",
+      "message": "Esta é uma demonstração visual. Nenhuma transmissão real está sendo feita para o Portal Único da Receita Federal. Em produção, esta integração requer certificado digital A1/A3 válido e credenciais oficiais."
+    },
+    "buttons": {
+      "cancel": "Cancelar Envio",
+      "copyProtocol": "Copiar Protocolo",
+      "continue": "Concluir"
+    }
   }
 }
+

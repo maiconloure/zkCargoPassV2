@@ -12,6 +12,7 @@ import { Hero } from './components/Hero'
 import { HowItWorks } from './components/HowItWorks'
 import { Partnerships } from './components/Partnerships'
 import { Pricing } from './components/Pricing'
+import { ProofViewer } from './components/proof/ProofViewer'
 import { AuthProvider } from './contexts/AuthContext'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { ThemeProvider } from './contexts/ThemeContext'
@@ -19,11 +20,22 @@ import { ThemeProvider } from './contexts/ThemeContext'
 const AppContent = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
+  const [loginRedirectTab, setLoginRedirectTab] = useState<string | null>(null)
   const navigate = useNavigate()
+
+  const handleOpenLoginForDemo = () => {
+    setLoginRedirectTab('duimp-demo')
+    setIsLoginModalOpen(true)
+  }
 
   const handleLoginSuccess = () => {
     setIsLoginModalOpen(false)
-    navigate('/dashboard')
+    if (loginRedirectTab) {
+      navigate(`/dashboard?tab=${loginRedirectTab}`)
+      setLoginRedirectTab(null)
+    } else {
+      navigate('/dashboard')
+    }
   }
 
   return (
@@ -35,6 +47,7 @@ const AppContent = () => {
             <Header
               onOpenLogin={() => setIsLoginModalOpen(true)}
               onOpenDemo={() => setIsDemoModalOpen(true)}
+              onOpenDuimpDemo={handleOpenLoginForDemo}
             />
             <main className="w-full">
               <Hero onOpenLogin={() => setIsLoginModalOpen(true)} />
@@ -54,6 +67,7 @@ const AppContent = () => {
         }
       />
       <Route path="/about" element={<AboutUs />} />
+      <Route path="/proofs/:proofId" element={<ProofViewer />} />
       <Route
         path="/dashboard"
         element={

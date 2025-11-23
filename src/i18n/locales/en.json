@@ -11,7 +11,8 @@
     "returnToHomepage": "Return to Homepage",
     "mostPopular": "MOST POPULAR",
     "verified": "Verified",
-    "processing": "Processing"
+    "processing": "Processing",
+    "comingSoon": "Coming Soon"
   },
   "auth": {
     "loginModal": {
@@ -288,6 +289,8 @@
       "generateProofDesc": "Create zero-knowledge proofs",
       "validateProof": "Validate Proof",
       "validateProofDesc": "Verify received proofs",
+      "duimpDemo": "Demo",
+      "duimpDemoDesc": "Generate DUIMP ZK proofs",
       "viewReports": "View Reports",
       "viewReportsDesc": "View analytics and reports"
     },
@@ -390,7 +393,52 @@
       "generated": "Generated",
       "pending": "Pending",
       "online": "Online",
-      "offline": "Offline"
+      "offline": "Offline",
+      "processing": "Processing",
+      "rejected": "Rejected"
+    },
+    "documentsModule": {
+      "description": "Upload your customs documents to process them with AI and keep track of their status in real time.",
+      "upload": {
+        "title": "Upload a Document",
+        "subtitle": "Send a file to trigger AI extraction and validation in the backend.",
+        "dropInstruction": "Click to browse or drag and drop a file",
+        "documentType": "Document type",
+        "documentNumber": "Document number",
+        "documentNumberPlaceholder": "Optional reference ID",
+        "button": "Upload document",
+        "uploading": "Uploading...",
+        "maxSize": "Maximum file size: {{size}}",
+        "supportedTypes": "Supported formats: {{types}}"
+      },
+      "listTitle": "Recent uploads",
+      "refresh": "Refresh",
+      "emptyState": "No documents uploaded yet. Start by sending a file.",
+      "requiresAuth": "Sign in to upload and view your documents.",
+      "labels": {
+        "documentNumber": "Document number"
+      },
+      "warningsTitle": "Validation warnings",
+      "lastUpdated": "Last updated {{date}}",
+      "messages": {
+        "uploadSuccess": "Document uploaded successfully."
+      },
+      "errors": {
+        "load": "Unable to load documents right now.",
+        "upload": "Unable to upload the document. Please try again.",
+        "unsupportedType": "This file type is not supported.",
+        "fileTooLarge": "The selected file exceeds the maximum size.",
+        "missingFile": "Select a file before uploading.",
+        "requiresAuth": "You need to be signed in to upload documents."
+      },
+      "types": {
+        "customs_declaration": "Customs declaration",
+        "cargo_manifest": "Cargo manifest",
+        "bill_of_lading": "Bill of lading",
+        "invoice": "Invoice",
+        "certificate": "Certificate",
+        "other": "Other"
+      }
     },
     "settings": "Settings",
     "signOut": "Sign out"
@@ -490,5 +538,186 @@
       "message": "Thank you for your interest in zkCargoPass. One of our product specialists will contact you within 24 hours to confirm your demo appointment.",
       "button": "Return to Homepage"
     }
+  },
+  "proofSimulation": {
+    "header": {
+      "duimpDemo": "Demo"
+    },
+    "step1": {
+      "title": "Data Input for DUIMP Declaration",
+      "subtitle": "Enter DUIMP declaration data and upload documents",
+      "disclaimer": "⚠️ Demo Only: This is a prototype demo. All data and proofs generated are fake and have no legal or compliance value.",
+      "cnpj": {
+        "label": "Importer CNPJ",
+        "placeholder": "00.000.000/0000-00"
+      },
+      "duimpId": {
+        "label": "DUIMP Reference ID",
+        "placeholder": "DUIMP-2025-XXXXX"
+      },
+      "incoterm": {
+        "label": "Incoterm",
+        "options": {
+          "FOB": "FOB - Free On Board",
+          "CIF": "CIF - Cost, Insurance and Freight",
+          "CFR": "CFR - Cost and Freight",
+          "EXW": "EXW - Ex Works",
+          "FCA": "FCA - Free Carrier",
+          "CPT": "CPT - Carriage Paid To",
+          "CIP": "CIP - Carriage and Insurance Paid To",
+          "DAP": "DAP - Delivered at Place",
+          "DPU": "DPU - Delivered at Place Unloaded",
+          "DDP": "DDP - Delivered Duty Paid"
+        }
+      },
+      "customsValue": {
+        "label": "Total Customs Value (BRL)",
+        "placeholder": "0.00"
+      },
+      "itemCount": {
+        "label": "Number of Items",
+        "placeholder": "0"
+      },
+      "files": {
+        "label": "Documents",
+        "accepted": "Accepted: XML, PDF, XLS/XLSX, CSV, DOCX, JPG/PNG",
+        "uploadedFiles": "Uploaded Files",
+        "status": "Status: Uploaded (simulated)"
+      },
+      "submit": "Generate Proof (Demo)",
+      "processing": "Processing..."
+    },
+    "step2": {
+      "title": "Document validation and proof generation",
+      "subtitle": "Analyzing and generating proof (demo)",
+      "progress": "Progress",
+      "steps": {
+        "receiving": "Receiving declaration data",
+        "validating": "Validating CNPJ and documents",
+        "extracting": "Extracting metadata",
+        "analyzing": "Analyzing compliance",
+        "hashing": "Computing document hashes",
+        "commitments": "Generating cryptographic commitments",
+        "circuit": "Preparing cryptographic circuit",
+        "proof": "Generating ZK proof",
+        "verification": "Verifying proof integrity"
+      },
+      "stepMessages": {
+        "receiving": "Validating CNPJ and DUIMP reference...",
+        "analyzing": "Extracting document metadata and generating hashes...",
+        "commitments": "Creating cryptographic commitments (simulated)...",
+        "proof": "Generating zk-SNARK proof with zkVerify (simulated)..."
+      },
+      "completed": "✓ Completed",
+      "disclaimer": "ℹ️ Demo in progress: No actual document analysis, validation, or cryptographic proof generation is happening. This is just a visual demonstration."
+    },
+    "badges": {
+      "demoMode": "DEMO MODE",
+      "processing": "PROCESSING",
+      "verified": "VERIFIED"
+    },
+    "warnings": {
+      "demoPrefix": "Demo Mode:"
+    },
+    "flowSteps": {
+      "dataInput": "Data Input",
+      "analysis": "Analysis",
+      "result": "Result",
+      "integration": "Integration"
+    },
+    "documentTypes": {
+      "invoice": "Invoice",
+      "packing_list": "Packing List",
+      "bill_of_lading": "Bill of Lading",
+      "certificate": "Certificate",
+      "license": "License",
+      "xml_fiscal": "XML Fiscal",
+      "document": "Document",
+      "spreadsheet": "Spreadsheet",
+      "image": "Image",
+      "text_document": "Text Document",
+      "other": "Other"
+    },
+    "step3": {
+      "title": "Document results and proof details",
+      "subtitle": "Proof generated successfully (demo)",
+      "proofSummary": "Proof Summary",
+      "generatedAt": "Zero knowledge proof generated at",
+      "proofId": "Proof ID",
+      "duimpReference": "DUIMP Reference ID",
+      "commitmentHash": "Commitment Hash",
+      "zkSystem": "ZK System",
+      "documentsIncluded": "Documents Included",
+      "fileCount": "file(s)",
+      "metadata": "Declaration Metadata",
+      "cnpj": "CNPJ",
+      "incoterm": "Incoterm",
+      "customsValue": "Customs Value",
+      "items": "Items",
+      "documentCommitments": "Document Commitments",
+      "type": "Type",
+      "status": "Status",
+      "hash": "Hash",
+      "technicalJson": "View Technical JSON",
+      "downloadButton": "Download Proof (.json)",
+      "copyLinkButton": "Copy Share Link",
+      "sendToPortalUnico": "Send to Portal Único",
+      "startNewButton": "Start New Demo",
+      "backButton": "Back to Proof Demo",
+      "toastMessages": {
+        "downloaded": "Fake proof downloaded successfully!",
+        "linkCopied": "Fake link copied to clipboard - demo only!",
+        "linkFailed": "Failed to copy link"
+      }
+    },
+    "viewer": {
+      "title": "Public Proof View",
+      "viewingProof": "Viewing proof:",
+      "loading": "Loading proof...",
+      "notFound": "Proof not found",
+      "notFoundMessage": "The requested proof could not be loaded. It may not exist or may have been removed.",
+      "createNewButton": "Create New Proof"
+    }
+  },
+  "portalUnicoIntegration": {
+    "title": "Portal Único Integration",
+    "subtitle": "Submitting proof to Foreign Trade System",
+    "proofReference": "Proof Being Sent",
+    "progress": "Integration Progress",
+    "protocolNumber": "Protocol Number",
+    "badges": {
+      "integrating": "INTEGRATING",
+      "completed": "SUBMITTED"
+    },
+    "steps": {
+      "authentication": "Portal Único Authentication",
+      "validation": "ZK Proof Validation",
+      "formatting": "DUIMP Formatting",
+      "transmission": "Data Transmission",
+      "receiptVerification": "Receipt Verification",
+      "protocolGeneration": "Protocol Generation"
+    },
+    "messages": {
+      "authentication": "Authenticating with digital certificate...",
+      "validation": "Validating proof structure...",
+      "formatting": "Converting to DUIMP XML format...",
+      "transmission": "Transmitting data via secure HTTPS...",
+      "receiptVerification": "Waiting for Portal Único confirmation...",
+      "protocolGeneration": "Generating official protocol number..."
+    },
+    "success": {
+      "title": "Proof Successfully Submitted!",
+      "message": "The proof has been successfully integrated with Portal Único do Comércio Exterior. Protocol generated:"
+    },
+    "disclaimer": {
+      "prefix": "Integration Simulation:",
+      "message": "This is a visual demonstration. No actual transmission is being made to the Federal Revenue's Portal Único. In production, this integration requires a valid A1/A3 digital certificate and official credentials."
+    },
+    "buttons": {
+      "cancel": "Cancel Submission",
+      "copyProtocol": "Copy Protocol",
+      "continue": "Complete"
+    }
   }
 }
+

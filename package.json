@@ -1,6 +1,8 @@
 {
-  "name": "magic-patterns-vite-template",
+  "name": "zkcargopass-frontend",
+  "description": "zkCargoPass Web",
   "version": "0.0.1",
+  "author": "Maicon Lourenço<maiconloure@gmail.com>",
   "private": true,
   "type": "module",
   "scripts": {
