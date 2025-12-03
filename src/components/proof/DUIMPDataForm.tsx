@@ -105,7 +105,7 @@ export const DUIMPDataForm: React.FC<Props> = ({ onSubmit, isLoading = false }) 
 
         <form onSubmit={handleSubmit} className="p-6">
           {/* Key Metrics Banner */}
-          <div className="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {/* <div className="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-200 dark:border-blue-800 rounded-sm p-3">
               <div className="flex items-center space-x-2 mb-1">
                 <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@ export const DUIMPDataForm: React.FC<Props> = ({ onSubmit, isLoading = false }) 
               </div>
               <p className="text-lg font-bold text-orange-600 dark:text-orange-400">AWS</p>
             </div>
-          </div>
+          </div> */}
 
           {/* Grid layout for horizontal organization */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
