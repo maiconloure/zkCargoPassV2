@@ -72,7 +72,7 @@ export const ProofResult: React.FC<Props> = ({ proof, onDownload, onCopyLink, on
 
         <div className="p-6">
           {/* Key Impact Metrics */}
-          <div className="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {/* <div className="mb-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-2 border-green-300 dark:border-green-700 rounded-sm p-3 text-center">
               <div className="flex justify-center mb-2">
                 <svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,14 +113,14 @@ export const ProofResult: React.FC<Props> = ({ proof, onDownload, onCopyLink, on
               <p className="text-xl font-bold text-orange-600 dark:text-orange-400">Global</p>
               <p className="text-xs text-orange-700 dark:text-orange-500">Escalável</p>
             </div>
-          </div>
+          </div> */}
 
           {/* Compact Warning */}
-          <div className="mb-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-600 rounded-r">
+          {/* <div className="mb-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-600 rounded-r">
             <p className="text-xs text-yellow-800 dark:text-yellow-200">
               ⚠️ <strong>{t('proofSimulation.warnings.demoPrefix')}</strong> {proof.disclaimer}
             </p>
-          </div>
+          </div> */}
 
           {/* Proof Summary - Horizontal Layout */}
           <div className="mb-6 bg-gradient-to-r from-blue-50 to-slate-50 dark:from-blue-900/10 dark:to-gray-800/50 border border-blue-200 dark:border-blue-800 rounded-sm p-4">
