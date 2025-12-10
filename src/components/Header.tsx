@@ -38,12 +38,12 @@ export const Header = ({ onOpenLogin, onOpenDemo, onOpenDuimpDemo }: HeaderProps
             >
               {t('header.aboutUs')}
             </Link>
-            <button
+            {/* <button
               onClick={onOpenDuimpDemo || onOpenLogin}
               className="text-light-text-primary font-bold dark:text-dark-text-primary hover:text-light-text-secondary dark:hover:text-dark-text-muted transition-colors"
             >
               Demo
-            </button>
+            </button> */}
           </nav>
           <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             <LanguageToggle />
