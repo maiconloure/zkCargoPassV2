@@ -53,8 +53,8 @@ const AppContent = () => {
               <Hero onOpenLogin={() => setIsLoginModalOpen(true)} />
               <Features />
               <HowItWorks />
-              <Partnerships />
-              <Pricing />
+              {/* <Partnerships /> */}
+              {/* <Pricing /> */}
             </main>
             <Footer />
             <LoginModal

@@ -19,14 +19,14 @@ export const PlatformStats = () => {
   const budgetPercentage = (mockStats.budget.used / mockStats.budget.total) * 100;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">{t('dashboard.budgetUsage')}</h2>
-          <DollarSign className="text-light-text-muted dark:text-dark-text-muted" size={24} />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+      <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-4 sm:p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
+        <div className="flex items-center justify-between mb-3 sm:mb-4">
+          <h2 className="text-lg sm:text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">{t('dashboard.budgetUsage')}</h2>
+          <DollarSign className="text-light-text-muted dark:text-dark-text-muted" size={20} />
         </div>
         <div className="space-y-2">
-          <div className="flex justify-between text-sm">
+          <div className="flex justify-between text-xs sm:text-sm">
             <span className="text-light-text-muted dark:text-dark-text-muted">{t('dashboard.used')}: ${mockStats.budget.used}</span>
             <span className="text-light-text-muted dark:text-dark-text-muted">{t('dashboard.total')}: ${mockStats.budget.total}</span>
           </div>
@@ -39,23 +39,23 @@ export const PlatformStats = () => {
         </div>
       </div>
 
-      <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">{t('dashboard.platformStatus')}</h2>
-          <Activity className="text-green-400" size={24} />
+      <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-4 sm:p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
+        <div className="flex items-center justify-between mb-3 sm:mb-4">
+          <h2 className="text-lg sm:text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">{t('dashboard.platformStatus')}</h2>
+          <Activity className="text-green-400" size={20} />
         </div>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <div className="flex justify-between items-center">
-            <span className="text-light-text-muted dark:text-dark-text-muted">{t('dashboard.status')}</span>
-            <span className="text-green-400 font-medium">{t('dashboard.operational')}</span>
+            <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">{t('dashboard.status')}</span>
+            <span className="text-xs sm:text-sm text-green-400 font-medium">{t('dashboard.operational')}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-light-text-muted dark:text-dark-text-muted">{t('dashboard.uptime')}</span>
-            <span className="text-light-text-primary dark:text-dark-text-primary">{mockStats.platform.uptime}</span>
+            <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">{t('dashboard.uptime')}</span>
+            <span className="text-xs sm:text-sm text-light-text-primary dark:text-dark-text-primary">{mockStats.platform.uptime}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-light-text-muted dark:text-dark-text-muted">{t('dashboard.lastIncident')}</span>
-            <span className="text-light-text-primary dark:text-dark-text-primary">{t('dashboard.none')}</span>
+            <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">{t('dashboard.lastIncident')}</span>
+            <span className="text-xs sm:text-sm text-light-text-primary dark:text-dark-text-primary">{t('dashboard.none')}</span>
           </div>
         </div>
       </div>

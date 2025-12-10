@@ -9,11 +9,11 @@ export const BudgetConsumption = ({ budgetUsed, budgetTotal }: BudgetConsumption
   const { t } = useTranslation();
 
   return (
-    <div className="bg-light-bg-card dark:bg-dark-bg-card backdrop-blur-sm border border-light-border dark:border-dark-border rounded-lg p-6 transition-colors duration-300">
-      <div className="text-light-text-muted dark:text-dark-text-muted text-sm mb-2">{t('dashboard.budgetConsumption')}</div>
-      <div className="flex items-center gap-2 mb-4">
-        <div className="text-3xl font-bold text-light-text-primary dark:text-dark-text-primary">{budgetUsed} / {budgetTotal}</div>
-        <span className="text-sm text-light-text-muted dark:text-dark-text-muted">{t('dashboard.credits')}</span>
+    <div className="bg-light-bg-card dark:bg-dark-bg-card backdrop-blur-sm border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6 transition-colors duration-300">
+      <div className="text-light-text-muted dark:text-dark-text-muted text-xs sm:text-sm mb-2">{t('dashboard.budgetConsumption')}</div>
+      <div className="flex items-center gap-2 mb-3 sm:mb-4">
+        <div className="text-2xl sm:text-3xl font-bold text-light-text-primary dark:text-dark-text-primary">{budgetUsed} / {budgetTotal}</div>
+        <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">{t('dashboard.credits')}</span>
       </div>
       <div className="w-full bg-light-bg-secondary dark:bg-dark-bg-secondary rounded-full h-2">
         <div
