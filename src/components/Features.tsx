@@ -21,16 +21,6 @@ export const Features = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard
-            icon={<Clock />}
-            title={t('features.speed.title')}
-            description={t('features.speed.description')}
-          />
-          <FeatureCard
-            icon={<Lock />}
-            title={t('features.privacy.title')}
-            description={t('features.privacy.description')}
-          />
-          <FeatureCard
             icon={<FileCheck />}
             title={t('features.simplicity.title')}
             description={t('features.simplicity.description')}
@@ -45,11 +35,25 @@ export const Features = () => {
             title={t('features.auditability.title')}
             description={t('features.auditability.description')}
           />
+              <FeatureCard
+            icon={<Lock />}
+            title={t('features.privacy.title')}
+            description={t('features.privacy.description')}
+          />
+
           <FeatureCard
+            icon={<Clock />}
+            title={t('features.speed.title')}
+            description={t('features.speed.description')}
+          />
+
+
+
+          {/* <FeatureCard
             icon={<Zap />}
             title={t('features.efficiency.title')}
             description={t('features.efficiency.description')}
-          />
+          /> */}
         </div>
       </div>
     </section>

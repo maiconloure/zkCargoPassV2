@@ -76,24 +76,24 @@
     "title": "Value Propositions",
     "description": "Advanced technology to empower trade businesses, ensuring swift customs approval, significant cost reductions, and full data security.",
     "speed": {
-      "title": "Speed",
-      "description": "Accelerate cargo dispatch from weeks to hours/days by streamlining document verification through cryptographic proofs."
+      "title": "5. Faster Customs Clearance",
+      "description": "Authorities verify these proofs through the Verifier Portal, speeding up inspections and accelerating cargo clearance — with total data protection."
     },
     "privacy": {
-      "title": "Privacy",
-      "description": "Zero-knowledge proofs verify compliance without exposing sensitive business data, maintaining competitive advantage."
+      "title": "4. Secure and Immutable Record",
+      "description": "Each proof is stored in a secure, tamper-proof environment, ensuring full transparency, integrity, and auditability."
     },
     "simplicity": {
-      "title": "Simplicity",
-      "description": "Effortlessly upload and process customs documents with a few clicks"
+      "title": "1. Document Upload",
+      "description": "Importers and exporters upload their customs documents directly to the zkCargoPass Business Portal — simple, fast, and secure."
     },
     "aiPowered": {
-      "title": "AI-Powered Automation",
-      "description": "Our AI validates documents before generating evidence, reducing errors and ensuring compliance."
+      "title": "2. Automated Validation",
+      "description": "Our system automatically checks whether the documents are complete, consistent, and compliant with customs requirements, reducing errors and rework."
     },
     "auditability": {
-      "title": "Auditability",
-      "description": "Cryptographic proof and immutable blockchain hash provide transparent, tamper-proof verification records."
+      "title": "3. Zero-Knowledge Proof Generation",
+      "description": "zkCargoPass creates a digital proof that confirms the authenticity and correctness of the documents without revealing any sensitive information."
     },
     "efficiency": {
       "title": "Efficiency",
@@ -385,7 +385,8 @@
     "profile": {
       "settings": "Settings",
       "budget": "Budget",
-      "signOut": "Sign out"
+      "signOut": "Sign out",
+      "language": "Language"
     },
     "status": {
       "uploaded": "Uploaded",

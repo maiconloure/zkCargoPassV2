@@ -76,24 +76,24 @@
     "title": "Recursos",
     "description": "Tecnologia avançada para capacitar negócios comerciais, garantindo aprovação alfandegária rápida, reduções significativas de custos e total segurança de dados.",
     "speed": {
-      "title": "Velocidade",
-      "description": "Acelere o despacho de cargas de semanas para horas/dias, simplificando a verificação de documentos através de provas criptográficas."
+      "title": "5. Liberação Mais Rápida",
+      "description": "A validação de compliance é automatizada ao ser enviada ao portal único, acelerando a liberação da carga mesmo em tempos de greve.."
     },
     "privacy": {
-      "title": "Privacidade",
-      "description": "Provas de conhecimento zero verificam conformidade sem expor dados comerciais sensíveis, mantendo vantagem competitiva."
+      "title": "4. Registro Seguro",
+      "description": "Essas comprovações ficam registradas de forma segura, e à prova de alterações, garantindo confiança total no processo."
     },
     "simplicity": {
-      "title": "Simplicidade",
-      "description": "Carregue e processe documentos alfandegários sem esforço com apenas alguns cliques."
+      "title": "1. Envio dos Documentos",
+      "description": "A empresa envia os documentos de importação/exportação para a plataforma zkCargoPass — tudo em um único lugar, de forma rápida e segura."
     },
     "aiPowered": {
-      "title": "Automação com IA",
-      "description": "Nossa IA valida documentos antes de gerar evidências, reduzindo erros e garantindo conformidade."
+      "title": "2. IA para validar documentos",
+      "description": "A inteligência artificial extrai os dados dos documentos e verifica se está tudo ok antes de ser enviado ao Portal Único, evitando erros que atrasam a liberação da carga."
     },
     "auditability": {
-      "title": "Auditabilidade",
-      "description": "Prova criptográfica e hash blockchain imutável fornecem registros de verificação transparentes e à prova de adulteração."
+      "title": "3. Certificação Segura",
+      "description": "A plataforma cria uma prova criptográfica dos documentos, um passaporte ZK, que permite checar compliance da carga, sem expor dados comerciais estratégicos"
     },
     "efficiency": {
       "title": "Eficiência",
@@ -385,7 +385,8 @@
     "profile": {
       "settings": "Configurações",
       "budget": "Orçamento",
-      "signOut": "Sair"
+      "signOut": "Sair",
+      "language": "Idioma"
     },
     "status": {
       "uploaded": "Carregado",

@@ -194,26 +194,26 @@ export const DocumentHistory = () => {
   }
 
   return (
-    <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
-      <div className="flex flex-col gap-2 mb-6">
-        <h2 className="text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">
+    <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-4 sm:p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
+      <div className="flex flex-col gap-2 mb-4 sm:mb-6">
+        <h2 className="text-lg sm:text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">
           {t('dashboard.documentHistory')}
         </h2>
-        <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+        <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
           {t('dashboard.documentsModule.description')}
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+      <div className="grid gap-4 sm:gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
         <form
-          className="rounded-lg border border-light-border dark:border-dark-border bg-light-bg-secondary dark:bg-dark-bg-secondary p-5 space-y-5"
+          className="rounded-lg border border-light-border dark:border-dark-border bg-light-bg-secondary dark:bg-dark-bg-secondary p-4 sm:p-5 space-y-4 sm:space-y-5"
           onSubmit={handleUpload}
         >
-          <div className="space-y-2">
-            <h3 className="text-lg font-medium text-light-text-primary dark:text-dark-text-primary">
+          <div className="space-y-1 sm:space-y-2">
+            <h3 className="text-base sm:text-lg font-medium text-light-text-primary dark:text-dark-text-primary">
               {t('dashboard.documentsModule.upload.title')}
             </h3>
-            <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+            <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
               {t('dashboard.documentsModule.upload.subtitle')}
             </p>
           </div>
@@ -223,13 +223,13 @@ export const DocumentHistory = () => {
               htmlFor="document-upload"
               onDrop={handleDrop}
               onDragOver={handleDragOver}
-              className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-light-border dark:border-dark-border bg-light-bg-primary/60 dark:bg-dark-bg-primary/60 px-4 py-8 text-center cursor-pointer hover:border-light-accent-primary dark:hover:border-dark-accent-primary transition-colors"
+              className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-light-border dark:border-dark-border bg-light-bg-primary/60 dark:bg-dark-bg-primary/60 px-4 py-6 sm:py-8 text-center cursor-pointer hover:border-light-accent-primary dark:hover:border-dark-accent-primary transition-colors"
             >
-              <UploadCloud className="text-light-text-muted dark:text-dark-text-muted" size={28} />
-              <span className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary">
+              <UploadCloud className="text-light-text-muted dark:text-dark-text-muted" size={24} />
+              <span className="text-xs sm:text-sm font-medium text-light-text-primary dark:text-dark-text-primary px-2 break-words max-w-full">
                 {selectedFile ? selectedFile.name : t('dashboard.documentsModule.upload.dropInstruction')}
               </span>
-              <span className="text-xs text-light-text-muted dark:text-dark-text-muted">
+              <span className="text-[10px] sm:text-xs text-light-text-muted dark:text-dark-text-muted px-2">
                 {selectedFile
                   ? formatFileSize(selectedFile.size)
                   : t('dashboard.documentsModule.upload.supportedTypes', {
@@ -246,11 +246,11 @@ export const DocumentHistory = () => {
             />
           </div>
 
-          <div className="grid gap-4">
+          <div className="grid gap-3 sm:gap-4">
             <div className="text-left">
               <label
                 htmlFor="document-type"
-                className="block text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-2"
+                className="block text-xs sm:text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-1.5 sm:mb-2"
               >
                 {t('dashboard.documentsModule.upload.documentType')}
               </label>
@@ -258,7 +258,7 @@ export const DocumentHistory = () => {
                 id="document-type"
                 value={documentType}
                 onChange={event => setDocumentType(event.target.value as Document['documentType'])}
-                className="w-full rounded-md border border-light-border dark:border-dark-border bg-light-bg-primary dark:bg-dark-bg-primary px-3 py-2 text-sm text-light-text-primary dark:text-dark-text-primary focus:border-light-accent-primary focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:border-dark-accent-primary dark:focus:ring-dark-accent-primary"
+                className="w-full rounded-md border border-light-border dark:border-dark-border bg-light-bg-primary dark:bg-dark-bg-primary px-2.5 sm:px-3 py-2 text-xs sm:text-sm text-light-text-primary dark:text-dark-text-primary focus:border-light-accent-primary focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:border-dark-accent-primary dark:focus:ring-dark-accent-primary"
               >
                 {documentTypeOptions.map(option => (
                   <option key={option.value} value={option.value}>
@@ -271,7 +271,7 @@ export const DocumentHistory = () => {
             <div className="text-left">
               <label
                 htmlFor="document-number"
-                className="block text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-2"
+                className="block text-xs sm:text-sm font-medium text-light-text-primary dark:text-dark-text-primary mb-1.5 sm:mb-2"
               >
                 {t('dashboard.documentsModule.upload.documentNumber')}
               </label>
@@ -281,30 +281,30 @@ export const DocumentHistory = () => {
                 value={documentNumber}
                 onChange={event => setDocumentNumber(event.target.value)}
                 placeholder={t('dashboard.documentsModule.upload.documentNumberPlaceholder')}
-                className="w-full rounded-md border border-light-border dark:border-dark-border bg-light-bg-primary dark:bg-dark-bg-primary px-3 py-2 text-sm text-light-text-primary dark:text-dark-text-primary placeholder:text-light-text-muted dark:placeholder:text-dark-text-muted focus:border-light-accent-primary focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:border-dark-accent-primary dark:focus:ring-dark-accent-primary"
+                className="w-full rounded-md border border-light-border dark:border-dark-border bg-light-bg-primary dark:bg-dark-bg-primary px-2.5 sm:px-3 py-2 text-xs sm:text-sm text-light-text-primary dark:text-dark-text-primary placeholder:text-light-text-muted dark:placeholder:text-dark-text-muted focus:border-light-accent-primary focus:outline-none focus:ring-1 focus:ring-light-accent-primary dark:focus:border-dark-accent-primary dark:focus:ring-dark-accent-primary"
               />
             </div>
           </div>
 
           {uploadFeedback && (
             <div
-              className={`flex items-start gap-2 rounded-md px-3 py-2 text-sm ${
+              className={`flex items-start gap-2 rounded-md px-2.5 sm:px-3 py-2 text-xs sm:text-sm ${
                 uploadFeedback.type === 'success'
                   ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
                   : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300'
               }`}
             >
               {uploadFeedback.type === 'success' ? (
-                <Check size={16} className="mt-0.5" />
+                <Check size={14} className="mt-0.5 flex-shrink-0" />
               ) : (
-                <AlertCircle size={16} className="mt-0.5" />
+                <AlertCircle size={14} className="mt-0.5 flex-shrink-0" />
               )}
               <span>{uploadFeedback.message}</span>
             </div>
           )}
 
           {uploadWarnings.length > 0 && (
-            <div className="rounded-md border border-yellow-200 dark:border-yellow-500/40 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-2 text-xs text-yellow-800 dark:text-yellow-200 space-y-1">
+            <div className="rounded-md border border-yellow-200 dark:border-yellow-500/40 bg-yellow-50 dark:bg-yellow-900/20 px-2.5 sm:px-3 py-2 text-xs text-yellow-800 dark:text-yellow-200 space-y-1">
               <div className="font-medium">
                 {t('dashboard.documentsModule.warningsTitle')}
               </div>
@@ -319,9 +319,9 @@ export const DocumentHistory = () => {
           <button
             type="submit"
             disabled={isUploading || !selectedFile}
-            className="inline-flex items-center justify-center gap-2 w-full rounded-md bg-light-accent-primary dark:bg-dark-accent-primary px-4 py-2 text-sm font-medium text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 w-full rounded-md bg-light-accent-primary dark:bg-dark-accent-primary px-3 sm:px-4 py-2.5 sm:py-2 text-xs sm:text-sm font-medium text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {isUploading ? <Loader2 className="animate-spin" size={16} /> : <UploadCloud size={16} />}
+            {isUploading ? <Loader2 className="animate-spin" size={14} /> : <UploadCloud size={14} />}
             <span>
               {isUploading
                 ? t('dashboard.documentsModule.upload.uploading')
@@ -329,50 +329,50 @@ export const DocumentHistory = () => {
             </span>
           </button>
 
-          <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
+          <p className="text-[10px] sm:text-xs text-light-text-muted dark:text-dark-text-muted">
             {t('dashboard.documentsModule.upload.maxSize', {
               size: formatFileSize(MAX_FILE_SIZE),
             })}
           </p>
         </form>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3 sm:gap-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-medium text-light-text-primary dark:text-dark-text-primary">
+            <h3 className="text-base sm:text-lg font-medium text-light-text-primary dark:text-dark-text-primary">
               {t('dashboard.documentsModule.listTitle')}
             </h3>
             <button
               type="button"
               onClick={handleRefresh}
               disabled={isLoading}
-              className="text-sm text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors disabled:opacity-60"
+              className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors disabled:opacity-60"
             >
               {t('dashboard.documentsModule.refresh')}
             </button>
           </div>
 
           {error && (
-            <div className="rounded-md border border-red-200 dark:border-red-500/40 bg-red-50 dark:bg-red-900/20 px-3 py-2 text-sm text-red-700 dark:text-red-200">
+            <div className="rounded-md border border-red-200 dark:border-red-500/40 bg-red-50 dark:bg-red-900/20 px-2.5 sm:px-3 py-2 text-xs sm:text-sm text-red-700 dark:text-red-200">
               {error}
             </div>
           )}
 
           {!isAuthenticated && !isLoading && (
-            <div className="rounded-md border border-light-border dark:border-dark-border bg-light-bg-secondary dark:bg-dark-bg-secondary px-4 py-6 text-center text-sm text-light-text-muted dark:text-dark-text-muted">
+            <div className="rounded-md border border-light-border dark:border-dark-border bg-light-bg-secondary dark:bg-dark-bg-secondary px-3 sm:px-4 py-5 sm:py-6 text-center text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
               {t('dashboard.documentsModule.requiresAuth')}
             </div>
           )}
 
           {isAuthenticated && (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {isLoading ? (
-                <div className="flex items-center justify-center py-12 text-light-text-muted dark:text-dark-text-muted">
+                <div className="flex items-center justify-center py-10 sm:py-12 text-light-text-muted dark:text-dark-text-muted">
                   <Loader2 className="animate-spin" size={20} />
                 </div>
               ) : documents.length === 0 ? (
-                <div className="flex flex-col items-center justify-center gap-3 rounded-lg border border-light-border dark:border-dark-border bg-light-bg-secondary dark:bg-dark-bg-secondary px-4 py-10 text-center">
-                  <UploadCloud className="text-light-text-muted dark:text-dark-text-muted" size={32} />
-                  <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 rounded-lg border border-light-border dark:border-dark-border bg-light-bg-secondary dark:bg-dark-bg-secondary px-3 sm:px-4 py-8 sm:py-10 text-center">
+                  <UploadCloud className="text-light-text-muted dark:text-dark-text-muted" size={28} />
+                  <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
                     {t('dashboard.documentsModule.emptyState')}
                   </p>
                 </div>
@@ -380,15 +380,15 @@ export const DocumentHistory = () => {
                 documents.map(document => (
                   <div
                     key={document.id}
-                    className="flex items-center justify-between gap-4 rounded-lg border border-light-border dark:border-dark-border bg-light-bg-secondary dark:bg-dark-bg-secondary px-4 py-4"
+                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 rounded-lg border border-light-border dark:border-dark-border bg-light-bg-secondary dark:bg-dark-bg-secondary px-3 sm:px-4 py-3 sm:py-4"
                   >
-                    <div className="flex items-center gap-4">
-                      <FileText className="text-light-text-muted dark:text-dark-text-muted" size={24} />
-                      <div>
-                        <p className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary">
+                    <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
+                      <FileText className="text-light-text-muted dark:text-dark-text-muted flex-shrink-0 mt-0.5 sm:mt-0" size={20} />
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs sm:text-sm font-medium text-light-text-primary dark:text-dark-text-primary truncate">
                           {document.metadata?.originalFileName ?? document.title}
                         </p>
-                        <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
+                        <p className="text-[10px] sm:text-xs text-light-text-muted dark:text-dark-text-muted break-words">
                           {document.documentNumber
                             ? `${t('dashboard.documentsModule.labels.documentNumber')}: ${document.documentNumber} • `
                             : ''}
@@ -396,9 +396,9 @@ export const DocumentHistory = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
                       {renderStatusIcon(document.status)}
-                      <span className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary">
+                      <span className="text-xs sm:text-sm font-medium text-light-text-primary dark:text-dark-text-primary whitespace-nowrap">
                         {statusLabel(document.status)}
                       </span>
                     </div>
@@ -409,7 +409,7 @@ export const DocumentHistory = () => {
           )}
 
           {lastUpdatedAt && isAuthenticated && (
-            <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
+            <p className="text-[10px] sm:text-xs text-light-text-muted dark:text-dark-text-muted">
               {t('dashboard.documentsModule.lastUpdated', {
                 date: lastUpdatedAt.toLocaleString(i18n.language),
               })}

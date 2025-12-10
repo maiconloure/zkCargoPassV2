@@ -7,10 +7,12 @@ import {
   Eye,
   FileText,
   LogOut,
+  Menu,
   Play,
   Shield,
   Upload,
   UserCircle,
+  X,
 } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -68,6 +70,7 @@ export const Dashboard = () => {
   const [hasNotifications] = useState(true)
   const [isGenerating, setIsGenerating] = useState(false)
   const [isValidating, setIsValidating] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const { t } = useTranslation()
   const { user, logout } = useAuth()
   const navigate = useNavigate()
@@ -89,21 +92,48 @@ export const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-light-bg-primary dark:bg-dark-bg-primary flex transition-colors duration-300">
+      {/* Mobile Menu Overlay */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className="w-80 bg-light-bg-card/95 dark:bg-dark-bg-card/95 backdrop-blur-sm border-r border-light-border dark:border-dark-border min-h-screen transition-colors duration-300">
-        <div className="p-6">
-          <div className="flex items-center space-x-3 mb-8">
-            <img src={zkCargoPassLogo} alt="zkCargoPass" className="w-6 h-6" />
-            <span className="text-xl font-display font-bold text-light-text-primary dark:text-dark-text-primary">
-              zkCargoPass
-            </span>
+      <aside className={`
+        fixed lg:static inset-y-0 left-0 z-50
+        w-72 sm:w-80 lg:w-80
+        bg-light-bg-card/95 dark:bg-dark-bg-card/95 backdrop-blur-sm
+        border-r border-light-border dark:border-dark-border
+        min-h-screen transition-all duration-300
+        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}>
+        <div className="p-4 sm:p-6">
+          <div className="flex items-center justify-between mb-6 sm:mb-8">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <img src={zkCargoPassLogo} alt="zkCargoPass" className="w-5 h-5 sm:w-6 sm:h-6" />
+              <span className="text-lg sm:text-xl font-display font-bold text-light-text-primary dark:text-dark-text-primary">
+                zkCargoPass
+              </span>
+            </div>
+            <button
+              onClick={() => setIsSidebarOpen(false)}
+              className="lg:hidden p-2 text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary"
+              aria-label="Close menu"
+            >
+              <X size={20} />
+            </button>
           </div>
 
-          <nav className="space-y-2">
+          <nav className="space-y-1.5 sm:space-y-2">
             <button
               type="button"
-              onClick={() => setTab('overview')}
-              className={`group relative w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${
+              onClick={() => {
+                setTab('overview')
+                setIsSidebarOpen(false)
+              }}
+              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base ${
                 tab === 'overview'
                   ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
                   : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
@@ -117,8 +147,11 @@ export const Dashboard = () => {
             </button>
             <button
               type="button"
-              onClick={() => setTab('documents')}
-              className={`group relative w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${
+              onClick={() => {
+                setTab('documents')
+                setIsSidebarOpen(false)
+              }}
+              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base ${
                 tab === 'documents'
                   ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
                   : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
@@ -132,8 +165,11 @@ export const Dashboard = () => {
             </button>
             <button
               type="button"
-              onClick={() => setTab('proofs')}
-              className={`group relative w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${
+              onClick={() => {
+                setTab('proofs')
+                setIsSidebarOpen(false)
+              }}
+              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base ${
                 tab === 'proofs'
                   ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
                   : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
@@ -147,8 +183,11 @@ export const Dashboard = () => {
             </button>
             <button
               type="button"
-              onClick={() => setTab('generate')}
-              className={`group relative w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${
+              onClick={() => {
+                setTab('generate')
+                setIsSidebarOpen(false)
+              }}
+              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base ${
                 tab === 'generate'
                   ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
                   : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
@@ -162,8 +201,11 @@ export const Dashboard = () => {
             </button>
             <button
               type="button"
-              onClick={() => setTab('validate')}
-              className={`group relative w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${
+              onClick={() => {
+                setTab('validate')
+                setIsSidebarOpen(false)
+              }}
+              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base ${
                 tab === 'validate'
                   ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
                   : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
@@ -177,8 +219,11 @@ export const Dashboard = () => {
             </button>
             <button
               type="button"
-              onClick={() => setTab('duimp-demo')}
-              className={`group relative w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${
+              onClick={() => {
+                setTab('duimp-demo')
+                setIsSidebarOpen(false)
+              }}
+              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base ${
                 tab === 'duimp-demo'
                   ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
                   : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
@@ -192,8 +237,11 @@ export const Dashboard = () => {
             </button>
             <button
               type="button"
-              onClick={() => setTab('help')}
-              className={`group relative w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${
+              onClick={() => {
+                setTab('help')
+                setIsSidebarOpen(false)
+              }}
+              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base ${
                 tab === 'help'
                   ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
                   : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
@@ -209,21 +257,28 @@ export const Dashboard = () => {
       </aside>
 
       {/* Dashboard Content */}
-      <main className="flex-1 py-8 px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 py-4 sm:py-6 lg:py-8 px-3 sm:px-4 lg:px-8">
         <div className="flex-1 flex flex-col">
           {/* Dashboard Header */}
-          <header className="sticky top-0 z-50 bg-light-bg-card/95 dark:bg-dark-bg-card/95 backdrop-blur-sm border-b border-light-border dark:border-dark-border mb-12 transition-colors duration-300 rounded-sm">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16">
-                {/* Logo and Title */}
-                <div className="flex items-center space-x-8">
-                  <div className="flex items-center space-x-3">
+          <header className="sticky top-0 z-30 bg-light-bg-card/95 dark:bg-dark-bg-card/95 backdrop-blur-sm border-b border-light-border dark:border-dark-border mb-6 sm:mb-8 lg:mb-12 transition-colors duration-300 rounded-sm -mx-3 sm:-mx-4 lg:-mx-8 px-3 sm:px-4 lg:px-8">
+            <div className="w-full">
+              <div className="flex justify-between items-center h-14 sm:h-16">
+                {/* Mobile Menu Button & Title */}
+                <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-8">
+                  <button
+                    onClick={() => setIsSidebarOpen(true)}
+                    className="lg:hidden p-2 text-light-text-primary dark:text-dark-text-primary hover:bg-light-bg-secondary dark:hover:bg-dark-bg-secondary rounded-lg transition-colors"
+                    aria-label="Open menu"
+                  >
+                    <Menu size={24} />
+                  </button>
+                  <div className="flex items-center space-x-2 sm:space-x-3">
                     {/* <img src={zkCargoPassLogo} alt="zkCargoPass" className="w-6 h-6" /> */}
                     {/* <span className="text-xl font-display font-bold text-light-text-primary dark:text-dark-text-primary">Dashboard</span> */}
                   </div>
 
                   {/* Page Title */}
-                  <div className="text-xl font-display font-bold text-light-text-primary dark:text-dark-text-primary">
+                  <div className="text-base sm:text-lg lg:text-xl font-display font-bold text-light-text-primary dark:text-dark-text-primary truncate">
                     {tab === 'overview' && t('dashboard.overview')}
                     {tab === 'documents' && t('dashboard.pages.documents')}
                     {tab === 'proofs' && t('dashboard.pages.proofs')}
@@ -234,60 +289,69 @@ export const Dashboard = () => {
                 </div>
 
                 {/* Right Section - Notifications & Profile */}
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4">
                   {/* Language Toggle */}
-                  <LanguageToggle />
+                  <div className=" sm:block">
+                    <LanguageToggle />
+                  </div>
 
                   {/* Theme Toggle */}
                   <ThemeToggle />
 
                   {/* Notifications */}
-                  <button
+                  {/* <button
                     type="button"
-                    className="relative p-2 text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary rounded-full hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 transition-colors"
+                    className="relative p-1.5 sm:p-2 text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary rounded-full hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 transition-colors"
                   >
-                    <Bell size={20} />
+                    <Bell size={18} className="sm:w-5 sm:h-5" />
                     {hasNotifications && (
-                      <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-light-accent-primary dark:bg-dark-accent-primary rounded-full"></span>
+                      <span className="absolute top-1 right-1 sm:top-1.5 sm:right-1.5 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-light-accent-primary dark:bg-dark-accent-primary rounded-full"></span>
                     )}
-                  </button>
+                  </button> */}
 
                   {/* Profile Dropdown */}
                   <div className="relative">
                     <button
                       type="button"
                       onClick={() => setIsProfileOpen(!isProfileOpen)}
-                      className="flex items-center space-x-3 p-2 rounded-lg hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 transition-colors group"
+                      className="flex items-center space-x-2 sm:space-x-3 p-1.5 sm:p-2 rounded-lg hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 transition-colors group"
                     >
-                      <div className="w-8 h-8 rounded-full bg-light-bg-secondary dark:bg-dark-bg-secondary flex items-center justify-center text-light-text-muted dark:text-dark-text-muted group-hover:text-light-text-primary dark:group-hover:text-dark-text-primary transition-colors">
-                        <UserCircle size={24} />
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-light-bg-secondary dark:bg-dark-bg-secondary flex items-center justify-center text-light-text-muted dark:text-dark-text-muted group-hover:text-light-text-primary dark:group-hover:text-dark-text-primary transition-colors">
+                        <UserCircle size={20} className="sm:w-6 sm:h-6" />
                       </div>
                       <div className="hidden md:block text-left">
-                        <p className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary">
+                        <p className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary truncate max-w-[120px] lg:max-w-none">
                           {user?.name || 'User'}
                         </p>
-                        <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
+                        <p className="text-xs text-light-text-muted dark:text-dark-text-muted truncate max-w-[120px] lg:max-w-none">
                           {user?.email || 'Authenticated'}
                         </p>
                       </div>
                       <ChevronDown
-                        size={16}
-                        className={`text-light-text-muted dark:text-dark-text-muted transition-transform duration-200 ${isProfileOpen ? 'rotate-180' : ''}`}
+                        size={14}
+                        className={`hidden sm:block text-light-text-muted dark:text-dark-text-muted transition-transform duration-200 ${isProfileOpen ? 'rotate-180' : ''}`}
                       />
                     </button>
 
                     {/* Profile Dropdown Menu */}
                     {isProfileOpen && (
-                      <div className="absolute right-0 mt-2 w-72 bg-light-bg-card dark:bg-dark-bg-card rounded-lg border border-light-border dark:border-dark-border shadow-xl animate-fadeIn">
+                      <div className="absolute right-0 mt-2 w-64 sm:w-72 bg-light-bg-card dark:bg-dark-bg-card rounded-lg border border-light-border dark:border-dark-border shadow-xl animate-fadeIn">
                         <div className="px-4 py-3 border-b border-light-border dark:border-dark-border">
-                          <p className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary">
+                          <p className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary truncate">
                             {user?.name || 'User'}
                           </p>
-                          <p className="text-xs text-light-text-muted dark:text-dark-text-muted">
+                          <p className="text-xs text-light-text-muted dark:text-dark-text-muted truncate">
                             {user?.email || 'user@example.com'}
                           </p>
                         </div>
                         <div className="py-1">
+                          {/* Language toggle for mobile in dropdown */}
+                          <div className="sm:hidden px-4 py-2 border-b border-light-border dark:border-dark-border">
+                            <div className="flex items-center justify-between">
+                              <span className="text-sm text-light-text-muted dark:text-dark-text-muted">{t('dashboard.profile.language')}</span>
+                              <LanguageToggle />
+                            </div>
+                          </div>
                           {/* <button type="button" className="group relative w-full px-4 py-2 text-sm text-left text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 flex items-center space-x-2 transition-colors">
                             <Settings size={16} />
                             <span>{t('dashboard.profile.settings')}</span>
@@ -305,11 +369,11 @@ export const Dashboard = () => {
                           <button
                             type="button"
                             onClick={handleLogout}
-                            className="group relative w-full px-4 py-2 text-sm text-left text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 flex items-center space-x-2 transition-colors"
+                            className="group relative w-full px-4 py-2.5 sm:py-2 text-sm text-left text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 flex items-center space-x-2 transition-colors"
                           >
                             <LogOut size={16} />
                             <span>{t('dashboard.profile.signOut')}</span>
-                            <div className="absolute left-full ml-2 invisible group-hover:visible w-64 p-2 bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg shadow-lg text-xs">
+                            <div className="hidden lg:block absolute left-full ml-2 invisible group-hover:visible w-64 p-2 bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg shadow-lg text-xs">
                               {t('dashboard.tooltips.signOut')}
                             </div>
                           </button>
@@ -341,115 +405,115 @@ export const Dashboard = () => {
           {/* Page Content */}
 
           {tab === 'overview' && (
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {/* Welcome Section */}
               <div>
-                <h1 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-2">
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-light-text-primary dark:text-dark-text-primary mb-2">
                   {t('dashboard.welcome')}, {user?.name || 'User'}!
                 </h1>
-                <p className="text-light-text-muted dark:text-dark-text-muted">
+                <p className="text-sm sm:text-base text-light-text-muted dark:text-dark-text-muted">
                   {t('dashboard.overviewSubtitle')}
                 </p>
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-6">
-                  <div className="flex items-center justify-between mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                      <FileText className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <span className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                    <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
                       +12%
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
                     {mockStats.totalDocuments}
                   </h3>
-                  <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                  <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
                     {t('dashboard.stats.totalDocuments')}
                   </p>
                 </div>
 
-                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-6">
-                  <div className="flex items-center justify-between mb-4">
+                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg">
-                      <Shield className="w-6 h-6 text-green-600 dark:text-green-400" />
+                      <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 dark:text-green-400" />
                     </div>
-                    <span className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                    <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
                       +8%
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
                     {mockStats.activeProofs}
                   </h3>
-                  <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                  <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
                     {t('dashboard.stats.activeProofs')}
                   </p>
                 </div>
 
-                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-6">
-                  <div className="flex items-center justify-between mb-4">
+                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg">
-                      <CheckCircle className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <span className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                    <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
                       +15%
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
                     {mockStats.verifiedProofs}
                   </h3>
-                  <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                  <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
                     {t('dashboard.stats.verifiedProofs')}
                   </p>
                 </div>
 
-                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-6">
-                  <div className="flex items-center justify-between mb-4">
+                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="p-2 bg-orange-100 dark:bg-orange-900 rounded-lg">
-                      <Clock className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                      <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600 dark:text-orange-400" />
                     </div>
-                    <span className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                    <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
                       +20%
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
                     {mockStats.savedTime}
                   </h3>
-                  <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                  <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
                     {t('dashboard.stats.savedTime')}
                   </p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
                 {/* Quick Actions */}
                 <div className="lg:col-span-2">
-                  <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-6">
-                    <h2 className="text-xl font-semibold text-light-text-primary dark:text-dark-text-primary mb-6">
+                  <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                    <h2 className="text-lg sm:text-xl font-semibold text-light-text-primary dark:text-dark-text-primary mb-4 sm:mb-6">
                       {t('dashboard.quickActions.title')}
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4">
                       <div className="relative">
                         <button
                           type="button"
                           disabled
-                          className="w-full flex items-center space-x-4 p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
+                          className="w-full flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
                         >
-                          <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                            <Upload className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                          <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg flex-shrink-0">
+                            <Upload className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" />
                           </div>
-                          <div className="text-left flex-1">
-                            <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
+                          <div className="text-left flex-1 min-w-0">
+                            <h3 className="font-medium text-sm sm:text-base text-light-text-primary dark:text-dark-text-primary truncate">
                               {t('dashboard.quickActions.uploadDocument')}
                             </h3>
-                            <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                            <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted line-clamp-2">
                               {t('dashboard.quickActions.uploadDocumentDesc')}
                             </p>
                           </div>
                         </button>
-                        <div className="absolute top-2 right-2 px-2 py-1 bg-gray-500 dark:bg-gray-600 text-white text-xs font-bold rounded">
+                        <div className="absolute top-2 right-2 px-2 py-0.5 sm:py-1 bg-gray-500 dark:bg-gray-600 text-white text-[10px] sm:text-xs font-bold rounded">
                           {t('common.comingSoon')}
                         </div>
                       </div>
@@ -458,21 +522,21 @@ export const Dashboard = () => {
                         <button
                           type="button"
                           disabled
-                          className="w-full flex items-center space-x-4 p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
+                          className="w-full flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
                         >
-                          <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg">
-                            <Play className="w-5 h-5 text-green-600 dark:text-green-400" />
+                          <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg flex-shrink-0">
+                            <Play className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400" />
                           </div>
-                          <div className="text-left flex-1">
-                            <h3 className="font-medium text-light-text-primary dark:text-dark-text-primary">
+                          <div className="text-left flex-1 min-w-0">
+                            <h3 className="font-medium text-sm sm:text-base text-light-text-primary dark:text-dark-text-primary truncate">
                               {t('dashboard.quickActions.generateProof')}
                             </h3>
-                            <p className="text-sm text-light-text-muted dark:text-dark-text-muted">
+                            <p className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted line-clamp-2">
                               {t('dashboard.quickActions.generateProofDesc')}
                             </p>
                           </div>
                         </button>
-                        <div className="absolute top-2 right-2 px-2 py-1 bg-gray-500 dark:bg-gray-600 text-white text-xs font-bold rounded">
+                        <div className="absolute top-2 right-2 px-2 py-0.5 sm:py-1 bg-gray-500 dark:bg-gray-600 text-white text-[10px] sm:text-xs font-bold rounded">
                           {t('common.comingSoon')}
                         </div>
                       </div>
@@ -481,9 +545,9 @@ export const Dashboard = () => {
                         <button
                           type="button"
                           disabled
-                          className="w-full flex items-center space-x-4 p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
+                          className="w-full flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-light-bg-secondary/30 dark:bg-dark-bg-secondary/30 rounded-lg transition-colors opacity-60 cursor-not-allowed"
                         >
-                          <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg">
+                          <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg flex-shrink-0">
                             <Eye className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                           </div>
                           <div className="text-left flex-1">
@@ -517,7 +581,7 @@ export const Dashboard = () => {
                           </p>
                         </div>
                       </button>
-
+{/*
                       <div className="relative">
                         <button
                           type="button"
@@ -539,7 +603,7 @@ export const Dashboard = () => {
                         <div className="absolute top-2 right-2 px-2 py-1 bg-gray-500 dark:bg-gray-600 text-white text-xs font-bold rounded">
                           {t('common.comingSoon')}
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
