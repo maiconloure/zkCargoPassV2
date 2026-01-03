@@ -4,6 +4,7 @@ import { DUIMPDataForm, type DUIMPFormData } from './DUIMPDataForm';
 import { FakeAnalysisProgress } from './FakeAnalysisProgress';
 import { ProofResult, type FakeProof } from './ProofResult';
 import { PortalUnicoIntegration } from './PortalUnicoIntegration';
+import { API_BASE_URL } from '../../utils/apiClient';
 
 type FlowStep = 'form' | 'analysis' | 'result' | 'integration';
 
@@ -20,7 +21,7 @@ export const ProofSimulationFlow: React.FC = () => {
 
     try {
       // Call backend API to generate fake proof
-      const response = await fetch('http://localhost:8787/api/proof/simulate', {
+      const response = await fetch(`${API_BASE_URL}/proof/simulate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

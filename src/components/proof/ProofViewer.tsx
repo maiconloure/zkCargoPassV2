@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { FakeProof } from './ProofResult';
+import { API_BASE_URL } from '../../utils/apiClient';
 
 export const ProofViewer: React.FC = () => {
   const { t } = useTranslation();
@@ -21,7 +22,7 @@ export const ProofViewer: React.FC = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:8787/api/proof/${proofId}`);
+        const response = await fetch(`${API_BASE_URL}/proof/${proofId}`);
 
         if (!response.ok) {
           if (response.status === 404) {
