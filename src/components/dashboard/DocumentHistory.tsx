@@ -194,7 +194,7 @@ export const DocumentHistory = () => {
   }
 
   return (
-    <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-4 sm:p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
+    <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-4 sm:p-6 border-2 border-light-border dark:border-dark-border transition-colors duration-300">
       <div className="flex flex-col gap-2 mb-4 sm:mb-6">
         <h2 className="text-lg sm:text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">
           {t('dashboard.documentHistory')}
@@ -205,7 +205,7 @@ export const DocumentHistory = () => {
       </div>
 
       <div className="grid gap-4 sm:gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-        <form
+        {/* <form
           className="rounded-lg border border-light-border dark:border-dark-border bg-light-bg-secondary dark:bg-dark-bg-secondary p-4 sm:p-5 space-y-4 sm:space-y-5"
           onSubmit={handleUpload}
         >
@@ -334,9 +334,9 @@ export const DocumentHistory = () => {
               size: formatFileSize(MAX_FILE_SIZE),
             })}
           </p>
-        </form>
+        </form> */}
 
-        <div className="flex flex-col gap-3 sm:gap-4">
+        {/* <div className="flex flex-col gap-3 sm:gap-4">
           <div className="flex items-center justify-between">
             <h3 className="text-base sm:text-lg font-medium text-light-text-primary dark:text-dark-text-primary">
               {t('dashboard.documentsModule.listTitle')}
@@ -415,7 +415,7 @@ export const DocumentHistory = () => {
               })}
             </p>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   )

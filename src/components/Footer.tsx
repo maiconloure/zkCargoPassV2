@@ -130,14 +130,14 @@ export const Footer = () => {
                   {t('footer.howItWorks')}
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#pricing"
                   className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors"
                 >
                   {t('footer.pricing')}
                 </a>
-              </li>
+              </li> */}
               {/* <li>
                 <a
                   href="#"
@@ -169,14 +169,14 @@ export const Footer = () => {
                   {t('footer.aboutUs')}
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#partners"
                   className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors"
                 >
                   {t('footer.partners')}
                 </a>
-              </li>
+              </li> */}
               {/* <li>
                 <a
                   href="#"

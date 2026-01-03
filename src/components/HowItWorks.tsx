@@ -49,11 +49,11 @@ export const HowItWorks = () => {
             </div>
           </div>
           <div className="order-1 lg:order-2">
-            <div className="bg-light-bg-card dark:bg-dark-bg-secondary/70 border border-light-border dark:border-dark-border rounded-xl p-6 relative shadow-lg">
+            <div className="bg-light-bg-card dark:bg-dark-bg-secondary/70 border-2 border-light-accent-primary dark:border-dark-accent-primary rounded-xl rounded-xl p-6 relative shadow-lg ">
               <div className="absolute -top-4 -right-4 bg-light-accent-primary dark:bg-dark-accent-primary text-white text-xs font-bold px-2 py-1 rounded">
                 {t('howItWorks.secureWorkflow')}
               </div>
-              <div className="space-y-6">
+              <div className="space-y-6 ">
                 <div className="bg-light-bg-secondary dark:bg-dark-bg-primary rounded-lg p-4">
                   <div className="flex items-center mb-3">
                     <div className="h-2 w-2 rounded-full bg-light-accent-primary dark:bg-dark-accent-primary mr-2"></div>

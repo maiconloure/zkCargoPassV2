@@ -13,7 +13,7 @@ import { HowItWorks } from './components/HowItWorks'
 import { Partnerships } from './components/Partnerships'
 import { Pricing } from './components/Pricing'
 import { ProofViewer } from './components/proof/ProofViewer'
-import { AuthProvider } from './contexts/AuthContext'
+import { AuthProvider, useAuth } from './contexts/AuthContext'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { ThemeProvider } from './contexts/ThemeContext'
 
@@ -22,8 +22,14 @@ const AppContent = () => {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
   const [loginRedirectTab, setLoginRedirectTab] = useState<string | null>(null)
   const navigate = useNavigate()
+  const { isAuthenticated } = useAuth()
 
   const handleOpenLoginForDemo = () => {
+    if (isAuthenticated) {
+      navigate('/dashboard?tab=duimp-demo')
+      return
+    }
+
     setLoginRedirectTab('duimp-demo')
     setIsLoginModalOpen(true)
   }

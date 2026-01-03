@@ -13,7 +13,7 @@ export const PlatformStatus = ({ api, proofs, storage }: PlatformStatusProps) =>
         <Activity className="w-6 h-6 text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors" />
 
         <div className="absolute bottom-full right-0 mb-2 w-64 hidden group-hover:block">
-          <div className="bg-light-bg-card dark:bg-dark-bg-card backdrop-blur-sm border border-light-border dark:border-dark-border rounded-lg p-4 shadow-xl transition-colors duration-300">
+          <div className="bg-light-bg-card dark:bg-dark-bg-card backdrop-blur-sm border-2 border-light-border dark:border-dark-border rounded-lg p-4 shadow-xl transition-colors duration-300">
             <div className="text-light-text-muted dark:text-dark-text-muted text-sm mb-4">Platform Status</div>
             <ul className="text-light-text-primary dark:text-dark-text-primary space-y-3">
               <li className="flex justify-between items-center">

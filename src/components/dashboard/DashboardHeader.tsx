@@ -21,8 +21,8 @@ export const DashboardHeader = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <img src={zkCargoPassLogo} alt="zkCargoPass Logo" className="w-6 h-6 mr-3" />
-            <h1 className="text-xl font-display font-bold text-light-text-primary dark:text-dark-text-primary">{t('dashboard.title')}</h1>
+            <img src={zkCargoPassLogo} alt="zkCargoPass Logo" className="w-6 h-6 mr-3"  />
+            <a className="text-xl font-display font-bold text-light-text-primary dark:text-dark-text-primary" href="/" >{t('dashboard.title')}</a>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -56,7 +56,7 @@ export const DashboardHeader = () => {
               </button>
 
               {isProfileOpen && (
-                <div className="absolute right-0 mt-2 w-48 py-2 bg-light-bg-card dark:bg-dark-bg-card rounded-lg border border-light-border dark:border-dark-border shadow-xl transition-colors duration-300">
+                <div className="absolute right-0 mt-2 w-48 py-2 bg-light-bg-card dark:bg-dark-bg-card rounded-lg border-2 border-light-border dark:border-dark-border shadow-xl transition-colors duration-300">
                   <div className="px-4 py-2 border-b border-light-border dark:border-dark-border">
                     <p className="text-sm font-medium text-light-text-primary dark:text-dark-text-primary">{mockUser.name}</p>
                     <p className="text-xs text-light-text-muted dark:text-dark-text-muted">{mockUser.email}</p>
