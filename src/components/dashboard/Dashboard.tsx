@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import zkCargoPassLogo from '../../assets/logo.png'
 import { useAuth } from '../../contexts/AuthContext'
 import { LanguageToggle } from '../LanguageToggle'
@@ -64,7 +64,9 @@ const platformStatus = {
 
 export const Dashboard = () => {
   const [searchParams] = useSearchParams()
-  const initialTab = searchParams.get('tab') || 'overview'
+  const requestedTab = searchParams.get('tab') || 'overview'
+  // Block access to generate and validate tabs
+  const initialTab = (requestedTab === 'generate' || requestedTab === 'validate') ? 'overview' : requestedTab
   const [tab, setTab] = useState(initialTab)
   const [isProfileOpen, setIsProfileOpen] = useState(false)
   const [hasNotifications] = useState(true)
@@ -111,12 +113,12 @@ export const Dashboard = () => {
       `}>
         <div className="p-4 sm:p-6">
           <div className="flex items-center justify-between mb-6 sm:mb-8">
-            <div className="flex items-center space-x-2 sm:space-x-3">
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
               <img src={zkCargoPassLogo} alt="zkCargoPass" className="w-5 h-5 sm:w-6 sm:h-6" />
               <span className="text-lg sm:text-xl font-display font-bold text-light-text-primary dark:text-dark-text-primary">
-                zkCargoPass
+                {t('header.brand')}
               </span>
-            </div>
+            </Link>
             <button
               onClick={() => setIsSidebarOpen(false)}
               className="lg:hidden p-2 text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary"
@@ -183,36 +185,28 @@ export const Dashboard = () => {
             </button>
             <button
               type="button"
-              onClick={() => {
-                setTab('generate')
-                setIsSidebarOpen(false)
-              }}
-              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base ${
-                tab === 'generate'
-                  ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
-                  : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
-              }`}
+              disabled
+              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base opacity-50 cursor-not-allowed`}
             >
               <Play size={18} />
               <span>{t('dashboard.navigation.generate')}</span>
+              <div className="absolute right-2 px-2 py-1 bg-gray-500 dark:bg-gray-600 text-white text-xs font-bold rounded">
+                {t('common.unavailable')}
+              </div>
               <div className="absolute left-full ml-2 invisible group-hover:visible w-64 p-2 bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg shadow-lg text-xs text-light-text-muted dark:text-dark-text-muted">
                 {t('dashboard.tooltips.generate')}
               </div>
             </button>
             <button
               type="button"
-              onClick={() => {
-                setTab('validate')
-                setIsSidebarOpen(false)
-              }}
-              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base ${
-                tab === 'validate'
-                  ? 'bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary'
-                  : 'text-light-text-muted dark:text-dark-text-muted hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 hover:text-light-text-primary dark:hover:text-dark-text-primary'
-              }`}
+              disabled
+              className={`group relative w-full flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-colors text-sm sm:text-base opacity-50 cursor-not-allowed`}
             >
               <Eye size={18} />
               <span>{t('dashboard.navigation.validate')}</span>
+              <div className="absolute right-2 px-2 py-1 bg-gray-500 dark:bg-gray-600 text-white text-xs font-bold rounded">
+                {t('common.unavailable')}
+              </div>
               <div className="absolute left-full ml-2 invisible group-hover:visible w-64 p-2 bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg shadow-lg text-xs text-light-text-muted dark:text-dark-text-muted">
                 {t('dashboard.tooltips.validate')}
               </div>
@@ -282,8 +276,6 @@ export const Dashboard = () => {
                     {tab === 'overview' && t('dashboard.overview')}
                     {tab === 'documents' && t('dashboard.pages.documents')}
                     {tab === 'proofs' && t('dashboard.pages.proofs')}
-                    {tab === 'generate' && t('dashboard.pages.generate')}
-                    {tab === 'validate' && t('dashboard.pages.validate')}
                     {tab === 'help' && t('dashboard.pages.help')}
                   </div>
                 </div>
@@ -418,7 +410,7 @@ export const Dashboard = () => {
 
               {/* Stats Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                <div className="bg-light-bg-card dark:bg-dark-bg-card border-2 border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
                       <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
@@ -435,7 +427,7 @@ export const Dashboard = () => {
                   </p>
                 </div>
 
-                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                <div className="bg-light-bg-card dark:bg-dark-bg-card border-2 border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg">
                       <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 dark:text-green-400" />
@@ -452,7 +444,7 @@ export const Dashboard = () => {
                   </p>
                 </div>
 
-                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                <div className="bg-light-bg-card dark:bg-dark-bg-card border-2 border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg">
                       <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" />
@@ -469,7 +461,7 @@ export const Dashboard = () => {
                   </p>
                 </div>
 
-                <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                <div className="bg-light-bg-card dark:bg-dark-bg-card border-2 border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div className="p-2 bg-orange-100 dark:bg-orange-900 rounded-lg">
                       <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600 dark:text-orange-400" />
@@ -490,7 +482,7 @@ export const Dashboard = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
                 {/* Quick Actions */}
                 <div className="lg:col-span-2">
-                  <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
+                  <div className="bg-light-bg-card dark:bg-dark-bg-card border-2 border-light-border dark:border-dark-border rounded-lg p-4 sm:p-6">
                     <h2 className="text-lg sm:text-xl font-semibold text-light-text-primary dark:text-dark-text-primary mb-4 sm:mb-6">
                       {t('dashboard.quickActions.title')}
                     </h2>
@@ -610,7 +602,7 @@ export const Dashboard = () => {
 
                 {/* Recent Activity */}
                 <div>
-                  <div className="bg-light-bg-card dark:bg-dark-bg-card border border-light-border dark:border-dark-border rounded-lg p-6">
+                  <div className="bg-light-bg-card dark:bg-dark-bg-card border-2 border-light-border dark:border-dark-border rounded-lg p-6">
                     <div className="flex items-center justify-between mb-6">
                       <h2 className="text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">
                         {t('dashboard.recentActivity.title')}
@@ -686,7 +678,7 @@ export const Dashboard = () => {
               <h2 className="text-xl font-semibold mb-6 text-light-text-primary dark:text-dark-text-primary">
                 {t('dashboard.tables.proofs.title')}
               </h2>
-              <div className="bg-light-bg-card dark:bg-dark-bg-card backdrop-blur-sm border border-light-border dark:border-dark-border rounded-lg overflow-hidden">
+              <div className="bg-light-bg-card dark:bg-dark-bg-card backdrop-blur-sm border-2 border-light-border dark:border-dark-border rounded-lg overflow-hidden">
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-light-border dark:border-dark-border">
@@ -702,7 +694,12 @@ export const Dashboard = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {mockProofs.map(proof => (
+                    <tr>
+                      <td className="py-4 px-6 text-light-text-primary dark:text-dark-text-primary">
+                        {t('common.unavailable')}
+                      </td>
+                    </tr>
+                    {/* {mockProofs.map(proof => (
                       <tr
                         key={proof.id}
                         className="border-b border-light-border dark:border-dark-border last:border-b-0 hover:bg-light-bg-secondary/50 dark:hover:bg-dark-bg-secondary/50 transition-colors"
@@ -725,129 +722,9 @@ export const Dashboard = () => {
                           </span>
                         </td>
                       </tr>
-                    ))}
+                    ))} */}
                   </tbody>
                 </table>
-              </div>
-            </div>
-          )}
-
-          {tab === 'generate' && (
-            <div>
-              <h2 className="text-xl font-semibold mb-6 text-light-text-primary dark:text-dark-text-primary">
-                {t('dashboard.forms.generate.title')}
-              </h2>
-              <div className="bg-light-bg-card dark:bg-dark-bg-card backdrop-blur-sm border border-light-border dark:border-dark-border rounded-lg p-6">
-                <div className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="document-select"
-                      className="block text-light-text-muted dark:text-dark-text-muted text-sm mb-2"
-                    >
-                      {t('dashboard.forms.generate.selectDocument')}
-                    </label>
-                    <select
-                      id="document-select"
-                      className="w-full bg-light-bg-secondary dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg px-4 py-2.5 text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:border-light-accent-primary dark:focus:border-dark-accent-primary"
-                    >
-                      <option value="">
-                        {t('dashboard.forms.generate.selectDocumentPlaceholder')}
-                      </option>
-                      {mockDocs.map(doc => (
-                        <option key={doc.id} value={doc.id}>
-                          {doc.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="proof-type-select"
-                      className="block text-light-text-muted dark:text-dark-text-muted text-sm mb-2"
-                    >
-                      {t('dashboard.forms.generate.proofType')}
-                    </label>
-                    <select
-                      id="proof-type-select"
-                      className="w-full bg-light-bg-secondary dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg px-4 py-2.5 text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:border-light-accent-primary dark:focus:border-dark-accent-primary"
-                    >
-                      <option value="ownership">
-                        {t('dashboard.forms.generate.documentOwnership')}
-                      </option>
-                      <option value="integrity">
-                        {t('dashboard.forms.generate.documentIntegrity')}
-                      </option>
-                      <option value="timeline">
-                        {t('dashboard.forms.generate.timelineVerification')}
-                      </option>
-                    </select>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setIsGenerating(true)}
-                    className="w-full bg-light-accent-primary dark:bg-dark-accent-primary hover:bg-light-accent-secondary dark:hover:bg-dark-accent-secondary text-white font-medium py-2.5 px-4 rounded-lg transition-colors"
-                  >
-                    {isGenerating
-                      ? t('dashboard.forms.generate.generating')
-                      : t('dashboard.forms.generate.generateButton')}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {tab === 'validate' && (
-            <div>
-              <h2 className="text-xl font-semibold mb-6 text-light-text-primary dark:text-dark-text-primary">
-                {t('dashboard.forms.validate.title')}
-              </h2>
-              <div className="bg-light-bg-card dark:bg-dark-bg-card backdrop-blur-sm border border-light-border dark:border-dark-border rounded-lg p-6">
-                <div className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="proof-select"
-                      className="block text-light-text-muted dark:text-dark-text-muted text-sm mb-2"
-                    >
-                      {t('dashboard.forms.validate.selectProof')}
-                    </label>
-                    <select
-                      id="proof-select"
-                      className="w-full bg-light-bg-secondary dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg px-4 py-2.5 text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:border-light-accent-primary dark:focus:border-dark-accent-primary"
-                    >
-                      <option value="">
-                        {t('dashboard.forms.validate.selectProofPlaceholder')}
-                      </option>
-                      {mockProofs.map(proof => (
-                        <option key={proof.id} value={proof.id}>
-                          {proof.doc} - {t(`dashboard.status.${proof.type.toLowerCase()}`)}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="public-input"
-                      className="block text-light-text-muted dark:text-dark-text-muted text-sm mb-2"
-                    >
-                      {t('dashboard.forms.validate.publicInput')}
-                    </label>
-                    <textarea
-                      id="public-input"
-                      className="w-full bg-light-bg-secondary dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border rounded-lg px-4 py-2.5 text-light-text-primary dark:text-dark-text-primary focus:outline-none focus:border-light-accent-primary dark:focus:border-dark-accent-primary"
-                      rows={4}
-                      placeholder={t('dashboard.forms.validate.publicInputPlaceholder')}
-                    />
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setIsValidating(true)}
-                    className="w-full bg-light-accent-primary dark:bg-dark-accent-primary hover:bg-light-accent-secondary dark:hover:bg-dark-accent-secondary text-white font-medium py-2.5 px-4 rounded-lg transition-colors"
-                  >
-                    {isValidating
-                      ? t('dashboard.forms.validate.validating')
-                      : t('dashboard.forms.validate.validateButton')}
-                  </button>
-                </div>
               </div>
             </div>
           )}

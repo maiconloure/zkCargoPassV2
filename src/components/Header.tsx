@@ -21,17 +21,17 @@ export const Header = ({ onOpenLogin, onOpenDemo, onOpenDuimpDemo }: HeaderProps
       <div className="container mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3 sm:py-4">
           <div className="flex items-center flex-shrink-0">
-            <Link to="/" className="text-xl sm:text-2xl lg:text-3xl font-bold text-light-text-primary dark:text-dark-text-primary flex items-center hover:opacity-80 transition-opacity">
-              <img src={zkCargoPassLogo} alt="zkCargoPass Logo" className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mr-2 sm:mr-3 lg:mr-4" />
-              <h1 className="font-titillium hidden xs:block">{t('header.brand')}</h1>
+            <Link to="/" className="text-xl sm:text-1xl lg:text-1xl font-bold text-light-text-primary dark:text-dark-text-primary flex items-center hover:opacity-80 transition-opacity">
+              <img src={zkCargoPassLogo} alt="zkCargoPass Logo" className="w-10 h-10 sm:w-8 sm:h-8 lg:w-10 lg:h-10 mr-2 sm:mr-3 lg:mr-4" />
+              <h1 className="font-titillium xs:block">{t('header.brand')}</h1>
             </Link>
           </div>
 
           <nav className="hidden lg:flex space-x-4 xl:space-x-6">
             <NavItem label={t('header.features')} targetId="features" />
             <NavItem label={t('header.howItWorks')} targetId="how-it-works" />
-            <NavItem label={t('header.partners')} targetId="partners" />
-            <NavItem label={t('header.pricing')} targetId="pricing" />
+            {/* <NavItem label={t('header.partners')} targetId="partners" /> */}
+            {/* <NavItem label={t('header.pricing')} targetId="pricing" /> */}
             <Link
               to="/about"
               className="text-light-text-primary font-bold dark:text-dark-text-primary hover:text-light-text-secondary dark:hover:text-dark-text-muted transition-colors"
@@ -124,6 +124,7 @@ export const Header = ({ onOpenLogin, onOpenDemo, onOpenDuimpDemo }: HeaderProps
                   type="button"
                   className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors py-2.5 px-4 rounded-md border border-light-border dark:border-dark-border hover:bg-light-bg-secondary dark:hover:bg-dark-bg-secondary font-medium w-full text-center"
                   onClick={() => {
+
                     setIsMenuOpen(false)
                     onOpenLogin()
                   }}

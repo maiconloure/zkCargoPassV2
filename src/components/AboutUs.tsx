@@ -147,7 +147,7 @@ export const AboutUs = () => {
 
               <div className="text-center">
                 <div className="w-16 h-16 bg-light-accent-primary dark:bg-dark-accent-primary rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">T</span>
+                  <span className="text-white font-bold text-xl">{t('aboutUs.values.trust.signal')}</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{t('aboutUs.values.trust.title')}</h3>
                 <p className="text-light-text-secondary dark:text-dark-text-muted text-sm">

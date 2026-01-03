@@ -20,7 +20,7 @@ export const PlatformStats = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-      <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-4 sm:p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
+      <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-4 sm:p-6 border-2 border-light-border dark:border-dark-border transition-colors duration-300">
         <div className="flex items-center justify-between mb-3 sm:mb-4">
           <h2 className="text-lg sm:text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">{t('dashboard.budgetUsage')}</h2>
           <DollarSign className="text-light-text-muted dark:text-dark-text-muted" size={20} />
@@ -39,7 +39,7 @@ export const PlatformStats = () => {
         </div>
       </div>
 
-      <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-4 sm:p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
+      <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-4 sm:p-6 border-2 border-light-border dark:border-dark-border transition-colors duration-300">
         <div className="flex items-center justify-between mb-3 sm:mb-4">
           <h2 className="text-lg sm:text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">{t('dashboard.platformStatus')}</h2>
           <Activity className="text-green-400" size={20} />

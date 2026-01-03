@@ -12,7 +12,8 @@
     "mostPopular": "MAIS POPULAR",
     "verified": "Verificado",
     "processing": "Processando",
-    "comingSoon": "Em breve"
+    "comingSoon": "Em breve",
+    "unavailable": "Indisponível"
   },
   "auth": {
     "loginModal": {
@@ -215,7 +216,7 @@
     "careers": "Carreiras",
     "blog": "Blog",
     "contact": "Contato",
-    "address": "Brasil",
+    "address": "Santa Catarina, Brasil",
     "email": "contact@hypherdyne.com",
     "phone": "+55 13 9999-9999",
     "copyright": "© 2025 zkCargoPass. Todos os direitos reservados.",
@@ -375,7 +376,7 @@
     "support": {
       "title": "Ajuda e Suporte",
       "contactText": "Precisa de assistência? Entre em contato com nossa equipe de suporte em",
-      "email": "support@zkcargopass.com",
+      "email": "contact@hypherdyne.com",
       "documentationText": "Consulte nossa",
       "documentationLink": "documentação",
       "documentationSuffix": "para guias e perguntas frequentes.",
@@ -488,6 +489,7 @@
       },
       "trust": {
         "title": "Confiança",
+        "signal": "C",
         "description": "Construindo soluções confiáveis com as quais nossos parceiros podem contar"
       },
       "excellence": {

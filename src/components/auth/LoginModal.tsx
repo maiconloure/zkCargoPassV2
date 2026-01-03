@@ -1,7 +1,8 @@
 import { AlertCircle, Shield, X } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../contexts/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 interface LoginModalProps {
   isOpen: boolean
@@ -16,9 +17,15 @@ export const LoginModal = ({ isOpen, onClose, onSuccess }: LoginModalProps) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
-  const { login, register, isLoading } = useAuth()
+  const { login, register, isAuthenticated, isLoading } = useAuth()
+  const navigate = useNavigate()
 
   if (!isOpen) return null
+
+  if (isAuthenticated) {
+    onClose()
+    navigate('/dashboard')
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

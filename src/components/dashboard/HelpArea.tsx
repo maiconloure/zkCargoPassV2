@@ -26,7 +26,7 @@ export const HelpArea = () => {
   ]
 
   return (
-    <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-6 border border-light-border dark:border-dark-border transition-colors duration-300">
+    <div className="bg-light-bg-card dark:bg-dark-bg-card rounded-lg p-6 border-2 border-light-border dark:border-dark-border transition-colors duration-300">
       <div className="flex items-center space-x-2 mb-6">
         <HelpCircle className="text-light-text-muted dark:text-dark-text-muted" size={24} />
         <h2 className="text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">{t('dashboard.helpResources')}</h2>
