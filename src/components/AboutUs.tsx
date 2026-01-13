@@ -1,15 +1,18 @@
 import { ArrowLeft, Award, Globe, Target, Users } from 'lucide-react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { DemoRequestModal } from './demo/DemoRequestModal'
 import { Footer } from './Footer'
 import { Header } from './Header'
 
 export const AboutUs = () => {
   const { t } = useTranslation()
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-light-bg-primary dark:bg-dark-bg-primary text-light-text-primary dark:text-dark-text-primary transition-colors duration-300">
-      <Header onOpenLogin={() => {}} onOpenDemo={() => {}} />
+      <Header onOpenLogin={() => {}} onOpenDemo={() => setIsDemoModalOpen(true)} />
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
@@ -185,6 +188,7 @@ export const AboutUs = () => {
               <button
                 type="button"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-light-accent-primary dark:hover:text-dark-accent-primary transition-colors"
+                onClick={() => setIsDemoModalOpen(true)}
               >
                 {t('aboutUs.cta.contactUs')}
               </button>
@@ -194,6 +198,7 @@ export const AboutUs = () => {
       </main>
 
       <Footer />
+      <DemoRequestModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </div>
   )
 }

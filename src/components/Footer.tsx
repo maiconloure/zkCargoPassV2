@@ -1,6 +1,7 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import zkCargoPassLogo from '../assets/logo2.png'
 
 export const Footer = () => {
   const { t } = useTranslation()
@@ -11,45 +12,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <Link to="/" className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary flex items-center mb-4 hover:opacity-80 transition-opacity">
-              <div className="mr-2 bg-light-accent-primary dark:bg-dark-accent-primary rounded-md p-1">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>zkCargoPass Logo</title>
-                  <path
-                    d="M12 2L4 6V18L12 22L20 18V6L12 2Z"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M12 22V16"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M20 6L12 10L4 6"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M4 14L12 18L20 14"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+              <img src={zkCargoPassLogo} alt="zkCargoPass Logo" className="w-10 h-10 sm:w-8 sm:h-8 lg:w-10 lg:h-10 mr-2 sm:mr-3 lg:mr-4" />
               zkCargoPass
             </Link>
             <p className="text-light-text-secondary dark:text-dark-text-muted mb-4">
@@ -229,18 +192,17 @@ export const Footer = () => {
                   {t('footer.email')}
                 </a>
               </li>
-              {/* <li className="flex items-center">
+              <li className="flex items-center">
                 <Phone
                   size={18}
                   className="text-light-accent-primary dark:text-dark-accent-primary mr-2"
                 />
                 <a
-                  href="tel:+551399999999"
+                  href="tel:+5547997722250"
                   className="text-light-text-secondary dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-dark-text-secondary transition-colors"
                 >
-                  +55 99 9999-9999
-                </a>
-              </li> */}
+                  +55 47 99772-2250</a>
+              </li>
             </ul>
           </div>
         </div>
