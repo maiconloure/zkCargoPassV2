@@ -20,6 +20,7 @@ export default {
         momo: ['Momo Trust Display', 'sans-serif'],
       },
       colors: {
+        blue: '#5E63BD',
         light: {
           bg: {
             primary: '#f8fafc',
@@ -33,9 +34,9 @@ export default {
           },
           border: '#e2e8f0',
           accent: {
-            primary: '#3b82f6',
-            secondary: '#1d4ed8',
-            muted: '#93c5fd',
+            primary: '#5E63BD',
+            secondary: '#5E63BD',
+            muted: '#5E63BD',
           },
         },
         dark: {
@@ -51,9 +52,9 @@ export default {
           },
           border: '#172b44',
           accent: {
-            primary: '#0055ff',
-            secondary: '#0044cc',
-            muted: '#4a90e2',
+            primary: '#5E63BD',
+            secondary: '#5E63BD',
+            muted: '#5E63BD',
           },
         },
       },

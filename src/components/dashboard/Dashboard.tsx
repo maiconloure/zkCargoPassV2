@@ -107,6 +107,7 @@ export const Dashboard = () => {
         fixed lg:static inset-y-0 left-0 z-50
         w-72 sm:w-80 lg:w-80
         bg-light-bg-card/95 dark:bg-dark-bg-card/95 backdrop-blur-sm
+        bg-gradient-to-b from-[#5E63BD]/10 to-transparent
         border-r border-light-border dark:border-dark-border
         min-h-screen transition-all duration-300
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
@@ -128,7 +129,7 @@ export const Dashboard = () => {
             </button>
           </div>
 
-          <nav className="space-y-1.5 sm:space-y-2">
+          <nav className="space-y-1.5 sm:space-y-2 bg-[#5E63BD]/5 rounded-lg p-2">
             <button
               type="button"
               onClick={() => {

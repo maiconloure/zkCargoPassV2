@@ -86,11 +86,11 @@
     },
     "simplicity": {
       "title": "1. Envio dos Documentos",
-      "description": "A empresa envia os documentos de importação/exportação para a plataforma zkCargoPass — tudo em um único lugar, de forma rápida e segura."
+      "description": "A empresa envia os documentos aduaneiros para a plataforma zkCargoPass onde é feito todo o processamento e a criptografia."
     },
     "aiPowered": {
-      "title": "2. IA para validar documentos",
-      "description": "A inteligência artificial extrai os dados dos documentos e verifica se está tudo ok antes de ser enviado ao Portal Único, evitando erros que atrasam a liberação da carga."
+      "title": "2. Compliance automático",
+      "description": "Verificação automática de compliance através de API integrada ao portal único acelerando a liberação das cargas e reduzindo custos operacionais."
     },
     "auditability": {
       "title": "3. Certificação Segura",
@@ -111,20 +111,20 @@
         "description": "Empresas importadoras/exportadoras enviam documentos aduaneiros para o Portal Empresarial zkCargoPass."
       },
       "aiValidation": {
-        "title": "Validação por IA",
-        "description": "Nossa IA valida o formato e conteúdo dos documentos antes do processamento, garantindo conformidade com regulamentações."
+        "title": "Compliance automático",
+        "description": "A inteligência artificial valida e extrai os dados dos documentos evitando erros humanos e prejuízos financeiros e em conformidade com as regras do Portal Único."
       },
       "zkpGeneration": {
         "title": "Geração de Prova de Conhecimento Zero",
-        "description": "O sistema gera provas criptográficas que verificam a validade dos documentos sem revelar dados sensíveis."
+        "description": "O sistema gera provas criptográficas que verificam a validade dos documentos sem revelar dados sensíveis, sem revelar dados estratégicos como por exemplo o valor unitário dos produtos."
       },
       "blockchainVerification": {
         "title": "Verificação Blockchain",
         "description": "Hashes das provas são armazenados na blockchain para verificação imutável e auditabilidade."
       },
       "customsClearance": {
-        "title": "Liberação Aduaneira",
-        "description": "Autoridades aduaneiras verificam as provas através do Portal do Verificador, acelerando a liberação de cargas."
+        "title": "Compliance automático",
+        "description": "Verificação automática de compliance através de API integrada ao portal único acelerando a liberação das cargas e reduzindo custos operacionais."
       }
     },
     "secureWorkflow": "FLUXO SEGURO",
