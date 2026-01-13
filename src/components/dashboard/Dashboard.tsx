@@ -115,8 +115,8 @@ export const Dashboard = () => {
         <div className="p-4 sm:p-6">
           <div className="flex items-center justify-between mb-6 sm:mb-8">
             <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
-              <img src={zkCargoPassLogo} alt="zkCargoPass" className="w-5 h-5 sm:w-6 sm:h-6" />
-              <span className="text-lg sm:text-xl font-display font-bold text-light-text-primary dark:text-dark-text-primary">
+              <img src={zkCargoPassLogo} alt="zkCargoPass" className="w-6 h-6 sm:w-6 sm:h-6 lg:h-8 lg:w-8" />
+              <span className="text-lg sm:text-xl lg:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary">
                 {t('header.brand')}
               </span>
             </Link>
@@ -252,7 +252,7 @@ export const Dashboard = () => {
       </aside>
 
       {/* Dashboard Content */}
-      <main className="flex-1 py-4 sm:py-6 lg:py-8 px-3 sm:px-4 lg:px-8">
+      <main className="flex-1 px-3 sm:px-4 lg:px-8">
         <div className="flex-1 flex flex-col">
           {/* Dashboard Header */}
           <header className="sticky top-0 z-30 bg-light-bg-card/95 dark:bg-dark-bg-card/95 backdrop-blur-sm border-b border-light-border dark:border-dark-border mb-6 sm:mb-8 lg:mb-12 transition-colors duration-300 rounded-sm -mx-3 sm:-mx-4 lg:-mx-8 px-3 sm:px-4 lg:px-8">
@@ -417,7 +417,7 @@ export const Dashboard = () => {
                       <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                     </div>
                     <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
-                      +12%
+                      +0%
                     </span>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
@@ -434,7 +434,7 @@ export const Dashboard = () => {
                       <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 dark:text-green-400" />
                     </div>
                     <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
-                      +8%
+                      +0%
                     </span>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
@@ -451,7 +451,7 @@ export const Dashboard = () => {
                       <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" />
                     </div>
                     <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
-                      +15%
+                      +0%
                     </span>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
@@ -468,7 +468,7 @@ export const Dashboard = () => {
                       <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600 dark:text-orange-400" />
                     </div>
                     <span className="text-xs sm:text-sm text-light-text-muted dark:text-dark-text-muted">
-                      +20%
+                      +0%
                     </span>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">

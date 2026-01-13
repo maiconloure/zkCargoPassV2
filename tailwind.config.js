@@ -23,8 +23,8 @@ export default {
         blue: '#5E63BD',
         light: {
           bg: {
-            primary: '#f8fafc',
-            secondary: '#f1f5f9',
+            primary: '#f0f9ff',
+            secondary: '#e0f2fe',
             card: '#ffffff',
           },
           text: {
@@ -32,7 +32,7 @@ export default {
             secondary: '#475569',
             muted: '#64748b',
           },
-          border: '#e2e8f0',
+          border: '#bae6fd',
           accent: {
             primary: '#5E63BD',
             secondary: '#5E63BD',

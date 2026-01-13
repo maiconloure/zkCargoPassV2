@@ -21,13 +21,13 @@ export const Header = ({ onOpenLogin, onOpenDemo, onOpenDuimpDemo }: HeaderProps
       <div className="container mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3 sm:py-4">
           <div className="flex items-center flex-shrink-0">
-            <Link to="/" className="text-xl sm:text-1xl lg:text-1xl font-bold text-light-text-primary dark:text-dark-text-primary flex items-center hover:opacity-80 transition-opacity">
+            <Link to="/" className="text-2xl sm:text-1xl lg:text-3xl font-bold text-light-text-primary dark:text-dark-text-primary flex items-center hover:opacity-80 transition-opacity">
               <img src={zkCargoPassLogo} alt="zkCargoPass Logo" className="w-10 h-10 sm:w-8 sm:h-8 lg:w-10 lg:h-10 mr-2 sm:mr-3 lg:mr-4" />
               <h1 className="font-titillium xs:block">{t('header.brand')}</h1>
             </Link>
           </div>
 
-          <nav className="hidden lg:flex space-x-4 xl:space-x-6">
+          <nav className="hidden text-lg lg:flex space-x-4 xl:space-x-6">
             <NavItem label={t('header.features')} targetId="features" />
             <NavItem label={t('header.howItWorks')} targetId="how-it-works" />
             {/* <NavItem label={t('header.partners')} targetId="partners" /> */}

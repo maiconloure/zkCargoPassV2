@@ -21,7 +21,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Rubik', system-ui, sans-serif !important
+    font-family: 'Public Sans', system-ui, sans-serif;
   }
 
   /* Theme transition for smooth switching */
